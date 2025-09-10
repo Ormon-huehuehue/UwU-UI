@@ -4,9 +4,9 @@ import { DocSearchHit } from "./doc-search-hit"
 export function Search() {
   return (
     <DocSearch
-      appId="2X8YUQBTLC"
-      indexName="fancycomponents"
-      apiKey="6f798ebaa6226dd06e44bd898b32893f"
+      appId="IL96ROKQXM"
+      indexName="uwuui_com_il96rokqxm_pages"
+      apiKey="56f5c1644f1c26ca966cbd5cb71c52fa"
       placeholder="Search documentation..."
       disableUserPersonalization
       maxResultsPerGroup={10}
