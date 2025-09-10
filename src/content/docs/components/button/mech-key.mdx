@@ -1,0 +1,57 @@
+---
+title: Mechanical Key
+description: A single mechanical keycap with press animation and sound.
+component: true
+author: Sarthak Kapila
+---
+
+<ComponentPreview name="mech-key" />
+
+## Installation
+
+{/* Coming soon */}
+
+## Usage
+
+<CodeSnippet title="Mechanical Key Example">
+```tsx
+import SingleKey from "@/components/mech-key";
+
+export default function Example() {
+  return <SingleKey keyLabel="⌘" keyValue="Meta" />
+}
+```
+</CodeSnippet>
+
+## Understanding the component
+
+The component renders a 3D-styled key that can be pressed by mouse or keyboard. It plays a click sound and simulates down/up travel with CSS transforms.
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>keyLabel</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>`"⌘"`</TableCell>
+      <TableCell>Visible label on the keycap.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>keyValue</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>`"Meta"`</TableCell>
+      <TableCell>Keyboard key to listen to for press events.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+

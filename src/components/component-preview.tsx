@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { Repeat } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -9,15 +8,7 @@ import { Icons } from "@/components/icons"
 import { registry } from "@/fancy/index"
 
 import { CodeSnippet } from "./code-snippet"
-import { OpenInV0Button } from "./open-in-v0"
 import { RestartButton } from "./restart-button"
-import { Button } from "./ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "./ui/dropdown-menu"
 
 interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string
@@ -52,7 +43,10 @@ export function ComponentPreview({
           "arrow-button": "/components/arrow-pointer.tsx",
           "backup-button": "/components/backup-button.tsx",
           "chonky-button": "/components/chunky-button.tsx",
-          "shiny-tooltip-button": "/components/Hover-2-seats.tsx"
+          "shiny-tooltip-button": "/components/Hover-2-seats.tsx",
+          "goey-button": "/components/goey-button.tsx",
+          "mech-key": "/components/mech-key.tsx",
+          "toggle-switch": "/components/toggle-switch.tsx"
         };
         
         // Get the file path for the component
@@ -101,7 +95,8 @@ export function ComponentPreview({
   }, [handleRestart])
 
   const Preview = React.useMemo(() => {
-    const Component = registry[name]?.component
+    const entry = (registry as Record<string, { component: React.ComponentType<any> }>) [name]
+    const Component = entry?.component
 
     if (!Component) {
       return (

@@ -26,7 +26,10 @@ export function ComponentSource({
           "arrow-button": "/components/arrow-pointer.tsx",
           "backup-button": "/components/backup-button.tsx",
           "chonky-button": "/components/chunky-button.tsx",
-          "shiny-tooltip-button": "/components/Hover-2-seats.tsx"
+          "shiny-tooltip-button": "/components/Hover-2-seats.tsx",
+          "goey-button": "/components/goey-button.tsx",
+          "mech-key": "/components/mech-key.tsx",
+          "toggle-switch": "/components/toggle-switch.tsx"
         };
         
         // Get the file path for the component

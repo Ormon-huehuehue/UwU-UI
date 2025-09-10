@@ -15,7 +15,7 @@ export function MainNav() {
       <div className="flex flex-row items-center gap-x-12">
         <Link href="/" className="flex items-center gap-x-2">
           <p className=" text-2xl px-2 pb-1.5 tracking-tight font-calendas scale-y-[120%] align-text-top ">
-            fancy buttons*
+            UwU UIs*
           </p>
         </Link>
         <div className="flex-row gap-x-8 text-lg  font-regular items-end hidden md:flex">
@@ -42,13 +42,13 @@ export function MainNav() {
           <Search />
         </div>
         <a
-          href="https://github.com/danielpetho/fancy"
+          href="https://github.com/weknowyourgame/UwU-ui"
           className="block lg:hidden"
         >
           <Icons.gitHub className="w-[18px] h-[18px]" />
         </a>
         <a
-          href="https://github.com/danielpetho/fancy"
+          href="https://github.com/weknowyourgame/UwU-ui"
           className="hidden lg:block"
         >
           <span

@@ -152,10 +152,10 @@ async function convertMdxToMarkdown(
             }
           }
           // Fallback to link if demo source not found
-          return `See the interactive demo at: [${name}](https://fancycomponents.dev/docs/components/${slug.join("/")})\n\n`
+          return `See the interactive demo at: [${name}](https://uwuui.com/docs/components/${slug.join("/")})\n\n`
         } catch (error) {
           // Fallback to link if error loading demo source
-          return `See the interactive demo at: [${name}](https://fancycomponents.dev/docs/components/${slug.join("/")})\n\n`
+          return `See the interactive demo at: [${name}](https://uwuui.com/docs/components/${slug.join("/")})\n\n`
         }
       }
     )
@@ -188,7 +188,7 @@ async function convertMdxToMarkdown(
     markdown += toc + convertedContent
     
     // Add footer
-    markdown += `\n\n---\n\n*This documentation is also available in [interactive format](https://fancycomponents.dev/docs/components/${slug.join("/")}).*\n`
+    markdown += `\n\n---\n\n*This documentation is also available in [interactive format](https://uwuui.com/docs/components/${slug.join("/")}).*\n`
     
     return markdown.trim()
     
@@ -209,7 +209,7 @@ function convertLinksToMarkdown(content: string): string {
       // Add the base URL if it's a relative path
       let fullUrl = href
       if (href.startsWith('/')) {
-        fullUrl = `https://fancycomponents.dev${href}.md`
+        fullUrl = `https://uwuui.com${href}.md`
       }
       
       return `[${cleanText}](${fullUrl})`

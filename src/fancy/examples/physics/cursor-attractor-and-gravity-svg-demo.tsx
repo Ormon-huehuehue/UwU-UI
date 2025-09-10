@@ -16,7 +16,7 @@ export default function Preview() {
         {debug ? "Disable Debug" : "Enable Debug"}
       </button>
       <p className="z-20 text-2xl sm:text-3xl md:text-3xl text-black">
-        fancy buttons
+        UwU UIs
       </p>
       <Gravity
         //attractorPoint={{ x: "33%", y: "50%" }}

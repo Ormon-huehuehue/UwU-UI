@@ -209,7 +209,7 @@ function gatherAllDependencyFiles(
   // 2) Recursively gather sub-dependencies (registryDependencies)
   if (item.registryDependencies) {
     item.registryDependencies.forEach((depUrl: string) => {
-      // depUrl is e.g. 'https://fancycomponents.dev/r/gravity.json'
+      // depUrl is e.g. 'https://uwuui.com/r/gravity.json'
       // we want just "gravity"
       const depName = depUrl.split("/").pop()?.replace(".json", "")
       if (depName && registry[depName]) {
@@ -271,7 +271,7 @@ function processRegistryItem(name: string, item: any): any {
        // Don't add self as dependency
        const fileName = dep.split("/").pop()
        if (fileName !== name) {
-         registryDeps.add(`https://fancycomponents.dev/r/${fileName}.json`)
+         registryDeps.add(`https://uwuui.com/r/${fileName}.json`)
        }
      })
    }
@@ -281,7 +281,7 @@ function processRegistryItem(name: string, item: any): any {
     if (f.type === "registry:hook" || f.type === "registry:lib") {
       const fileName = f.path.split("/").pop()
       if (fileName !== name) {
-        registryDeps.add(`https://fancycomponents.dev/r/${fileName}.json`)
+        registryDeps.add(`https://uwuui.com/r/${fileName}.json`)
       }
     }
   })
@@ -311,7 +311,7 @@ function processRegistryItem(name: string, item: any): any {
       const possibleName = importPath.split("/").pop() || ""
       const registry = JSON.parse(fs.readFileSync(registryJsonPath, "utf-8"))
       if (registry[possibleName] && possibleName !== name) {
-        registryDeps.add(`https://fancycomponents.dev/r/${possibleName}.json`)
+        registryDeps.add(`https://uwuui.com/r/${possibleName}.json`)
       }
     })
   })
@@ -326,7 +326,7 @@ function processRegistryItem(name: string, item: any): any {
   //     ) {
   //       const depName = importPath.split("/").pop()
   //       if (depName && registry[depName]) {
-  //         registryDeps.add(`https://fancycomponents.dev/r/${depName}.json`)
+  //         registryDeps.add(`https://uwuui.com/r/${depName}.json`)
   //       }
   //     }
   //   })

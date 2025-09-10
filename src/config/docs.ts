@@ -56,21 +56,21 @@ export const docsConfig: SidebarNavItem[] = [
         href: "/docs/components/button/back-up-button",
         items: [],
       },
-      // {
-      //   title: "Variable Font Hover By Letter",
-      //   href: "/docs/components/text/variable-font-hover-by-letter",
-      //   items: [],
-      // },
-      // {
-      //   title: "Variable Font Hover By Random Letter",
-      //   href: "/docs/components/text/variable-font-hover-by-random-letter",
-      //   items: [],
-      // },
-      // {
-      //   title: "Scroll And Swap",
-      //   href: "/docs/components/text/scroll-and-swap",
-      //   items: [],
-      // },
+      {
+        title: "Gooey Button",
+        href: "/docs/components/button/goey-button",
+        items: [],
+      },
+      {
+        title: "Toggle Switch",
+        href: "/docs/components/button/toggle-switch",
+        items: [],
+      },
+      {
+        title: "Mechanical Key",
+        href: "/docs/components/button/mech-key",
+        items: [],
+      },
       // {
       //   title: "Text Cursor Proximity",
       //   href: "/docs/components/text/text-cursor-proximity",

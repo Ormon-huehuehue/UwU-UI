@@ -1,0 +1,57 @@
+---
+title: Gooey Button
+description: Delete button with gooey close effect and confirm state.
+component: true
+author: Sarthak Kapila
+---
+
+<ComponentPreview name="goey-button" />
+
+## Installation
+
+{/* Coming soon */}
+
+## Usage
+
+<CodeSnippet title="Gooey Button Example">
+```tsx
+import GooeyButton from "@/components/goey-button";
+
+export default function Example() {
+  return <GooeyButton />
+}
+```
+</CodeSnippet>
+
+## Understanding the component
+
+The button transitions from a primary "Delete" state to a "Confirm" state. A circular close button uses an SVG filter to apply a gooey effect when overlapping the main button.
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>onDelete</TableCell>
+      <TableCell>`() => void`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Called when the confirm action is clicked.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>onCancel</TableCell>
+      <TableCell>`() => void`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Called when the close action is clicked.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+

@@ -1,0 +1,57 @@
+---
+title: Toggle Switch
+description: A tactile on/off switch with indicator light and spring animation.
+component: true
+author: Sarthak Kapila
+---
+
+<ComponentPreview name="toggle-switch" />
+
+## Installation
+
+{/* Coming soon */}
+
+## Usage
+
+<CodeSnippet title="Toggle Switch Example">
+```tsx
+import ToggleSwitch from "@/components/toggle-switch";
+
+export default function Example() {
+  return <ToggleSwitch defaultValue={false} />
+}
+```
+</CodeSnippet>
+
+## Understanding the component
+
+The switch animates the thumb with a spring and updates a small indicator light. Transitions are tuned for a crisp, tactile feel.
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>defaultValue</TableCell>
+      <TableCell>`boolean`</TableCell>
+      <TableCell>`false`</TableCell>
+      <TableCell>Initial on/off state.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>onChange</TableCell>
+      <TableCell>`(value: boolean) => void`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Called when the value changes.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+

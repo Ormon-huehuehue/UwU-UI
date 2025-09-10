@@ -31,19 +31,7 @@ export function LandingHero() {
 
               <TextRotate
                 texts={[
-                  "fancy",
-                  "fun",
-                  "lovely ♥",
-                  "weird",
-                  "🪩 funky",
-                  "💃🕺",
-                  "sexy",
-                  "🕶️ cool",
-                  "go 🚀",
-                  "🔥🔥🔥",
-                  "over-animated?",
-                  "pop ✨",
-                  "rock 🤘",
+                  "✨ fwancy~", "fun~", "wuvwy ♥~", "weird~", "🪩 fwunky~", "💃🕺 boop~", "sexy~", "🕶️ coow~", "gooo 🚀~", "🔥🔥🔥 fwee~", "ovew-animated~?", "pop ✨~", "wock 🤘~", "✨"
                 ]}
                 mainClassName="overflow-hidden pr-3 text-blue dark:text-blue-500 py-0 pb-2 md:pb-4 rounded-xl"
                 staggerDuration={0.03}
@@ -103,7 +91,7 @@ export function LandingHero() {
               transition: { type: "spring", damping: 30, stiffness: 400 },
             }}
           >
-            <Link href="https://github.com/danielpetho/fancy">★ on GitHub</Link>
+            <Link href="https://github.com/weknowyourgame/UwU-ui">★ on GitHub</Link>
           </motion.button>
         </div>
       </div>

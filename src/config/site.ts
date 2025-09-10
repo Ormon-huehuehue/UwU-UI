@@ -1,12 +1,12 @@
 export const siteConfig = {
-  name: "fancy buttons",
-  url: "https://fancycomponents.dev",
-  ogImage: "https://fancycomponents.dev/og.jpg",
+  name: "UwU UIs",
+  url: "https://uwuui.com",
+  ogImage: "https://uwuui.com/og.jpg",
   description:
-    "Ready to use, fancy React components to make the web fun again. Free & Open Source.",
+    "UwU UI is a kawaii~ components wibwawy wif fwuffy buttowns, snuggwy cawds, and bouncy animashuns dat make youw apps go awww~ (⁄ ⁄>⁄ ▽ ⁄<⁄ ⁄).",
   links: {
-    twitter: "https://twitter.com/nonzeroexitcode",
-    github: "https://github.com/danielpetho/fancy",
+    twitter: "https://x.com/0xsarthakk",
+    github: "https://github.com/weknowyourgame",
   },
 }
 
