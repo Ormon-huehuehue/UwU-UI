@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useMemo, useEffect } from 'react';
-import { motion, MotionConfig } from 'framer-motion';
+import { motion, MotionConfig } from 'motion/react';
 
 // Gooey Effect Component
 interface GooeyEffectProps {

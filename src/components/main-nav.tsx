@@ -28,14 +28,6 @@ export function MainNav() {
               Docs
             </span>
           </Link>
-          <Link href="/components">
-            <span
-              className={`inline-flex font-normal border-box after:content-[attr(data-text)] after:font-black after:pointer-none after:overflow-hidden after:select-none after:invisible after:h-0 duration-300 transition-all hover:font-semibold flex-col ease-out`}
-              data-text="Components"
-            >
-              Components
-            </span>
-          </Link>
         </div>
       </div>
       <div className="flex-row gap-x-4 sm:gap-x-8 text-xl font-regular flex items-center">
