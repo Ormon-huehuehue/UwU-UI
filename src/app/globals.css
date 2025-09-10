@@ -270,8 +270,9 @@
     --popover: 0 0% 100%;
     --popover-foreground: 20 14.3% 4.1%;
 
-    --primary: #0c0a09;
-    --primary-foreground: #78716c;
+    /* Brand primary set to Tailwind pink-400 */
+    --primary: #f472b6;
+    --primary-foreground: #ffffff;
 
     --secondary: #a1a1a6;
     --secondary-foreground: #f4f4f5;
@@ -294,7 +295,8 @@
     /* Other colors */
     --red: #ff5941;
     --orange: #f97316;
-    --pink: #e794da;
+    /* Align pink token to Tailwind pink-400 */
+    --pink: #f472b6;
     --teal: #1f464d;
     --teal-foreground: #3bb6ab;
     --yellow: #eab308;
@@ -328,8 +330,9 @@
     --popover: 20 14.3% 4.1%;
     --popover-foreground: 60 9.1% 97.8%;
 
-    --primary: #cacace;
-    --primary-foreground: #f4f4f5;
+    /* Keep brand primary consistent in dark mode */
+    --primary: #f472b6;
+    --primary-foreground: #ffffff;
 
     --secondary: #96928f;
     --secondary-foreground: #787778;
@@ -352,7 +355,7 @@
     /* Other colors */
     --red: #ff5941;
     --orange: #f97316;
-    --pink: #e794da;
+    --pink: #f472b6;
     /* --blue: #5570ff; */
     --teal: #1f464d;
     --teal-foreground: #3bb6ab;

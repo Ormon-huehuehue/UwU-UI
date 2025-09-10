@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Algolia-Crawler-Verif: 414876B266991AB9
+
+Sitemap: https://uwuui.com/sitemap.xml
+
+
