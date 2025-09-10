@@ -175,7 +175,7 @@ const DeleteButton: React.FC<DeleteButtonProps> = ({
           }}
           onTap={currentVariant === 'default' ? handleDeleteClick : undefined}
           onTapStart={() => setIsPressed(true)}
-          onTapEnd={() => setIsPressed(false)}
+        //   onTapEnd={() => setIsPressed(false)}
           onTapCancel={() => setIsPressed(false)}
         >
           {/* Main Button */}

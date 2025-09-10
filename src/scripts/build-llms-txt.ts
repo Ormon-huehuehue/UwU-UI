@@ -85,13 +85,13 @@ function generateLlmsTxt(categories: Record<string, DocFile[]>): string {
   let llmsTxt = ""
   
   // Header
-  llmsTxt += "# UwU UIs\n\n"
+  llmsTxt += "# UwU UI\n\n"
   
   // Description
   llmsTxt += "> A collection of fun and weird, ready-to-use components and microinteractions built with React, TypeScript, Tailwind CSS, and Motion (formerly Framer Motion).\n\n"
   
   // Overview
-  llmsTxt += "UwU UIs aims to inject playfulness into web UI by providing copy-and-paste-able components inspired by award-winning sites. All components are open source and free to use for personal or commercial projects.\n\n"
+  llmsTxt += "UwU UI aims to inject playfulness into web UI by providing copy-and-paste-able components inspired by award-winning sites. All components are open source and free to use for personal or commercial projects.\n\n"
   
   // Getting Started section
   if (categories["getting-started"]) {

@@ -1,6 +1,6 @@
 # UwU UI
 
-A growing library of fancy, fun, animated react components & microinteractions to make the web fun again. Free & Open Source.
+A kawaii~ components wibwawy wif fwuffy buttowns, snuggwy cawds, and bouncy animashuns dat make youw apps go awww~ (⁄ ⁄>⁄ ▽ ⁄<⁄ ⁄).
 
 ## Documentation
 

@@ -63,7 +63,7 @@ export function MobileNav() {
         >
           {/* <Icons.logo className="mr-2 h-4 w-4" /> */}
           <p className=" text-2xl tracking-tight font-calendas scale-y-[120%] ">
-            UwU UIs*
+            UwU UI
           </p>
         </MobileLink>
         <ScrollArea className="my-8 h-[calc(100vh-8rem)] pb-24 pl-1">

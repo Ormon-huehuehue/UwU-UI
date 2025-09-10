@@ -3,7 +3,6 @@
 import * as React from "react"
 
 import { CodeSnippet } from "./code-snippet"
-import { registry } from "@/fancy/index"
 
 interface ComponentSourceProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string

@@ -5,7 +5,7 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Icons } from "@/components/icons"
-import { registry } from "@/fancy/index"
+import { customRegistry } from "@/fancy/custom-registry"
 
 import { CodeSnippet } from "./code-snippet"
 import { RestartButton } from "./restart-button"
@@ -95,7 +95,7 @@ export function ComponentPreview({
   }, [handleRestart])
 
   const Preview = React.useMemo(() => {
-    const entry = (registry as Record<string, { component: React.ComponentType<any> }>) [name]
+    const entry = (customRegistry as Record<string, { component: React.ComponentType<any> }>) [name]
     const Component = entry?.component
 
     if (!Component) {

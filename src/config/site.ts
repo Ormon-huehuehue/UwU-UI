@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "UwU UIs",
+  name: "UwU UI",
   url: "https://uwuui.com",
   ogImage: "https://uwuui.com/og.jpg",
   description:

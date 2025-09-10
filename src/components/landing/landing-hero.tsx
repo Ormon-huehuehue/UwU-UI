@@ -33,7 +33,7 @@ export function LandingHero() {
                 texts={[
                   "✨ fwancy~", "fun~", "wuvwy ♥~", "weird~", "🪩 fwunky~", "💃🕺 boop~", "sexy~", "🕶️ coow~", "gooo 🚀~", "🔥🔥🔥 fwee~", "ovew-animated~?", "pop ✨~", "wock 🤘~", "✨"
                 ]}
-                mainClassName="overflow-hidden pr-3 text-blue dark:text-blue-500 py-0 pb-2 md:pb-4 rounded-xl"
+                mainClassName="overflow-hidden pr-3 text-pink-300 dark:text-pink-600 py-0 pb-2 md:pb-4 rounded-xl"
                 staggerDuration={0.03}
                 staggerFrom="last"
                 rotationInterval={3000}
@@ -74,7 +74,7 @@ export function LandingHero() {
             </Link>
           </motion.button>
           <motion.button
-            className="w-28 sm:w-32 md:w-36 lg:w-40 sm:text-base md:text-lg lg:text-xl font-medium tracking-tight text-white bg-blue dark:bg-blue-500 px-3 py-1.5 sm:px-4 sm:py-2 md:px-4 md:py-2 lg:px-5 lg:py-2.5 rounded-lg md:rounded-xl z-20 shadow-2xl whitespace-nowrap cursor-pointer" 
+            className="w-28 sm:w-32 md:w-36 lg:w-40 sm:text-base md:text-lg lg:text-xl font-medium tracking-tight text-white bg-pink-300 dark:bg-pink-600 px-3 py-1.5 sm:px-4 sm:py-2 md:px-4 md:py-2 lg:px-5 lg:py-2.5 rounded-lg md:rounded-xl z-20 shadow-2xl whitespace-nowrap cursor-pointer" 
             animate={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: 20 }}
             transition={{

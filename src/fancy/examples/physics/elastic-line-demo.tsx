@@ -45,7 +45,7 @@ export default function Preview() {
             className="uppercase text-4xl sm:text-5xl md:text-6xl font-medium"
             custom={0}
           >
-            UwU UIs
+            UwU UI
           </motion.p>
         </div>
         <div className="flex flex-row  pt-8 justify-between items-start gap-x-4">
