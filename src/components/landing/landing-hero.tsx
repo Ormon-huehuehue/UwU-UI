@@ -2,9 +2,7 @@
 
 import Link from "next/link"
 import { LayoutGroup, motion } from "motion/react"
-
 import TextRotate from "@/fancy/components/text/text-rotate"
-
 
 export function LandingHero() {
   return (
@@ -16,7 +14,7 @@ export function LandingHero() {
           className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl text-center w-full justify-center items-center flex-col flex whitespace-pre leading-tight font-calendas tracking-tight space-y-1 md:space-y-4"
           animate={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: 20 }}
-          transition={{ duration: 0.2, ease: "easeOut", delay: 0.3 }}
+          transition={{ duration: 0.2, ease: "easeOut", delay: 0.2 }}
         >
           <span>Make your </span>
           <LayoutGroup>
@@ -31,7 +29,7 @@ export function LandingHero() {
 
               <TextRotate
                 texts={[
-                  "✨ fwancy~", "fun~", "wuvwy ♥~", "weird~", "🪩 fwunky~", "💃🕺 boop~", "sexy~", "🕶️ coow~", "gooo 🚀~", "🔥🔥🔥 fwee~", "ovew-animated~?", "pop ✨~", "wock 🤘~", "✨"
+                  "✨ fwancy~", "fun~", "wuvwy ♥~", "weird~", "🪩 fwunky~", "sexy~", "🕶️ coow~", "gooo 🚀~", "🔥🔥🔥 fwee~", "🥺👉👈 uwu~", "pop ✨~", "wock 🤘~", "✨"
                 ]}
                 mainClassName="overflow-hidden pr-3 text-pink-300 dark:text-pink-600 py-0 pb-2 md:pb-4 rounded-xl"
                 staggerDuration={0.03}

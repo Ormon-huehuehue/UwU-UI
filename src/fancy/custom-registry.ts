@@ -6,6 +6,7 @@ import ArrowButtonExample from "./examples/arrow-button-example";
 import GooeyButton from "@/components/goey-button";
 import SingleKey from "@/components/mech-key";
 import ToggleSwitch from "@/components/toggle-switch";
+import Cwickablebutton from "@/components/cwickable";
 
 export const customRegistry = {
   "3d-button": {
@@ -39,6 +40,10 @@ export const customRegistry = {
   "toggle-switch": {
     component: ToggleSwitch,
     name: "Toggle Switch",
+  },
+  "cwickable-button": {
+    component: Cwickablebutton,
+    name: "Cwickable Button",
   },
 } as const;
 

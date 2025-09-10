@@ -1,0 +1,69 @@
+---
+title: Cwickable Button
+description: A chunky, pressable card-style button with subtle depth and inner light play.
+component: true
+author: Sarthak Kapila
+---
+
+<ComponentPreview name="cwickable-button" />
+
+## Installation
+
+{/* Coming soon */}
+
+## Usage
+
+<CodeSnippet title="Cwickable Button Example">
+```tsx
+import Cwickablebutton from "@/components/cwickable";
+
+export default function Example() {
+  return (
+    <div className="p-6 bg-[#212121] rounded-3xl">
+      <Cwickablebutton className="p-3">
+        <img src="/favicon.ico" alt="icon" width={20} height={20} />
+      </Cwickablebutton>
+    </div>
+  );
+}
+```
+</CodeSnippet>
+
+## Understanding the component
+
+The button uses an outer container with a soft drop shadow and border. On press, the content shifts down slightly and the inner overlay swaps its top/bottom borders to simulate a sunken state. This creates a convincing tactile feel using only CSS and a small React state.
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>children</TableCell>
+      <TableCell>`React.ReactNode`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Content placed inside the button (icon, text, etc.).</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>className</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Optional classes to control padding/size/appearance.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>onClick</TableCell>
+      <TableCell>`() => void`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Click handler for the button.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+

@@ -66,6 +66,11 @@ export const docsConfig: SidebarNavItem[] = [
         href: "/docs/components/button/mech-key",
         items: [],
       },
+      {
+        title: "Cwickable Button",
+        href: "/docs/components/button/cwickable-button",
+        items: [],
+      },
       // {
       //   title: "Text Cursor Proximity",
       //   href: "/docs/components/text/text-cursor-proximity",

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useId, useEffect } from 'react';
-import { motion, LayoutGroup } from 'framer-motion';
+import { motion, LayoutGroup } from 'motion/react';
 import Link from 'next/link';
 
 interface ButtonProps {
