@@ -69,33 +69,26 @@ export async function generateMetadata({
 }
 
 export function generateStaticParams() {
-  const targets = fs.readdirSync(path.join(process.cwd(), CONTENT_DIRECTORY), {
-    // Read nested directories and files
-    recursive: true,
-  })
+  const root = path.join(process.cwd(), CONTENT_DIRECTORY)
 
-  const files = []
+  const slugs: string[][] = []
 
-  for (const target of targets) {
-    // Skip directories
-    if (
-      fs
-        .lstatSync(
-          path.join(process.cwd(), CONTENT_DIRECTORY, target.toString())
-        )
-        .isDirectory()
-    ) {
-      continue
+  function traverse(dir: string, parts: string[] = []) {
+    const entries = fs.readdirSync(dir, { withFileTypes: true })
+    for (const entry of entries) {
+      const fullPath = path.join(dir, entry.name)
+      if (entry.isDirectory()) {
+        traverse(fullPath, [...parts, entry.name])
+      } else if (entry.isFile() && entry.name.endsWith('.mdx')) {
+        const fileName = entry.name.replace('.mdx', '')
+        slugs.push([...parts, fileName])
+      }
     }
-
-    // Add files as valid paths
-    files.push(target)
   }
 
-  // Return the list of files we want to match with, removing the `.mdx` suffix and breaking them up by directory.
-  return files.map((file) => ({
-    slug: file.toString().replace(".mdx", "").split("/"),
-  }))
+  traverse(root)
+
+  return slugs.map((slugParts) => ({ slug: slugParts }))
 }
 
 export default async function DocPage({ params }: DocPageProps) {

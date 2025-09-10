@@ -6,7 +6,7 @@ import { Repeat } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Icons } from "@/components/icons"
-// import { registry } from "@/fancy/index"
+import { registry } from "@/fancy/index"
 
 import { CodeSnippet } from "./code-snippet"
 import { OpenInV0Button } from "./open-in-v0"
@@ -46,26 +46,38 @@ export function ComponentPreview({
   React.useEffect(() => {
     async function loadSourceCode() {
       try {
-        const mod = await import(`../../public/r/${name}.json`)
-        const json = mod.default
-
-        // Find the main component file that matches the name
-        const mainFile = json.files.find(
-          (file: any) => file.path.split("/").pop().replace(".tsx", "") === name
-        )
-
-        if (mainFile) {
-          setSourceCode(mainFile.content)
-        } else {
-          console.error(`Could not find main file for ${name}`)
-          setSourceCode("")
+        // Map component names to their file paths
+        const componentFilePaths: Record<string, string> = {
+          "3d-button": "/components/3D-button.tsx",
+          "arrow-button": "/components/arrow-pointer.tsx",
+          "backup-button": "/components/backup-button.tsx",
+          "chonky-button": "/components/chunky-button.tsx",
+          "shiny-tooltip-button": "/components/Hover-2-seats.tsx"
+        };
+        
+        // Get the file path for the component
+        const filePath = componentFilePaths[name];
+        
+        if (!filePath) {
+          console.error(`Could not find file path for ${name}`);
+          setSourceCode("");
+          return;
         }
+        
+        // Fetch the component source code
+        const response = await fetch(`/api/source?file=${encodeURIComponent(filePath)}`);
+        if (!response.ok) {
+          throw new Error(`Failed to fetch source code: ${response.statusText}`);
+        }
+        
+        const { code } = await response.json();
+        setSourceCode(code);
       } catch (error) {
-        console.error(`Failed to load source for ${name}:`, error)
-        setSourceCode("")
+        console.error(`Failed to load source for ${name}:`, error);
+        setSourceCode("");
       }
     }
-    loadSourceCode()
+    loadSourceCode();
   }, [name])
 
   const handleRestart = React.useCallback(() => {
@@ -88,26 +100,31 @@ export function ComponentPreview({
     return () => window.removeEventListener("keydown", handleKeyDown)
   }, [handleRestart])
 
-  // const Preview = React.useMemo(() => {
-  //   // const Component = registry[name]?.component
+  const Preview = React.useMemo(() => {
+    const Component = registry[name]?.component
 
-  //   if (!Component) {
-  //     return (
-  //       <p
-  //         data-algolia-ignore
-  //         className="text text-muted-foreground justify-center items-center flex w-full h-full whitespace-pre"
-  //       >
-  //         Component{" "}
-  //         <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm whitespace-pre">
-  //           {name}
-  //         </code>{" "}
-  //         not found.
-  //       </p>
-  //     )
-  //   }
+    if (!Component) {
+      return (
+        <p
+          data-algolia-ignore
+          className="text text-muted-foreground justify-center items-center flex w-full h-full whitespace-pre"
+        >
+          Component{" "}
+          <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm whitespace-pre">
+            {name}
+          </code>{" "}
+          not found.
+        </p>
+      )
+    }
 
-  //   return <Component />
-  // }, [name])
+    // Render the component with default props
+    return (
+      <div className="flex items-center justify-center p-10">
+        <Component />
+      </div>
+    )
+  }, [name])
 
   return (
     <div
@@ -153,47 +170,10 @@ export function ComponentPreview({
             >
               {showRestartButton && (
                 <div className="absolute right-4 top-4 z-50 flex gap-2 flex-row">
-                  {framerLink ? (
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="h-8 items-center flex justify-center"
-                        >
-                          <Repeat className="mr-2 h-4 w-4" />
-                          Remix
-                        </Button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent align="end">
-                        <DropdownMenuItem>
-                          <OpenInV0Button
-                            variant="ghost"
-                            className="justify-start  text-left px-0 h-6 gap-1  flex w-full border-none"
-                            url={`https://fancycomponents.dev/r/${name}.json`}
-                          />
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                          <Button
-                            variant="ghost"
-                            className="justify-start  text-left px-0 h-6 gap-1  flex w-full border-none"
-                            onClick={() => window.open(framerLink, "_blank")}
-                          >
-                            Remix in Framer
-                            <Icons.framer className="ml-2 h-3 w-3" />
-                          </Button>
-                        </DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                  ) : (
-                    <OpenInV0Button
-                      url={`https://fancycomponents.dev/r/${name}.json`}
-                    />
-                  )}
                   <RestartButton onRestart={handleRestart} />
                 </div>
               )}
-              {/* <React.Fragment key={previewKey}>{Preview}</React.Fragment> */}
+              <React.Fragment key={previewKey}>{Preview}</React.Fragment>
             </React.Suspense>
           </div>
         </TabsContent>
