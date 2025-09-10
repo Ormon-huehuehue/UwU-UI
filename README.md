@@ -15,7 +15,6 @@ Please read the [contribution guidelines](./CONTRIBUTING.md).
 Licensed under the [MIT license](LICENSE).
 
 <br/>
-<a href="https://vercel.com/oss">
-    <img alt="Vercel OSS Program" src="https://vercel.com/oss/program-badge.svg" />
-</a>
 
+
+Forked from [fancycomponents.dev](https://github.com/danielpetho/fancy)
