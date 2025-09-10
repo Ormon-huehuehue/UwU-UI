@@ -4,7 +4,7 @@ const fs = require("fs")
 const path = require("path")
 
 const projectDir = path.join(__dirname, "..", "..")
-const DOCS_DIRECTORY = "/src/content/docs/"
+const DOCS_DIRECTORY = "src/content/docs/"
 const outputPath = path.join(projectDir, "public", "llms.txt")
 
 interface DocFile {

@@ -1,0 +1,76 @@
+---
+title: Backup Button
+description: A stateful button with animated loader that transitions through backup, backing-up, and done states.
+component: true
+author: Sarthak Kapila
+---
+
+<ComponentPreview name="backup-button" />
+
+## Installation
+
+<!-- Coming soon -->
+
+## Usage
+
+<CodeSnippet title="Backup Button Example">
+```tsx
+import BackupButton from "@/components/backup-button";
+
+export default function Example() {
+  const handleBackupClick = () => {
+    console.log("Backup initiated!");
+  };
+
+  return <BackupButton onClick={handleBackupClick} />;
+}
+```
+</CodeSnippet>
+
+## Understanding the component
+
+On click, the button animates to a loading state showing a circular spinner and then a check mark, before briefly entering the done state and resetting to the initial backup state. All animations are driven by Framer Motion.
+
+## Credits
+
+By Sarthak Kapila.
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>variant</TableCell>
+      <TableCell>`"backup" | "backing-up" | "done"`</TableCell>
+      <TableCell>`"backup"`</TableCell>
+      <TableCell>Initial visual state. Click transitions to loading then done automatically.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>onClick</TableCell>
+      <TableCell>`() => void`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Callback invoked on click (runs in addition to internal transitions).</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>className</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Optional class name on the button.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>style</TableCell>
+      <TableCell>`React.CSSProperties`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Inline styles for the button.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+

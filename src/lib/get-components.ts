@@ -1,7 +1,7 @@
 import fs from "node:fs"
 import path from "node:path"
 
-export const COMPONENTS_DIRECTORY = "/src/content/docs/components/"
+export const COMPONENTS_DIRECTORY = "src/content/docs/components/"
 
 export interface Component {
   name: string

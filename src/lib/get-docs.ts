@@ -7,7 +7,7 @@ import { Doc, DocPageProps } from "@/types/types"
 
 import { getTableOfContents } from "./toc"
 
-export const CONTENT_DIRECTORY = "/src/content/docs/"
+export const CONTENT_DIRECTORY = "src/content/docs/"
 
 export async function getDocFromParams({ params }: DocPageProps): Promise<Doc> {
   const source = fs.readFileSync(

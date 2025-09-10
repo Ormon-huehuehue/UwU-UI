@@ -1,6 +1,5 @@
 import { docsConfig } from "@/config/docs"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { DocsSidebarNav } from "@/components/sidebar-nav"
 
@@ -21,7 +20,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="p-4">{children}</div>
         </div>
       </div>
-      <Footer />
     </div>
   )
 }

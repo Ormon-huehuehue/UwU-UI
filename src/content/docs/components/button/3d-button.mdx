@@ -1,0 +1,90 @@
+---
+title: 3D Button
+description: A glossy, pill-shaped 3D button with hover and press depth effects.
+component: true
+author: Sarthak Kapila
+---
+
+<ComponentPreview name="3d-button" />
+
+## Installation
+
+<!-- Coming soon -->
+
+## Usage
+
+<CodeSnippet title="3D Button Example">
+```tsx
+import Button3D from "@/components/3D-button";
+
+export default function Example() {
+  return (
+    <Button3D 
+      label="Get started" 
+      link="/start" 
+      width={234} 
+      height={80}
+    />
+  );
+}
+```
+</CodeSnippet>
+
+## Understanding the component
+
+The button simulates depth using layered gradients, inner shadows, and four decorative corner plates. Hover and press states adjust padding and shadows to create a convincing 3D movement.
+
+## Credits
+
+By Sarthak Kapila.
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>label</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>`"Get started"`</TableCell>
+      <TableCell>Text displayed inside the button.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>link</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>`"#"`</TableCell>
+      <TableCell>Optional link to wrap the button. Uses Next.js `Link` when not `#`.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>height</TableCell>
+      <TableCell>`number`</TableCell>
+      <TableCell>`80`</TableCell>
+      <TableCell>Outer container height.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>width</TableCell>
+      <TableCell>`number`</TableCell>
+      <TableCell>`234`</TableCell>
+      <TableCell>Outer container width.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>className</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Optional class name on the root container.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>style</TableCell>
+      <TableCell>`React.CSSProperties`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Inline styles for the root container.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>

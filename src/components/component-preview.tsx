@@ -6,7 +6,7 @@ import { Repeat } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Icons } from "@/components/icons"
-import { registry } from "@/fancy/index"
+// import { registry } from "@/fancy/index"
 
 import { CodeSnippet } from "./code-snippet"
 import { OpenInV0Button } from "./open-in-v0"
@@ -88,26 +88,26 @@ export function ComponentPreview({
     return () => window.removeEventListener("keydown", handleKeyDown)
   }, [handleRestart])
 
-  const Preview = React.useMemo(() => {
-    const Component = registry[name]?.component
+  // const Preview = React.useMemo(() => {
+  //   // const Component = registry[name]?.component
 
-    if (!Component) {
-      return (
-        <p
-          data-algolia-ignore
-          className="text text-muted-foreground justify-center items-center flex w-full h-full whitespace-pre"
-        >
-          Component{" "}
-          <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm whitespace-pre">
-            {name}
-          </code>{" "}
-          not found.
-        </p>
-      )
-    }
+  //   if (!Component) {
+  //     return (
+  //       <p
+  //         data-algolia-ignore
+  //         className="text text-muted-foreground justify-center items-center flex w-full h-full whitespace-pre"
+  //       >
+  //         Component{" "}
+  //         <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm whitespace-pre">
+  //           {name}
+  //         </code>{" "}
+  //         not found.
+  //       </p>
+  //     )
+  //   }
 
-    return <Component />
-  }, [name])
+  //   return <Component />
+  // }, [name])
 
   return (
     <div
@@ -193,7 +193,7 @@ export function ComponentPreview({
                   <RestartButton onRestart={handleRestart} />
                 </div>
               )}
-              <React.Fragment key={previewKey}>{Preview}</React.Fragment>
+              {/* <React.Fragment key={previewKey}>{Preview}</React.Fragment> */}
             </React.Suspense>
           </div>
         </TabsContent>

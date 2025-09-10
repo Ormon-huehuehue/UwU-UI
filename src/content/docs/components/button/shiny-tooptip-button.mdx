@@ -1,0 +1,91 @@
+---
+title: Shiny Tooltip Button
+description: A compact button with a moving shimmer highlight on hover and a clean content plate.
+component: true
+author: Sarthak Kapila
+---
+
+<ComponentPreview name="shiny-tooltip-button" />
+
+## Installation
+
+<!-- Coming soon -->
+
+## Usage
+
+<CodeSnippet title="Shiny Tooltip Button Example">
+```tsx
+import ShinyButton from "@/components/Hover-2-seats";
+
+export default function Example() {
+  return (
+    <ShinyButton 
+      title="Buy now" 
+      link="#"
+      width={117}
+      height={44}
+    />
+  );
+}
+```
+</CodeSnippet>
+
+## Understanding the component
+
+The button renders a background shimmer layer that slides up and fades in on hover, revealing a bright highlight above the content plate. The shimmer text is rendered by an internal `TextShimmer` component.
+
+## Credits
+
+By Sarthak Kapila.
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>title</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>`"Buy now"`</TableCell>
+      <TableCell>Text displayed inside the button.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>link</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>`"#"`</TableCell>
+      <TableCell>Optional link to wrap the button (Next.js `Link`).</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>className</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Optional class name on the root container.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>style</TableCell>
+      <TableCell>`React.CSSProperties`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Inline styles for the root container.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>width</TableCell>
+      <TableCell>`number`</TableCell>
+      <TableCell>`117`</TableCell>
+      <TableCell>Outer width of the button.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>height</TableCell>
+      <TableCell>`number`</TableCell>
+      <TableCell>`44`</TableCell>
+      <TableCell>Outer height of the button.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+

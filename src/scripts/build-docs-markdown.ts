@@ -5,7 +5,7 @@ const path = require("path")
 
 // @ts-ignore
 const baseDir = path.join(__dirname, "..", "..")
-const CONTENT_DIRECTORY = "/src/content/docs/"
+const CONTENT_DIRECTORY = "src/content/docs/"
 const outputDir = path.join(baseDir, "public", "docs")
 
 interface ConversionOptions {

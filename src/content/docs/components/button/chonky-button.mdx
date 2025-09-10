@@ -1,0 +1,66 @@
+---
+title: Chonky Button
+description: A bold, rounded black button with a springy press effect.
+component: true
+author: Sarthak Kapila
+---
+
+<ComponentPreview name="chonky-button" />
+
+## Installation
+
+<!-- Coming soon -->
+
+## Usage
+
+<CodeSnippet title="Chonky Button Example">
+```tsx
+import ButtonBlack from "@/components/chunky-button";
+
+export default function Example() {
+  return <ButtonBlack title="Get started" width={144} height={56} />;
+}
+```
+</CodeSnippet>
+
+## Understanding the component
+
+The button uses a subtle elevation shadow that collapses on press, creating a tactile feel. Motion is powered by a spring animation for a responsive interaction.
+
+## Credits
+
+By Sarthak Kapila.
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>title</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>`"Get started"`</TableCell>
+      <TableCell>Text displayed inside the button.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>width</TableCell>
+      <TableCell>`number`</TableCell>
+      <TableCell>`144`</TableCell>
+      <TableCell>Button width in pixels.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>height</TableCell>
+      <TableCell>`number`</TableCell>
+      <TableCell>`56`</TableCell>
+      <TableCell>Button height in pixels.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+

@@ -1,0 +1,146 @@
+---
+title: Arrow Points to CTA
+description: Animated canvas arrow that guides the user’s cursor toward a target CTA button.
+component: true
+author: Sarthak Kapila
+---
+
+<ComponentPreview name="arrow-button" />
+
+## Installation
+
+<!-- Coming soon -->
+
+## Usage
+
+<CodeSnippet title="Arrow Points to CTA Example">
+```tsx
+import ArrowPointsToCta from "@/components/arrow-pointer";
+import ButtonBlack from "@/components/chunky-button";
+
+export default function Example() {
+  return (
+    <ArrowPointsToCta
+      button={<ButtonBlack title="Buy now" />}
+      buttonWidth="default"
+      arrow={{
+        thickness: 2,
+        color: "rgb(255, 0, 0)",
+        type: "dashed",
+        gapBetweenDashes: 15,
+        lineCap: "round",
+        tipLength: 12,
+        preview: false
+      }}
+    />
+  );
+}
+```
+</CodeSnippet>
+
+## Understanding the component
+
+The component renders a full-screen canvas and draws a curved arrow from the current mouse position toward the provided CTA element. Visibility and opacity are driven by whether the CTA is in view and how far the cursor is from the target. The stroke style, tip, and dash patterns are configurable.
+
+## Credits
+
+By Sarthak Kapila.
+
+## Props
+
+### ArrowPointsToCta
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>button</TableCell>
+      <TableCell>`ReactElement`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>The CTA element to point at. Required for runtime usage.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>buttonWidth</TableCell>
+      <TableCell>`"default" | "fill"`</TableCell>
+      <TableCell>`"default"`</TableCell>
+      <TableCell>Keep intrinsic button width or stretch to fill container.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>className</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Optional class name on the wrapper.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>style</TableCell>
+      <TableCell>`React.CSSProperties`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Inline styles for the wrapper.</TableCell>
+    </TableRow>
+  </TableBody>
+  </Table>
+
+### arrow (config)
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>thickness</TableCell>
+      <TableCell>`number`</TableCell>
+      <TableCell>`1`</TableCell>
+      <TableCell>Stroke width in pixels.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>color</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>`"rgb(153, 153, 153)"`</TableCell>
+      <TableCell>Stroke color (supports `rgb(...)` and `rgba(...)`).</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>type</TableCell>
+      <TableCell>`"solid" | "dashed" | "dotted"`</TableCell>
+      <TableCell>`"dashed"`</TableCell>
+      <TableCell>Line dash style.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>gapBetweenDashes</TableCell>
+      <TableCell>`number`</TableCell>
+      <TableCell>`10`</TableCell>
+      <TableCell>Gap size for dashed/dotted line.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>lineCap</TableCell>
+      <TableCell>`"square" | "round"`</TableCell>
+      <TableCell>`"round"`</TableCell>
+      <TableCell>Stroke line cap for the arrow head lines.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>tipLength</TableCell>
+      <TableCell>`number`</TableCell>
+      <TableCell>`10`</TableCell>
+      <TableCell>Length of the arrow head in pixels.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>preview</TableCell>
+      <TableCell>`boolean`</TableCell>
+      <TableCell>`true`</TableCell>
+      <TableCell>Preview arrow when designing on canvas (not used in Next.js).</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
