@@ -12,8 +12,10 @@ export default function ArrowButtonExample() {
       arrow={{
         thickness: 2,
         color: "rgb(255, 0, 0)",
+        //@ts-ignore
         type: "dashed",
         gapBetweenDashes: 15,
+        //@ts-ignore
         lineCap: "round",
         tipLength: 12,
         preview: true

@@ -498,7 +498,11 @@ export const ArrowPointsToCta: React.FC<ArrowPointsToCtaProps> = (props) => {
           if (React.isValidElement(child)) {
             return cloneElement(child, {
               style: {
+                // @ts-ignore 
+                // @eslint-disable-next-line
                 ...child.props.style as React.CSSProperties,
+                // @eslint-disable-next-line
+                // @ts-ignore
                 width: mergedProps.buttonWidth === "fill" ? "100%" : child.props.style?.width
               }
             } as any)
