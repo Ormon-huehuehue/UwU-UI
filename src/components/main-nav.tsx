@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 
 import { Icons } from "@/components/icons"
 
@@ -15,7 +16,7 @@ export function MainNav() {
       <div className="flex flex-row items-center gap-x-12">
         <Link href="/" className="flex items-center gap-x-2">
           <p className=" text-2xl px-2 pb-1.5 tracking-tight font-calendas scale-y-[120%] align-text-top ">
-            UwU UI
+            <Image src="/logo.png" alt="logo" width={100} height={100} />
           </p>
         </Link>
         <div className="flex-row gap-x-8 text-lg  font-regular items-end hidden md:flex">
