@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-trail-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/image-trail.json",
+    "https://uwuui.com/r/demo-images.json"
+  ],
+  "files": [
+    {
+      "path": "examples/image/image-trail-demo.tsx",
+      "content": "import Image from \"next/image\"\nimport { exampleImages } from \"@/utils/demo-images\"\n\nimport ImageTrail,{\n  ImageTrailItem,\n} from \"@/fancy/components/image/image-trail\"\n\nconst ImageTrailDemo = () => {\n  return (\n    <div className=\"w-dvw h-dvh bg-white relative text-foreground dark:text-muted\">\n      <ImageTrail\n         threshold={80}\n         keyframes={{ opacity: [0, 1, 1, 0], scale: [1, 1, 2] }}\n         keyframesOptions={{\n           opacity: { duration: 2, times: [0, 0.001, 0.9, 1] },\n           scale: { duration: 2, times: [0, 0.8, 1] },\n         }}\n         repeatChildren={1}\n      >\n        {[...exampleImages, ...exampleImages].map((image, index) => (\n          <ImageTrailItem key={index}>\n            <div className=\"h-20 w-20 sm:w-28 sm:h-24 relative overflow-hidden\">\n              <Image\n                src={image.url}\n                alt=\"image\"\n                fill\n                className=\"object-cover\"\n                sizes=\"96px\"\n              />\n            </div>\n          </ImageTrailItem>\n        ))}\n      </ImageTrail>\n      <h1 className=\"text-5xl sm:text-9xl absolute top-1/2 left-1/2 pointer-events-none -translate-x-1/2 -translate-y-1/2 z-100\">\n        ALBUMS\n      </h1>\n    </div>\n  )\n}\n\nexport default ImageTrailDemo\n",
+      "type": "registry:block",
+      "target": "components/fancy/image/image-trail-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

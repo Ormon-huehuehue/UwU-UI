@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "typewriter-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/typewriter.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/typewriter-demo.tsx",
+      "content": "import Typewriter from \"@/fancy/components/text/typewriter\"\n\nexport default function Preview() {\n  return (\n    <div className=\"w-dvw h-dvh md:text-3xl lg:text-4xl sm:text-2xl text-xl flex flex-row items-start justify-start bg-white text-foreground dark:text-muted font-normal overflow-hidden p-16 pt-48\">\n      <p className=\"whitespace-pre-wrap\">\n        <span>{\"We're born 🌞 to \"}</span>\n        <Typewriter\n          text={[\n            \"experience\",\n            \"dance\",\n            \"love\",\n            \"be alive\",\n            \"create things that make the world a better place\",\n          ]}\n          speed={70}\n          className=\"text-yellow-500 text-pretty\"\n          waitTime={1500}\n          deleteSpeed={40}\n          cursorChar={\"_\"}\n        />\n      </p>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/typewriter-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

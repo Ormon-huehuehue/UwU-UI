@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stacking-cards-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "Khoa Phan <https://www.pldkhoa.dev>",
+  "registryDependencies": [
+    "https://uwuui.com/r/stacking-cards.json",
+    "https://uwuui.com/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "examples/blocks/stacking-cards-demo.tsx",
+      "content": "// author: Khoa Phan <https://www.pldkhoa.dev>\n\n\"use client\"\n\nimport { useState } from \"react\"\nimport Image from \"next/image\"\n\nimport { cn } from \"@/lib/utils\"\nimport StackingCards, {\n  StackingCardItem,\n} from \"@/fancy/components/blocks/stacking-cards\"\n\nconst cards = [\n  {\n    bgColor: \"bg-[#f97316]\",\n    title: \"The Guiding Light\",\n    description:\n      \"Lighthouses have stood as beacons of hope for centuries, guiding sailors safely through treacherous waters. Their glowing light and towering presence serve as a reminder of humanity’s connection to the sea.\",\n    image:\n      \"https://plus.unsplash.com/premium_vector-1739262161806-d954eb02427c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXxxdGU5Smx2R3d0b3x8ZW58MHx8fHx8\",\n  },\n  {\n    bgColor: \"bg-[#0015ff]\",\n    title: \"Life Beneath the Waves\",\n    description:\n      \"From shimmering schools of fish to solitary hunters, the ocean is home to an incredible variety of marine life. Each species plays a vital role in maintaining the balance of underwater ecosystems.\",\n    image:\n      \"https://plus.unsplash.com/premium_vector-1739200616200-69a138d91627?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MnxxdGU5Smx2R3d0b3x8ZW58MHx8fHx8\",\n  },\n  {\n    bgColor: \"bg-[#ff5941]\",\n    title: \"Alone on the Open Sea\",\n    description:\n      \"Drifting across the endless horizon, traveling alone on the sea is a test of courage and resilience. With nothing but the waves and the sky, solitude becomes both a challenge and a source of deep reflection.\",\n    image:\n      \"https://plus.unsplash.com/premium_vector-1738597190290-a3b571590b9e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8OHxxdGU5Smx2R3d0b3x8ZW58MHx8fHx8\",\n  },\n  {\n    bgColor: \"bg-[#1f464d]\",\n    title: \"The Art of Sailing\",\n    description:\n      \"Harnessing the power of the wind, sailing is both a skill and an adventure. Whether racing across the waves or leisurely cruising, it’s a timeless way to explore the vast blue expanse.\",\n    image:\n      \"https://plus.unsplash.com/premium_vector-1738935247245-97940c74cced?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTZ8cXRlOUpsdkd3dG98fGVufDB8fHx8fA%3D%3D\",\n  },\n  {\n    bgColor: \"bg-[#0015ff]\",\n    title: \"The Era of Whaling\",\n    description:\n      \"Once a thriving industry, whale hunting shaped economies and cultures across the world. Today, efforts to protect these majestic creatures highlight the shift toward conservation and respect for marine life.\",\n    image:\n      \"https://plus.unsplash.com/premium_vector-1738935247692-1c2f2c924fd8?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MjJ8cXRlOUpsdkd3dG98fGVufDB8fHx8fA%3D%3D\",\n  },\n]\n\nexport default function StackingCardsDemo() {\n  const [container, setContainer] = useState<HTMLElement | null>(null)\n\n  return (\n    <div\n      className=\"h-[620px] bg-white overflow-auto text-white\"\n      ref={(node) => setContainer(node)}\n    >\n      <StackingCards\n        totalCards={cards.length}\n        scrollOptons={{ container: { current: container } }}\n      >\n        <div className=\"relative font-calendas h-[620px] w-full z-10 text-2xl md:text-7xl font-bold uppercase flex justify-center items-center text-[#ff5941] whitespace-pre\">\n          Scroll down ↓\n        </div>\n        {cards.map(({ bgColor, description, image, title }, index) => {\n          return (\n            <StackingCardItem key={index} index={index} className=\"h-[620px]\">\n              <div\n                className={cn(\n                  bgColor,\n                  \"h-[80%] sm:h-[70%] flex-col sm:flex-row aspect-video px-8 py-10 flex w-11/12 rounded-3xl mx-auto relative\"\n                )}\n              >\n                <div className=\"flex-1 flex flex-col justify-center\">\n                  <h3 className=\"font-bold text-2xl mb-5\">{title}</h3>\n                  <p>{description}</p>\n                </div>\n\n                <div className=\"w-full sm:w-1/2 rounded-xl aspect-video relative overflow-hidden\">\n                  <Image\n                    src={image}\n                    alt={title}\n                    className=\"object-cover\"\n                    fill\n                  />\n                </div>\n              </div>\n            </StackingCardItem>\n          )\n        })}\n\n        <div className=\"w-full h-80 relative overflow-hidden\">\n          <h2 className=\"absolute bottom-0 left-0 translate-y-1/3 sm:text-[192px] text-[80px] text-[#ff5941] font-calendas\">\n            fancy\n          </h2>\n        </div>\n      </StackingCards>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/blocks/stacking-cards-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cursor-attractor-and-gravity-image-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/cursor-attractor-and-gravity.json",
+    "https://uwuui.com/r/use-screen-size.json"
+  ],
+  "files": [
+    {
+      "path": "examples/physics/cursor-attractor-and-gravity-image-demo.tsx",
+      "content": "import useScreenSize from \"@/hooks/use-screen-size\"\nimport Gravity, {\n  MatterBody,\n} from \"@/fancy/components/physics/cursor-attractor-and-gravity\"\n\nexport default function Preview() {\n  const screenSize = useScreenSize()\n\n  const getImageCount = () => {\n    if (screenSize.lessThan(\"sm\")) return 50\n    if (screenSize.lessThan(\"md\")) return 60\n    if (screenSize.lessThan(\"lg\")) return 70\n    return 80\n  }\n\n  const getMaxSize = () => {\n    if (screenSize.lessThan(\"sm\")) return 40\n    if (screenSize.lessThan(\"md\")) return 50\n    return 60\n  }\n\n  const getMinSize = () => {\n    if (screenSize.lessThan(\"sm\")) return 10\n    if (screenSize.lessThan(\"md\")) return 20\n    return 20\n  }\n\n  return (\n    <div className=\"w-dvw h-dvh flex flex-col relative justify-center items-center md:items-end bg-white\">\n      <div>\n        <p className=\"z-20 text-2xl sm:text-3xl md:text-3xl text-foreground dark:text-muted md:pr-24\">\n          join the <span className=\"font-calendas  italic\">community</span>\n        </p>\n      </div>\n      <Gravity\n        attractorPoint={{ x: \"33%\", y: \"50%\" }}\n        attractorStrength={0.0005}\n        cursorStrength={-0.004}\n        cursorFieldRadius={screenSize.lessThan(\"sm\") ? 100 : 200}\n        className=\"w-full h-full\"\n      >\n        {[...Array(getImageCount())].map((_, i) => {\n          const size = Math.max(getMinSize(), Math.random() * getMaxSize())\n          return (\n            <MatterBody\n              key={i}\n              matterBodyOptions={{ friction: 0.5, restitution: 0.2 }}\n              x={`${Math.random() * 100}%`}\n              y={`${Math.random() * 30}%`}\n            >\n              <img\n                src={`https://randomuser.me/api/portraits/${i % 2 === 0 ? \"men\" : \"women\"}/${i}.jpg`}\n                alt={`Avatar ${i}`}\n                className=\"rounded-full object-cover hover:cursor-pointer\"\n                style={{\n                  width: `${size}px`,\n                  height: `${size}px`,\n                }}\n              />\n            </MatterBody>\n          )\n        })}\n      </Gravity>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/physics/cursor-attractor-and-gravity-image-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

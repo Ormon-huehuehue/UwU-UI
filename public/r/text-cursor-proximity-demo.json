@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-cursor-proximity-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/text-cursor-proximity.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/text-cursor-proximity-demo.tsx",
+      "content": "\"use client\"\n\nimport { useRef } from \"react\"\n\nimport TextCursorProximity from \"@/fancy/components/text/text-cursor-proximity\"\n\nconst styles = {\n  title: {\n    filter: {\n      from: \"blur(0px)\",\n      to: \"blur(8px)\",\n    }\n  },\n  details: {\n    filter: {\n      from: \"blur(0px)\", \n      to: \"blur(4px)\",\n    }\n  }\n}\n\nexport default function Preview() {\n  const containerRef = useRef<HTMLDivElement>(null)\n\n  return (\n    <div\n      className=\"w-dvw h-dvh flex flex-col items-center justify-center p-6 sm:p-12 md:p-16 lg:p-24 shadow-lg bg-white\"\n      ref={containerRef}\n    >\n      <div className=\"relative min-w-[280px] max-w-[400px] sm:min-w-[350px] h-2/3 sm:h-full overflow-hidden w-full sm:w-4/5 md:w-4/5 lg:w-2/3 justify-between flex-col flex items-start shadow-lg p-4 bg-[#0015ff] text-white select-none\">\n        <div className=\"flex flex-col justify-center uppercase -space-y-2\">\n          <TextCursorProximity\n            className=\"text-xl will-change-transform sm:text-2xl md:text-3xl lg:text-5xl font-overused-grotesk font-bold\"\n            styles={styles.title}\n            falloff=\"gaussian\"\n            radius={100}\n            containerRef={containerRef}\n          >\n            DIGITAL\n          </TextCursorProximity>\n          <TextCursorProximity\n            className=\"text-xl will-change-transform sm:text-2xl md:text-3xl lg:text-5xl font-overused-grotesk font-bold\"\n            styles={styles.title}\n            falloff=\"gaussian\"\n            radius={100}\n            containerRef={containerRef}\n          >\n            WORKSHOP\n          </TextCursorProximity>\n        </div>\n\n        <div className=\" flex w-full justify-between font-medium\">\n          <div className=\"flex flex-col w-full leading-tight text-xs sm:text-sm md:text-sm lg:text-base \">\n            <TextCursorProximity\n              className=\"text-left\"\n              styles={styles.details}\n              falloff=\"exponential\"\n              radius={70}\n              containerRef={containerRef}\n            >\n              LONDON, UK ⟡ 18:30 GMT\n            </TextCursorProximity>\n\n            <TextCursorProximity\n              className=\" text-right\"\n              styles={styles.details}\n              falloff=\"exponential\"\n              radius={70}\n              containerRef={containerRef}\n            >\n              123 DIGITAL STREET, EC1A 1BB ⟶\n            </TextCursorProximity>\n\n            <TextCursorProximity\n              className=\"text-left\"\n              styles={styles.details}\n              falloff=\"exponential\"\n              radius={70}\n              containerRef={containerRef}\n            >\n              +44 20 7123 4567 ⟨⟩ INFO@DIGITAL.WORK\n            </TextCursorProximity>\n\n            <TextCursorProximity\n              className=\"text-left\"\n              styles={styles.details}\n              falloff=\"exponential\"\n              radius={70}\n              containerRef={containerRef}\n            >\n              @DIGITALWORKSHOP * DIGITAL.WORK®\n            </TextCursorProximity>\n\n            <TextCursorProximity\n              className=\"text-right\"\n              styles={styles.details}\n              falloff=\"exponential\"\n              radius={70}\n              containerRef={containerRef}\n            >\n              RSVP REQUIRED ⌲ LIMITED SEATS\n            </TextCursorProximity>\n          </div>\n        </div>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/text-cursor-proximity-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

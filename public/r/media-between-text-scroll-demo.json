@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "media-between-text-scroll-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/media-between-text.json",
+    "https://uwuui.com/r/use-screen-size.json"
+  ],
+  "files": [
+    {
+      "path": "examples/blocks/media-between-text-scroll-demo.tsx",
+      "content": "import React from \"react\"\n\nimport useScreenSize from \"@/hooks/use-screen-size\"\nimport MediaBetweenText from \"@/fancy/components/blocks/media-between-text\"\n\nconst elements = [\n  {\n    src: \"https://cdn.cosmos.so/53454cbe-a4ec-4782-923f-a82d70e12645.mp4\",\n    left: \"Tim\",\n    right: \"Rodenböker\",\n    url: \"https://www.instagram.com/tim_rodenbroeker/\",\n  },\n  {\n    src: \"https://cdn.cosmos.so/499ddb3b-57cf-4c07-996c-f797fadf64ab.mp4\",\n    left: \"Simon \",\n    right: \"Alexander-Adams\",\n    url: \"https://www.instagram.com/polyhop/\",\n  },\n  {\n    src: \"https://cdn.cosmos.so/444e4a2a-45a6-477f-b342-6b6bc9a7c53b.mp4\",\n    left: \"Andreion\",\n    right: \"de Castro\",\n    url: \"https://www.instagram.com/andreiongd/\",\n  },\n  {\n    src: \"https://cdn.cosmos.so/f533f1a8-9f67-4360-b395-7abc8594cac9.mp4\",\n    left: \"Lorraine\",\n    right: \"Li\",\n    url: \"https://www.instagram.com/lorrr.l/\",\n  },\n]\n\nexport default function MediaBetweenTextScrollDemo() {\n  const ref = React.useRef<HTMLDivElement>(null)\n  const screenSize = useScreenSize()\n\n  return (\n    <div\n      className=\"w-dvw h-dvh items-center justify-center bg-background overflow-auto\"\n      ref={ref}\n    >\n      <div className=\"h-full relative w-full flex\">\n        <h3 className=\"text-5xl sm:text-8xl tracking-wide absolute sm:bottom-12 sm:left-12 bottom-4 left-4 w-64\">\n          today's inspo\n        </h3>\n        <p className=\"bottom-4 right-4 sm:right-12 sm:bottom-12 absolute \">\n          Scroll down ↓\n        </p>\n      </div>\n\n      <div className=\"h-full w-full flex flex-col space-y-12 mt-24 justify-center items-center text-6xl px-6\">\n        {elements.map((element, index) => (\n          <a href={element.url} target=\"_blank\" rel=\"noreferrer\">\n            <MediaBetweenText\n              key={index}\n              firstText={element.left}\n              secondText={element.right}\n              mediaUrl={element.src}\n              mediaType=\"video\"\n              triggerType=\"inView\"\n              useInViewOptionsProp={{\n                once: false,\n                amount: 1,\n                root: ref,\n                margin: \"-5% 0px -0% 0px\",\n              }}\n              containerRef={ref}\n              mediaContainerClassName=\"w-full h-[40px] sm:h-[80px] overflow-hidden mx-1 sm:mx-3 mt-1 sm:mt-4\"\n              className=\"cursor-pointer text-lg sm:text-4xl font-light flex flex-row items-center justify-center\"\n              animationVariants={{\n                initial: { width: 0 },\n                animate: {\n                  width: screenSize.lessThan(\"sm\") ? \"40px\" : \"100px\",\n                  transition: {\n                    duration: 1,\n                    type: \"spring\",\n                    bounce: 0,\n                    delay: 0.1,\n                  },\n                },\n              }}\n            />\n          </a>\n        ))}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/blocks/media-between-text-scroll-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

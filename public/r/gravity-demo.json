@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gravity-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/gravity.json"
+  ],
+  "files": [
+    {
+      "path": "examples/physics/gravity-demo.tsx",
+      "content": "import Gravity, { MatterBody } from \"@/fancy/components/physics/gravity\"\n\nexport default function Preview() {\n  return (\n    <div className=\"w-dvw h-dvh flex flex-col relative font-azeret-mono bg-white\">\n      <div className=\"pt-20 text-6xl sm:text-7xl md:text-8xl text-foreground dark:text-muted w-full text-center font-calendas italic\">\n        fancy\n      </div>\n      <p className=\"pt-4 text-base sm:text-xl md:text-2xl text-foreground dark:text-muted w-full text-center\">\n        components made with:\n      </p>\n      <Gravity gravity={{ x: 0, y: 1 }} className=\"w-full h-full\">\n        <MatterBody\n          matterBodyOptions={{ friction: 0.5, restitution: 0.2 }}\n          x=\"30%\"\n          y=\"10%\"\n        >\n          <div className=\"text-xl sm:text-2xl md:text-3xl bg-[#0015ff] text-white rounded-full hover:cursor-pointer px-8 py-4\">\n            react\n          </div>\n        </MatterBody>\n        <MatterBody\n          matterBodyOptions={{ friction: 0.5, restitution: 0.2 }}\n          x=\"30%\"\n          y=\"30%\"\n        >\n          <div className=\"text-xl sm:text-2xl md:text-3xl bg-[#e794da] text-white rounded-full hover:cursor-grab px-8 py-4 \">\n            typescript\n          </div>\n        </MatterBody>\n        <MatterBody\n          matterBodyOptions={{ friction: 0.5, restitution: 0.2 }}\n          x=\"40%\"\n          y=\"20%\"\n          angle={10}\n        >\n          <div className=\"text-xl sm:text-2xl md:text-3xl bg-[#1f464d] text-white rounded-full hover:cursor-grab px-8 py-4 \">\n            motion\n          </div>\n        </MatterBody>\n        <MatterBody\n          matterBodyOptions={{ friction: 0.5, restitution: 0.2 }}\n          x=\"75%\"\n          y=\"10%\"\n        >\n          <div className=\"text-xl sm:text-2xl md:text-3xl bg-[#ff5941] text-white rounded-full hover:cursor-grab px-8 py-4 \">\n            tailwind\n          </div>\n        </MatterBody>\n        <MatterBody\n          matterBodyOptions={{ friction: 0.5, restitution: 0.2 }}\n          x=\"80%\"\n          y=\"20%\"\n        >\n          <div className=\"text-xl sm:text-2xl md:text-3xl bg-[#f97316] text-white rounded-full hover:cursor-grab px-8 py-4 \">\n            drei\n          </div>\n        </MatterBody>\n        <MatterBody\n          matterBodyOptions={{ friction: 0.5, restitution: 0.2 }}\n          x=\"50%\"\n          y=\"10%\"\n        >\n          <div className=\"text-xl sm:text-2xl md:text-3xl bg-[#ffd726] text-white rounded-full hover:cursor-grab px-8 py-4 \">\n            matter-js\n          </div>\n        </MatterBody>\n      </Gravity>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/physics/gravity-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

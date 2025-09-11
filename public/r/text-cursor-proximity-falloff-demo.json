@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-cursor-proximity-falloff-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/text-cursor-proximity.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/text-cursor-proximity-falloff-demo.tsx",
+      "content": "\"use client\"\n\nimport { useRef } from \"react\"\n\nimport TextCursorProximity from \"@/fancy/components/text/text-cursor-proximity\"\n\nexport default function Preview() {\n  const containerRef = useRef<HTMLDivElement>(null)\n\n  return (\n    <div\n      className=\"w-dvw h-dvh rounded-lg items-center justify-center font-overused-grotesk p-8 sm:p-16 md:p-20 lg:p-24 bg-white cursor-pointer relative overflow-hidden\"\n      ref={containerRef}\n    >\n      {/* this is the important stuff */}\n      <div className=\"w-full h-full items-center justify-center grid text-justify\">\n        <TextCursorProximity\n          className=\"leading-tight text-[#0015ff] text-pretty\"\n          styles={{\n            opacity: { from: 0.1, to: 1 },\n          }}\n          falloff=\"linear\"\n          radius={80}\n          containerRef={containerRef}\n        >\n          Just as every problem is novel and different from others. so the grid\n          must be conceived afresh every time so as to meet requirements. This\n          means that the designer must approach each new problem with an open\n          mind and must seek to solve it by analysing it objectively. The\n          difficulties of the task are due to the enormous differences in the\n          demands made on the designer by the various assignments he receives. A\n          small newspaper advertisement does not present the difficulties of\n          designing, say, a daily paper with 10 and more columns. a great\n          variety of subjects, and an additional advertising section. Such a\n          task calls not only for designing talent but also organizing ability\n          since the many constantly changing items of information have to be\n          arranged in a logical order and their priorities reflected in\n          appropriate typography.\n        </TextCursorProximity>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/text-cursor-proximity-falloff-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

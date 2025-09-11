@@ -1,0 +1,43 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gravity-non-draggable-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "motion"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/gravity.json"
+  ],
+  "files": [
+    {
+      "path": "examples/physics/gravity-non-draggable-demo.tsx",
+      "content": "\"use client\"\n\nimport { motion } from \"motion/react\"\n\nimport Gravity, { MatterBody } from \"@/fancy/components/physics/gravity\"\n\nconst socialLinks = [\n  { name: \"LinkedIn\", x: \"30%\", y: \"10%\" },\n  { name: \"X (Twitter)\", x: \"30%\", y: \"30%\" },\n  { name: \"Instagram\", x: \"40%\", y: \"20%\", angle: 10 },\n  { name: \"GitHub\", x: \"75%\", y: \"10%\", angle: -4 },\n  { name: \"BlueSky\", x: \"80%\", y: \"20%\", angle: 5 },\n]\n\nconst stars = [\"✱\", \"✽\", \"✦\", \"✸\", \"✹\", \"✺\"]\n\nexport default function Preview() {\n  return (\n    <div className=\"w-dvw h-dvh flex flex-col relative bg-white font-calendas\">\n      <p className=\"pt-4 text-6xl sm:text-7xl md:text-9xl text-[#0015ff] w-full text-center font-calendas\">\n        CONTACT\n      </p>\n      <Gravity gravity={{ x: 0, y: 1 }} className=\"w-full h-full\">\n        {socialLinks.map((link) => (\n          <MatterBody\n            key={link.name}\n            matterBodyOptions={{ friction: 0.5, restitution: 0.2 }}\n            x={link.x}\n            y={link.y}\n            angle={link.angle || 0}\n            isDraggable={false}\n          >\n            <motion.div\n              className=\"text-xl sm:text-2xl md:text-3xl bg-white text-[#0015ff] border border-[#0015ff] rounded-full hover:cursor-pointer hover:bg-[#0015ff] hover:text-white md:px-8 md:py-4 py-3 px-6\"\n              whileTap={{ scale: 0.9 }}\n            >\n              {link.name}\n            </motion.div>\n          </MatterBody>\n        ))}\n\n        {stars.map((star, i) => (\n          <MatterBody\n            key={i}\n            matterBodyOptions={{ friction: 0.5, restitution: 0.2 }}\n            x={`${Math.random() * 60 + 20}%`}\n            y={`${Math.random() * 20 + 40}%`}\n            angle={Math.random() * 360}\n          >\n            <div\n              className={`aspect-square w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#0015ff] text-white rounded-lg text-center`}\n            ></div>\n          </MatterBody>\n        ))}\n      </Gravity>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/physics/gravity-non-draggable-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

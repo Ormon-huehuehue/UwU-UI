@@ -1,0 +1,43 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "underline-to-background-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "motion"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/underline-to-background.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/underline-to-background-demo.tsx",
+      "content": "\"use client\"\n\nimport { motion } from \"motion/react\"\n\nimport UnderlineToBackground from \"@/fancy/components/text/underline-to-background\"\n\nexport default function UnderlineToBackgroundDemo() {\n  const fadeInVariants = {\n    hidden: { opacity: 0 },\n    visible: {\n      opacity: 1,\n      transition: { duration: 0.5, staggerChildren: 0.1 },\n    },\n  }\n\n  const wordVariants = {\n    hidden: { opacity: 0 },\n    visible: { opacity: 1 },\n  }\n\n  const words = \"Weekly goodies delivered straight to your inbox —\".split(\" \")\n\n  return (\n    <div className=\"w-dvw h-dvh flex flex-col items-center justify-center bg-[#f5f5f5]\">\n      <motion.h2\n        className=\"text-[#0015ff] text-xl p-12 md:p-24\"\n        initial=\"hidden\"\n        animate=\"visible\"\n        variants={fadeInVariants}\n      >\n        {words.map((word, index) => (\n          <motion.span\n            key={index}\n            variants={wordVariants}\n            className=\"inline-block mr-1\"\n          >\n            {word}\n          </motion.span>\n        ))}\n        <motion.span variants={wordVariants} className=\"inline-block\">\n          <UnderlineToBackground\n            targetTextColor=\"#f0f0f0\"\n            className=\"cursor-pointer\"\n          >\n            subscribe\n          </UnderlineToBackground>\n        </motion.span>\n      </motion.h2>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/underline-to-background-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

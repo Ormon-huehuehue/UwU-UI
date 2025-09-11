@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pixel-trail",
+  "type": "registry:ui",
+  "dependencies": [
+    "motion",
+    "uuid"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/utils.json",
+    "https://uwuui.com/r/use-dimensions.json"
+  ],
+  "files": [
+    {
+      "path": "fancy/background/pixel-trail.tsx",
+      "content": "\"use client\"\n\nimport React, { useCallback, useMemo, useRef } from \"react\"\nimport { motion, useAnimationControls } from \"motion/react\"\nimport { v4 as uuidv4 } from \"uuid\"\n\nimport { cn } from \"@/lib/utils\"\nimport { useDimensions } from \"@/hooks/use-dimensions\"\n\ninterface PixelTrailProps {\n  pixelSize: number // px\n  fadeDuration?: number // ms\n  delay?: number // ms\n  className?: string\n  pixelClassName?: string\n}\n\nconst PixelTrail: React.FC<PixelTrailProps> = ({\n  pixelSize = 20,\n  fadeDuration = 500,\n  delay = 0,\n  className,\n  pixelClassName,\n}) => {\n  const containerRef = useRef<HTMLDivElement>(null)\n  const dimensions = useDimensions(containerRef)\n  const trailId = useRef(uuidv4())\n\n  const handleMouseMove = useCallback(\n    (e: React.MouseEvent<HTMLDivElement>) => {\n      if (!containerRef.current) return\n\n      const rect = containerRef.current.getBoundingClientRect()\n      const x = Math.floor((e.clientX - rect.left) / pixelSize)\n      const y = Math.floor((e.clientY - rect.top) / pixelSize)\n\n      const pixelElement = document.getElementById(\n        `${trailId.current}-pixel-${x}-${y}`\n      )\n      if (pixelElement) {\n        const animatePixel = (pixelElement as any).__animatePixel\n        if (animatePixel) animatePixel()\n      }\n    },\n    [pixelSize]\n  )\n\n  const columns = useMemo(\n    () => Math.ceil(dimensions.width / pixelSize),\n    [dimensions.width, pixelSize]\n  )\n  const rows = useMemo(\n    () => Math.ceil(dimensions.height / pixelSize),\n    [dimensions.height, pixelSize]\n  )\n\n  return (\n    <div\n      ref={containerRef}\n      className={cn(\n        \"absolute inset-0 w-full h-full pointer-events-auto\",\n        className\n      )}\n      onMouseMove={handleMouseMove}\n    >\n      {Array.from({ length: rows }).map((_, rowIndex) => (\n        <div key={rowIndex} className=\"flex\">\n          {Array.from({ length: columns }).map((_, colIndex) => (\n            <PixelDot\n              key={`${colIndex}-${rowIndex}`}\n              id={`${trailId.current}-pixel-${colIndex}-${rowIndex}`}\n              size={pixelSize}\n              fadeDuration={fadeDuration}\n              delay={delay}\n              className={pixelClassName}\n            />\n          ))}\n        </div>\n      ))}\n    </div>\n  )\n}\n\nexport default PixelTrail\n\ninterface PixelDotProps {\n  id: string\n  size: number\n  fadeDuration: number\n  delay: number\n  className?: string\n}\n\nconst PixelDot: React.FC<PixelDotProps> = React.memo(\n  ({ id, size, fadeDuration, delay, className }) => {\n    const controls = useAnimationControls()\n\n    const animatePixel = useCallback(() => {\n      controls.start({\n        opacity: [1, 0],\n        transition: { duration: fadeDuration / 1000, delay: delay / 1000 },\n      })\n    }, [])\n\n    // Attach the animatePixel function to the DOM element\n    const ref = useCallback(\n      (node: HTMLDivElement | null) => {\n        if (node) {\n          ;(node as any).__animatePixel = animatePixel\n        }\n      },\n      [animatePixel]\n    )\n\n    return (\n      <motion.div\n        id={id}\n        ref={ref}\n        className={cn(\"cursor-pointer-none\", className)}\n        style={{\n          width: `${size}px`,\n          height: `${size}px`,\n        }}\n        initial={{ opacity: 0 }}\n        animate={controls}\n        exit={{ opacity: 0 }}\n      />\n    )\n  }\n)\n\nPixelDot.displayName = \"PixelDot\"\n",
+      "type": "registry:ui",
+      "target": "components/fancy/background/pixel-trail.tsx"
+    }
+  ]
+}

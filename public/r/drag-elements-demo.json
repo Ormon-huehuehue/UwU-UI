@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "drag-elements-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/drag-elements.json",
+    "https://uwuui.com/r/use-screen-size.json"
+  ],
+  "files": [
+    {
+      "path": "examples/blocks/drag-elements-demo.tsx",
+      "content": "import React from \"react\"\nimport Image from \"next/image\"\n\nimport useScreenSize from \"@/hooks/use-screen-size\"\nimport DragElements from \"@/fancy/components/blocks/drag-elements\"\n\nconst urls = [\n  \"https://images.unsplash.com/photo-1683746531526-3bca2bc901b8?q=80&w=1820&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\",\n  \"https://images.unsplash.com/photo-1631561729243-9b3291efceae?q=80&w=1885&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\",\n  \"https://images.unsplash.com/photo-1635434002329-8ab192fe01e1?q=80&w=2828&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\",\n  \"https://images.unsplash.com/photo-1719586799413-3f42bb2a132d?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\",\n  \"https://images.unsplash.com/photo-1720561467986-ca3d408ca30b?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\",\n  \"https://images.unsplash.com/photo-1724403124996-64115f38cd3f?q=80&w=3082&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\",\n]\n\nconst randomInt = (min: number, max: number) => {\n  return Math.floor(Math.random() * (max - min + 1)) + min\n}\n\nconst DragElementsDemo: React.FC = () => {\n  const screenSize = useScreenSize()\n  return (\n    <div className=\"w-dvw h-dvh relative bg-[#eeeeee] overflow-hidden\">\n      <h1 className=\"absolute text-xl md:text-4xl md:ml-36 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-muted-foreground uppercase w-full\">\n        all your\n        <span className=\"font-bold text-foreground dark:text-muted\">\n          {\" \"}\n          memories.{\" \"}\n        </span>\n      </h1>\n      <DragElements dragMomentum={false} className=\"p-40\">\n        {urls.map((url, index) => {\n          const rotation = randomInt(-12, 12)\n          const width = screenSize.lessThan(`md`)\n            ? randomInt(90, 120)\n            : randomInt(120, 150)\n          const height = screenSize.lessThan(`md`)\n            ? randomInt(120, 140)\n            : randomInt(150, 180)\n\n          return (\n            <div\n              key={index}\n              className={`flex items-start justify-center bg-white shadow-2xl p-4`}\n              style={{\n                transform: `rotate(${rotation}deg)`,\n                width: `${width}px`,\n                height: `${height}px`,\n              }}\n            >\n              <div\n                className={`relative overflow-hidden`}\n                style={{\n                  width: `${width - 4}px`,\n                  height: `${height - 30}px`,\n                }}\n              >\n                <Image\n                  src={url}\n                  fill\n                  alt={`Analog photo ${index + 1}`}\n                  className=\"object-cover\"\n                  draggable={false}\n                />\n              </div>\n            </div>\n          )\n        })}\n      </DragElements>\n    </div>\n  )\n}\n\nexport default DragElementsDemo\n",
+      "type": "registry:block",
+      "target": "components/fancy/blocks/drag-elements-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "parallax-floating",
+  "type": "registry:ui",
+  "dependencies": [
+    "motion"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/utils.json",
+    "https://uwuui.com/r/use-mouse-position-ref.json"
+  ],
+  "files": [
+    {
+      "path": "fancy/image/parallax-floating.tsx",
+      "content": "\"use client\"\n\nimport {\n  createContext,\n  ReactNode,\n  useCallback,\n  useContext,\n  useEffect,\n  useRef,\n} from \"react\"\nimport { useAnimationFrame } from \"motion/react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { useMousePositionRef } from \"@/hooks/use-mouse-position-ref\"\n\ninterface FloatingContextType {\n  registerElement: (id: string, element: HTMLDivElement, depth: number) => void\n  unregisterElement: (id: string) => void\n}\n\nconst FloatingContext = createContext<FloatingContextType | null>(null)\n\ninterface FloatingProps {\n  children: ReactNode\n  className?: string\n  sensitivity?: number\n  easingFactor?: number\n}\n\nconst Floating = ({\n  children,\n  className,\n  sensitivity = 1,\n  easingFactor = 0.05,\n  ...props\n}: FloatingProps) => {\n  const containerRef = useRef<HTMLDivElement>(null)\n  const elementsMap = useRef(\n    new Map<\n      string,\n      {\n        element: HTMLDivElement\n        depth: number\n        currentPosition: { x: number; y: number }\n      }\n    >()\n  )\n  const mousePositionRef = useMousePositionRef(containerRef)\n\n  const registerElement = useCallback(\n    (id: string, element: HTMLDivElement, depth: number) => {\n      elementsMap.current.set(id, {\n        element,\n        depth,\n        currentPosition: { x: 0, y: 0 },\n      })\n    },\n    []\n  )\n\n  const unregisterElement = useCallback((id: string) => {\n    elementsMap.current.delete(id)\n  }, [])\n\n  useAnimationFrame(() => {\n    if (!containerRef.current) return\n\n    elementsMap.current.forEach((data) => {\n      const strength = (data.depth * sensitivity) / 20\n\n      // Calculate new target position\n      const newTargetX = mousePositionRef.current.x * strength\n      const newTargetY = mousePositionRef.current.y * strength\n\n      // Check if we need to update\n      const dx = newTargetX - data.currentPosition.x\n      const dy = newTargetY - data.currentPosition.y\n\n      // Update position only if we're still moving\n      data.currentPosition.x += dx * easingFactor\n      data.currentPosition.y += dy * easingFactor\n\n      data.element.style.transform = `translate3d(${data.currentPosition.x}px, ${data.currentPosition.y}px, 0)`\n    })\n  })\n\n  return (\n    <FloatingContext.Provider value={{ registerElement, unregisterElement }}>\n      <div\n        ref={containerRef}\n        className={cn(\"absolute top-0 left-0 w-full h-full\", className)}\n        {...props}\n      >\n        {children}\n      </div>\n    </FloatingContext.Provider>\n  )\n}\n\nexport default Floating\n\ninterface FloatingElementProps {\n  children: ReactNode\n  className?: string\n  depth?: number\n}\n\nexport const FloatingElement = ({\n  children,\n  className,\n  depth = 1,\n}: FloatingElementProps) => {\n  const elementRef = useRef<HTMLDivElement>(null)\n  const idRef = useRef(Math.random().toString(36).substring(7))\n  const context = useContext(FloatingContext)\n\n  useEffect(() => {\n    if (!elementRef.current || !context) return\n\n    const nonNullDepth = depth ?? 0.01\n\n    context.registerElement(idRef.current, elementRef.current, nonNullDepth)\n    return () => context.unregisterElement(idRef.current)\n  }, [depth])\n\n  return (\n    <div\n      ref={elementRef}\n      className={cn(\"absolute will-change-transform\", className)}\n    >\n      {children}\n    </div>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": "components/fancy/image/parallax-floating.tsx"
+    }
+  ]
+}

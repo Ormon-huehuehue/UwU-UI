@@ -1,0 +1,44 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "parallax-floating-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "motion"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/parallax-floating.json",
+    "https://uwuui.com/r/demo-images.json"
+  ],
+  "files": [
+    {
+      "path": "examples/image/parallax-floating-demo.tsx",
+      "content": "\"use client\"\n\nimport { useEffect } from \"react\"\nimport { exampleImages } from \"@/utils/demo-images\"\nimport { motion, stagger, useAnimate } from \"motion/react\"\n\nimport Floating, {\n  FloatingElement,\n} from \"@/fancy/components/image/parallax-floating\"\n\nconst Preview = () => {\n  const [scope, animate] = useAnimate()\n\n  useEffect(() => {\n    animate(\"img\", { opacity: [0, 1] }, { duration: 0.5, delay: stagger(0.15) })\n  }, [])\n\n  return (\n    <div\n      className=\"flex w-dvw h-dvh justify-center items-center bg-black overflow-hidden\"\n      ref={scope}\n    >\n      <motion.div\n        className=\"z-50 text-center space-y-4 items-center flex flex-col\"\n        initial={{ opacity: 0, y: 10 }}\n        animate={{ opacity: 1, y: 0 }}\n        transition={{ duration: 0.88, delay: 1.5 }}\n      >\n        <p className=\"text-5xl md:text-7xl z-50 text-white font-calendas italic\">\n          fancy.\n        </p>\n        <p className=\"text-xs z-50 hover:scale-110 transition-transform bg-white text-black rounded-full py-2 w-20 cursor-pointer\">\n          Download\n        </p>\n      </motion.div>\n\n      <Floating sensitivity={-1} className=\"overflow-hidden\">\n        <FloatingElement depth={0.5} className=\"top-[8%] left-[11%]\">\n          <motion.img\n            initial={{ opacity: 0 }}\n            src={exampleImages[0].url}\n            className=\"w-16 h-16 md:w-24 md:h-24 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform\"\n          />\n        </FloatingElement>\n        <FloatingElement depth={1} className=\"top-[10%] left-[32%]\">\n          <motion.img\n            initial={{ opacity: 0 }}\n            src={exampleImages[1].url}\n            className=\"w-20 h-20 md:w-28 md:h-28 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform\"\n          />\n        </FloatingElement>\n        <FloatingElement depth={2} className=\"top-[2%] left-[53%]\">\n          <motion.img\n            initial={{ opacity: 0 }}\n            src={exampleImages[2].url}\n            className=\"w-28 h-40 md:w-40 md:h-52 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform\"\n          />\n        </FloatingElement>\n        <FloatingElement depth={1} className=\"top-[0%] left-[83%]\">\n          <motion.img\n            initial={{ opacity: 0 }}\n            src={exampleImages[3].url}\n            className=\"w-24 h-24 md:w-32 md:h-32 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform\"\n          />\n        </FloatingElement>\n\n        <FloatingElement depth={1} className=\"top-[40%] left-[2%]\">\n          <motion.img\n            initial={{ opacity: 0 }}\n            src={exampleImages[4].url}\n            className=\"w-28 h-28 md:w-36 md:h-36 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform\"\n          />\n        </FloatingElement>\n        <FloatingElement depth={2} className=\"top-[70%] left-[77%]\">\n          <motion.img\n            initial={{ opacity: 0 }}\n            src={exampleImages[7].url}\n            className=\"w-28 h-28 md:w-36 md:h-48 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform\"\n          />\n        </FloatingElement>\n\n        <FloatingElement depth={4} className=\"top-[73%] left-[15%]\">\n          <motion.img\n            initial={{ opacity: 0 }}\n            src={exampleImages[5].url}\n            className=\"w-40 md:w-52 h-full object-cover hover:scale-105 duration-200 cursor-pointer transition-transform\"\n          />\n        </FloatingElement>\n        <FloatingElement depth={1} className=\"top-[80%] left-[50%]\">\n          <motion.img\n            initial={{ opacity: 0 }}\n            src={exampleImages[6].url}\n            className=\"w-24 h-24 md:w-32 md:h-32 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform\"\n          />\n        </FloatingElement>\n      </Floating>\n    </div>\n  )\n}\n\nexport default Preview\n",
+      "type": "registry:block",
+      "target": "components/fancy/image/parallax-floating-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

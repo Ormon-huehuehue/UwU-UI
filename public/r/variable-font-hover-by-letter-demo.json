@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "variable-font-hover-by-letter-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/variable-font-hover-by-letter.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/variable-font-hover-by-letter-demo.tsx",
+      "content": "import VariableFontHoverByLetter from \"@/fancy/components/text/variable-font-hover-by-letter\"\n\nexport default function Preview() {\n  return (\n    <div className=\"w-dvw h-dvh rounded-lg sm:text-xl xs:text-sm md:text-2xl xl:text-3xl flex flex-col items-center justify-center font-overused-grotesk bg-white text-foreground dark:text-muted\">\n      <div className=\"w-full justify-start items-center p-6 sm:p-8 md:p-12 lg:p-16\">\n        <div className=\"w-3/4\">\n          <h2>OPEN ROLES ✽</h2>\n          <ul className=\"flex flex-col space-y-1 mt-6 md:mt-12 h-full cursor-pointer\">\n            <VariableFontHoverByLetter\n              label=\"DESIGN ENGINEER (US)\"\n              staggerDuration={0.03}\n              fromFontVariationSettings=\"'wght' 400, 'slnt' 0\"\n              toFontVariationSettings=\"'wght' 900, 'slnt' -10\"\n            />\n            <VariableFontHoverByLetter\n              label=\"PRODUCT DESIGNER (US/UK)\"\n              staggerDuration={0.0}\n              transition={{ duration: 1, type: \"spring\" }}\n              fromFontVariationSettings=\"'wght' 400, 'slnt' -10\"\n              toFontVariationSettings=\"'wght' 900, 'slnt' -10\"\n            />\n            <VariableFontHoverByLetter\n              label=\"ENGINEERING MANAGER (US)\"\n              fromFontVariationSettings=\"'wght' 400, 'slnt' 0\"\n              toFontVariationSettings=\"'wght' 900, 'slnt' -10\"\n              staggerFrom={\"last\"}\n            />\n            <VariableFontHoverByLetter\n              label=\"SALES ENGINEER (US)\"\n              staggerFrom={\"center\"}\n              fromFontVariationSettings=\"'wght' 400, 'slnt' 0\"\n              toFontVariationSettings=\"'wght' 900, 'slnt' -10\"\n            />\n          </ul>\n        </div>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/variable-font-hover-by-letter-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

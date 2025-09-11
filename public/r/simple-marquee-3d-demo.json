@@ -1,0 +1,44 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "simple-marquee-3d-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "motion"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/simple-marquee.json",
+    "https://uwuui.com/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "examples/blocks/simple-marquee-3d-demo.tsx",
+      "content": "import React, { useEffect, useState } from \"react\"\nimport { motion } from \"motion/react\"\n\nimport { cn } from \"@/lib/utils\"\nimport SimpleMarquee from \"@/fancy/components/blocks/simple-marquee\"\n\n// Interface for album data\ninterface Album {\n  coverArt: string\n  title: string\n  artist: string\n}\n\nconst hardcodedAlbums: Album[] = [\n  {\n    coverArt:\n      \"https://ia600207.us.archive.org/28/items/mbid-770b9b80-10e1-4297-b1fd-46ad0dbb0305/mbid-770b9b80-10e1-4297-b1fd-46ad0dbb0305-1148987477_thumb500.jpg\",\n    title: \"Homework\",\n    artist: \"Daft Punk\",\n  },\n  {\n    coverArt:\n      \"https://ia800905.us.archive.org/5/items/mbid-9da1a863-f3f2-4618-bdce-f0c88c055ba5/mbid-9da1a863-f3f2-4618-bdce-f0c88c055ba5-8201721911_thumb500.jpg\",\n    title: \"✝\",\n    artist: \"Justice\",\n  },\n  {\n    coverArt:\n      \"https://ia800909.us.archive.org/12/items/mbid-ee618541-23df-4973-afb7-e2d9f02e03d8/mbid-ee618541-23df-4973-afb7-e2d9f02e03d8-8154031977_thumb500.jpg\",\n    title: \"By Your Side\",\n    artist: \"Breakbot\",\n  },\n  {\n    coverArt:\n      \"https://ia800804.us.archive.org/20/items/mbid-3adfe4c6-0fa2-4813-a212-058d9a99b4a8/mbid-3adfe4c6-0fa2-4813-a212-058d9a99b4a8-16639897570_thumb500.jpg\",\n    title: \"Still Waters\",\n    artist: \"Breakbot\",\n  },\n  {\n    coverArt:\n      \"https://ia803403.us.archive.org/14/items/mbid-a7fcead9-ab9d-3d15-bb0d-a2b1945517dd/mbid-a7fcead9-ab9d-3d15-bb0d-a2b1945517dd-8093147470_thumb500.jpg\",\n    title: \"Fancy Footwork\",\n    artist: \"Chromeo\",\n  },\n  {\n    coverArt:\n      \"https://ia801301.us.archive.org/18/items/mbid-8acb4d6d-2cf9-4685-b4e8-5c9937621691/mbid-8acb4d6d-2cf9-4685-b4e8-5c9937621691-5651042668_thumb500.jpg\",\n    title: \"Trax on da Rocks Vol. 2\",\n    artist: \"Thomas Bangalter\",\n  },\n  {\n    coverArt:\n      \"https://ia904509.us.archive.org/32/items/mbid-cb844a4d-c02f-3199-b949-1656b36722da/mbid-cb844a4d-c02f-3199-b949-1656b36722da-8145217760_thumb500.jpg\",\n    title: \"1999\",\n    artist: \"Cassius\",\n  },\n  {\n    coverArt:\n      \"https://ia903201.us.archive.org/6/items/mbid-747ed90c-6479-4cec-a98a-b320a5ef75be/mbid-747ed90c-6479-4cec-a98a-b320a5ef75be-18417637214_thumb500.jpg\",\n    title: \"Woman\",\n    artist: \"Justice\",\n  },\n  {\n    coverArt:\n      \"https://ia800200.us.archive.org/5/items/mbid-9d0a791d-c0ed-4b99-bb31-976fad672408/mbid-9d0a791d-c0ed-4b99-bb31-976fad672408-1959533822_thumb500.jpg\",\n    title: \"Modjo\",\n    artist: \"Modjo\",\n  },\n  {\n    coverArt:\n      \"https://ia903106.us.archive.org/23/items/mbid-bbfc83ad-826f-4957-893d-a808105c828b/mbid-bbfc83ad-826f-4957-893d-a808105c828b-25063975521_thumb500.jpg\",\n    title: \"Random Access Memories\",\n    artist: \"Daft Punk\",\n  },\n]\n\nexport default function SimpleMarqueeDemo() {\n  const [albums, setAlbums] = useState<Album[]>([])\n  const [loading, setLoading] = useState(true)\n  const [container, setContainer] = useState<HTMLElement | null>(null)\n\n  useEffect(() => {\n    // Simulate loading time\n    const timer = setTimeout(() => {\n      setAlbums(hardcodedAlbums)\n      setLoading(false)\n    }, 1000)\n\n    return () => clearTimeout(timer)\n  }, [])\n\n  const firstRow = albums.slice(0, Math.floor(albums.length / 2))\n  const secondRow = albums.slice(Math.floor(albums.length / 2))\n\n  const MarqueeItem = ({ album, index }: { album: Album; index: number }) => {\n    const variants = {\n      initial: {\n        y: \"0px\",\n        x: \"0px\",\n        scale: 1,\n        opacity: 1,\n      },\n      hover: {\n        y: \"-12px\",\n        x: \"-12px\",\n        scale: 1.05,\n        transition: {\n          duration: 0.15,\n          ease: \"easeOut\",\n        },\n      },\n    }\n\n    const textVariants = {\n      initial: {\n        opacity: 0,\n      },\n      hover: {\n        opacity: 1,\n        transition: {\n          duration: 0.15,\n          ease: \"easeOut\",\n        },\n      },\n    }\n\n    const imageVariants = {\n      initial: {\n        opacity: 1,\n      },\n      hover: {\n        opacity: 0.45,\n        transition: {\n          duration: 0.15,\n          ease: \"easeOut\",\n        },\n      },\n    }\n\n    const containerClasses = cn(\n      \"mx-2 sm:mx-3 md:mx-4 cursor-pointer\",\n      \"h-32 w-32 sm:h-40 sm:w-40 md:h-48 md:w-48\",\n      \"relative flex shadow-white/20 shadow-md\",\n      \"overflow-hidden flex-col transform-gpu bg-black\"\n    )\n\n    const textContainerClasses = cn(\n      \"justify-end p-2 sm:p-2.5 md:p-3 h-full flex items-start flex-col\",\n      \"leading-tight\"\n    )\n\n    const imageClasses = cn(\"object-cover w-full h-full shadow-2xl absolute\")\n\n    return (\n      <motion.div\n        className={containerClasses}\n        initial=\"initial\"\n        whileHover=\"hover\"\n        variants={variants}\n      >\n        <motion.div className={textContainerClasses} variants={textVariants}>\n          <h3 className=\"text-white text-sm sm:text-base md:text-lg font-medium z-30\">\n            {album.title}\n          </h3>\n          <p className=\"text-neutral-300 text-xs sm:text-sm md:text-base z-30\">\n            {album.artist}\n          </p>\n        </motion.div>\n        <motion.img\n          src={album.coverArt}\n          alt={`${album.title} by ${album.artist}`}\n          draggable={false}\n          className={imageClasses}\n          variants={imageVariants}\n        />\n      </motion.div>\n    )\n  }\n\n  return (\n    <div\n      className=\"flex w-dvw h-dvh relative justify-center items-center flex-col bg-black overflow-y-auto overflow-x-hidden\"\n      ref={(node) => setContainer(node)}\n    >\n      <h1 className=\"absolute text-center text-3xl sm:text-5xl md:text-6xl top-1/4 text-white font-calendas\">\n        Weekly Mix\n      </h1>\n\n      {loading ? (\n        <div className=\"text-white\">Loading album covers...</div>\n      ) : (\n        <>\n          <div\n            className=\"absolute h-1/2 sm:h-full w-[200%] top-32 -left-3/4 justify-center items-center flex flex-col space-y-2 sm:space-y-3 md:space-y-4 perspective-near\"\n            style={{\n              transform:\n                \"rotateX(45deg) rotateY(-15deg) rotateZ(35deg) translateZ(-200px)\",\n            }}\n          >\n            <SimpleMarquee\n              className=\"w-full\"\n              baseVelocity={10}\n              repeat={3}\n              draggable={false}\n              scrollSpringConfig={{ damping: 50, stiffness: 400 }}\n              slowDownFactor={0.2}\n              slowdownOnHover\n              slowDownSpringConfig={{ damping: 60, stiffness: 300 }}\n              scrollAwareDirection={true}\n              scrollContainer={{ current: container }}\n              useScrollVelocity={true}\n              direction=\"left\"\n            >\n              {firstRow.map((album, i) => (\n                <MarqueeItem key={i} index={i} album={album} />\n              ))}\n            </SimpleMarquee>\n\n            <SimpleMarquee\n              className=\"w-full\"\n              baseVelocity={10}\n              repeat={3}\n              scrollAwareDirection={true}\n              scrollSpringConfig={{ damping: 50, stiffness: 400 }}\n              slowdownOnHover\n              slowDownFactor={0.2}\n              slowDownSpringConfig={{ damping: 60, stiffness: 300 }}\n              useScrollVelocity={true}\n              scrollContainer={{ current: container }}\n              draggable={false}\n              direction=\"right\"\n            >\n              {secondRow.map((album, i) => (\n                <MarqueeItem key={i} index={i} album={album} />\n              ))}\n            </SimpleMarquee>\n          </div>\n        </>\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/blocks/simple-marquee-3d-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

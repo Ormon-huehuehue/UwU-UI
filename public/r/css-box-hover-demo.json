@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "css-box-hover-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/css-box.json",
+    "https://uwuui.com/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "examples/blocks/css-box-hover-demo.tsx",
+      "content": "import { useEffect, useRef } from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport CSSBox, { CSSBoxRef } from \"@/fancy/components/blocks/css-box\"\n\nconst BoxText = ({\n  children,\n  className,\n  i,\n}: {\n  children: React.ReactNode\n  className?: string\n  i: number\n}) => (\n  <div\n    className={cn(\n      \"w-full h-full uppercase text-white flex items-center justify-center p-0 text-2xl md:text-3xl font-bold\",\n      className\n    )}\n  >\n    {children}\n  </div>\n)\n\nexport default function CSSBoxHoverDemo() {\n  const boxRefs = useRef<(CSSBoxRef | null)[]>([])\n  const isRotating = useRef<boolean[]>([])\n  const currentRotations = useRef<number[]>([])\n\n  const boxes = [\n    { text: \"January 15, 2025\", size: 300 },\n    { text: \"Live Q&A\", size: 200 },\n    { text: \"10:00\", size: 120 },\n    { text: \"to\", size: 70 },\n    { text: \"11:30\", size: 120 },\n    { text: \"CET\", size: 120 },\n    { text: \"Online\", size: 180 },\n    { text: \"Recording Available\", size: 380 },\n    { text: \"In English\", size: 220 },\n    { text: \"Register Now\", size: 280 },\n    { text: \"Free Access\", size: 240 },\n  ]\n\n  useEffect(() => {\n    currentRotations.current = new Array(boxes.length).fill(0)\n  }, [])\n\n  const handleHover = async (index: number) => {\n    if (isRotating.current[index]) return\n\n    isRotating.current[index] = true\n    const box = boxRefs.current[index]\n    if (!box) return\n\n    const nextRotation = currentRotations.current[index] + 90\n    currentRotations.current[index] = nextRotation\n\n    box.rotateTo(0, nextRotation)\n\n    isRotating.current[index] = false\n  }\n\n  return (\n    <div className=\"flex flex-col items-center justify-center w-dvw h-dvh bg-[#111]\">\n      {boxes.map(({ text, size }, index) => (\n        <CSSBox\n          key={index}\n          ref={(el) => {\n            if (el) {\n              boxRefs.current[index] = el\n              isRotating.current[index] = false\n              currentRotations.current[index] = 0\n            }\n          }}\n          width={size}\n          height={35}\n          depth={size}\n          draggable={false}\n          className=\"hover:z-10\"\n          onMouseEnter={() => handleHover(index)}\n          faces={{\n            front: <BoxText i={index}>{text}</BoxText>,\n            back: (\n              <BoxText i={index} className=\"\">\n                {text}\n              </BoxText>\n            ),\n            left: <BoxText i={index}>{text}</BoxText>,\n            right: (\n              <BoxText i={index} className=\"\">\n                {text}\n              </BoxText>\n            ),\n          }}\n        />\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/blocks/css-box-hover-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

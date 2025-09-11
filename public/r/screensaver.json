@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "screensaver",
+  "type": "registry:ui",
+  "dependencies": [
+    "motion"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/utils.json",
+    "https://uwuui.com/r/use-dimensions.json"
+  ],
+  "files": [
+    {
+      "path": "fancy/blocks/screensaver.tsx",
+      "content": "\"use client\"\n\nimport React, { useEffect, useRef } from \"react\"\nimport {\n  motion,\n  useAnimationFrame,\n  useMotionValue,\n} from \"motion/react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { useDimensions } from \"@/hooks/use-dimensions\"\n\ntype ScreensaverProps = {\n  children: React.ReactNode\n  containerRef: React.RefObject<HTMLElement>\n  speed?: number\n  startPosition?: { x: number; y: number } // x,y as percentages (0-100)\n  startAngle?: number // in degrees\n  className?: string\n}\n\nconst Screensaver: React.FC<ScreensaverProps> = ({\n  children,\n  speed = 3,\n  startPosition = { x: 0, y: 0 },\n  startAngle = 45,\n  containerRef,\n  className,\n}) => {\n  const elementRef = useRef<HTMLDivElement>(null)\n  const x = useMotionValue(0)\n  const y = useMotionValue(0)\n  const angle = useRef((startAngle * Math.PI) / 180)\n\n  const containerDimensions = useDimensions(containerRef)\n  const elementDimensions = useDimensions(elementRef)\n\n  // Set initial position based on container dimensions and percentage\n  useEffect(() => {\n    if (containerDimensions.width && containerDimensions.height) {\n      const initialX =\n        (startPosition.x / 100) *\n        (containerDimensions.width - (elementDimensions.width || 0))\n      const initialY =\n        (startPosition.y / 100) *\n        (containerDimensions.height - (elementDimensions.height || 0))\n      x.set(initialX)\n      y.set(initialY)\n    }\n  }, [containerDimensions, elementDimensions, startPosition])\n\n  useAnimationFrame(() => {\n    const velocity = speed\n    const dx = Math.cos(angle.current) * velocity\n    const dy = Math.sin(angle.current) * velocity\n\n    let newX = x.get() + dx\n    let newY = y.get() + dy\n\n    // Check for collisions with container boundaries\n    if (\n      newX <= 0 ||\n      newX + elementDimensions.width >= containerDimensions.width\n    ) {\n      angle.current = Math.PI - angle.current\n      newX = Math.max(\n        0,\n        Math.min(newX, containerDimensions.width - elementDimensions.width)\n      )\n    }\n    if (\n      newY <= 0 ||\n      newY + elementDimensions.height >= containerDimensions.height\n    ) {\n      angle.current = -angle.current\n      newY = Math.max(\n        0,\n        Math.min(newY, containerDimensions.height - elementDimensions.height)\n      )\n    }\n\n    x.set(newX)\n    y.set(newY)\n  })\n\n  return (\n    <motion.div\n      ref={elementRef}\n      style={{\n        position: \"absolute\",\n        top: 0,\n        left: 0,\n        x,\n        y,\n      }}\n      className={cn(\"transform will-change-transform\", className)}\n    >\n      {children}\n    </motion.div>\n  )\n}\n\nexport default Screensaver\n",
+      "type": "registry:ui",
+      "target": "components/fancy/blocks/screensaver.tsx"
+    }
+  ]
+}

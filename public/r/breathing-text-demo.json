@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breathing-text-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/breathing-text.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/breathing-text-demo.tsx",
+      "content": "import BreathingText from \"@/fancy/components/text/breathing-text\"\n\nexport default function Preview() {\n  return (\n    <div className=\"w-dvw h-dvh text-3xl sm:text-4xl md:text-5xl flex flex-row gap-12 items-center justify-center font-overused-grotesk bg-white\">\n      <div className=\"flex flex-col items-center justify-center text-black\">\n        <BreathingText\n          staggerDuration={0.08}\n          fromFontVariationSettings=\"'wght' 100, 'slnt' 0\"\n          toFontVariationSettings=\"'wght' 800, 'slnt' -10\"\n        >\n          overused grotesk\n        </BreathingText>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/breathing-text-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

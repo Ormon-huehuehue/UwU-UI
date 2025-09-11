@@ -1,0 +1,44 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-rotate-scroll-step-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "motion"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/text-rotate.json",
+    "https://uwuui.com/r/demo-images.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/text-rotate-scroll-step-demo.tsx",
+      "content": "\"use client\"\n\nimport { useEffect, useRef } from \"react\"\nimport { exampleImages } from \"@/utils/demo-images\"\nimport { useInView } from \"motion/react\"\n\nimport TextRotate, { TextRotateRef } from \"@/fancy/components/text/text-rotate\"\n\nfunction Item({\n  index,\n  image,\n  link,\n  onInView,\n}: {\n  index: number\n  image: string\n  link: string\n  onInView: (inView: boolean) => void\n}) {\n  const ref = useRef<HTMLDivElement>(null)\n  const isInView = useInView(ref, {\n    margin: \"-45% 0px -45% 0px\",\n  })\n\n  useEffect(() => {\n    onInView(isInView)\n  }, [isInView, onInView])\n\n  return (\n    <section\n      ref={ref}\n      key={index + 1}\n      className=\"h-full w-1/2 flex justify-center items-center snap-center\"\n    >\n      <div className=\"w-16 h-16 sm:w-36 sm:h-36 md:w-40 md:h-40\">\n        <a href={link} target=\"_blank\" rel=\"noreferrer\">\n          <img\n            src={image}\n            alt={`Example ${index + 2}`}\n            className=\"w-full h-full object-cover\"\n          />\n        </a>\n      </div>\n    </section>\n  )\n}\n\nexport default function Preview() {\n  const textRotateRef = useRef<TextRotateRef>(null)\n\n  const handleInView = (index: number, inView: boolean) => {\n    console.log(index, inView)\n    if (inView && textRotateRef.current) {\n      textRotateRef.current.jumpTo(index)\n    }\n  }\n\n  return (\n    <div className=\"w-dvw h-dvh overflow-auto absolute snap-y snap-mandatory\">\n      <div className=\"sticky inset-0 h-full w-full flex items-center justify-end bg-white dark:text-muted text-foreground\">\n        <div className=\"w-2/3\">\n          <TextRotate\n            ref={textRotateRef}\n            texts={[...exampleImages.map((image) => image.author)]}\n            mainClassName=\"text-sm sm:text-3xl md:text-4xl w-full justify-center flex pt-2\"\n            splitLevelClassName=\"overflow-hidden pb-2\"\n            staggerFrom={\"first\"}\n            animatePresenceMode=\"wait\"\n            loop={false}\n            auto={false}\n            staggerDuration={0.005}\n            initial={{ opacity: 0, y: 50 }}\n            animate={{ opacity: 1, y: 0 }}\n            exit={{ opacity: 0, y: -50 }}\n            transition={{ type: \"spring\", duration: 0.6, bounce: 0 }}\n          />\n        </div>\n      </div>\n      <div className=\"absolute inset-0\">\n        {exampleImages.slice(1).map((image, index) => (\n          <Item\n            key={index}\n            index={index}\n            image={image.url}\n            link={image.link}\n            onInView={(inView) => handleInView(index, inView)}\n          />\n        ))}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/text-rotate-scroll-step-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

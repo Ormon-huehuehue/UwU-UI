@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "vertical-cut-reveal-letter-random-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/vertical-cut-reveal.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/vertical-cut-reveal-letter-random-demo.tsx",
+      "content": "import VerticalCutReveal from \"@/fancy/components/text/vertical-cut-reveal\"\n\nexport default function Preview() {\n  return (\n    <div className=\"w-dvw h-dvh text md:text-xl flex items-center justify-center font-overused-grotesk bg-white p-10 md:p-16 lg:p-24 text-[#0015ff]\">\n      <VerticalCutReveal\n        splitBy=\"characters\"\n        staggerDuration={0.002}\n        staggerFrom=\"random\"\n        transition={{\n          type: \"spring\",\n          stiffness: 200,\n          damping: 35,\n          delay: 0.1,\n        }}\n        containerClassName=\"text-[#00000] leading-snug\"\n      >\n        {`“When a small, unassuming object exceeds our expectations, we are not only surprised but pleased. Our usual reaction is something like, \"That little thing did all that?\" Simplicity is about the unexpected pleasure derived from what is likely to be insignificant and would otherwise go unnoticed. The smaller the object, the more forgiving we can be when it misbehaves.”\n        ― John Maeda,`}\n      </VerticalCutReveal>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/vertical-cut-reveal-letter-random-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

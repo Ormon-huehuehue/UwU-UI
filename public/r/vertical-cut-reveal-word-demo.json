@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "vertical-cut-reveal-word-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/vertical-cut-reveal.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/vertical-cut-reveal-word-demo.tsx",
+      "content": "import VerticalCutReveal from \"@/fancy/components/text/vertical-cut-reveal\"\n\nexport default function Preview() {\n  return (\n    <div className=\"w-dvw h-dvh text-lg md:text-2xl flex flex-col items-start justify-center font-calendas p-10 md:p-16 lg:p-24 bg-[#0015ff] text-white tracking-wide font-bold\">\n      <div className=\"flex flex-col justify-center w-full items-center space-y-4\">\n        <VerticalCutReveal\n          splitBy=\"words\"\n          staggerDuration={0.1}\n          staggerFrom=\"first\"\n          reverse={true}\n          transition={{\n            type: \"spring\",\n            stiffness: 250,\n            damping: 30,\n            delay: 0,\n          }}\n        >\n          {`super cool & awesome example text`}\n        </VerticalCutReveal>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/vertical-cut-reveal-word-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

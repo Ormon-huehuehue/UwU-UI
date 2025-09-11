@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "float",
+  "type": "registry:ui",
+  "dependencies": [
+    "motion"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "fancy/blocks/float.tsx",
+      "content": "\"use client\"\n\nimport React, { useRef } from \"react\"\nimport { motion, useAnimationFrame, useMotionValue } from \"motion/react\"\n\nimport { cn } from \"@/lib/utils\"\n\ntype FloatProps = {\n  children: React.ReactNode\n  speed?: number\n  amplitude?: [number, number, number] // [x, y, z]\n  rotationRange?: [number, number, number] // [x, y, z]\n  timeOffset?: number\n  className?: string\n}\n\nconst Float: React.FC<FloatProps> = ({\n  children,\n  speed = 0.5,\n  amplitude = [10, 30, 30], // Default [x, y, z] amplitudes\n  rotationRange = [15, 15, 7.5], // Default [x, y, z] rotation ranges\n  timeOffset = 0,\n  className,\n}) => {\n  const x = useMotionValue(0)\n  const y = useMotionValue(0)\n  const z = useMotionValue(0)\n  const rotateX = useMotionValue(0)\n  const rotateY = useMotionValue(0)\n  const rotateZ = useMotionValue(0)\n\n  // Use refs for animation values to avoid recreating the animation frame callback\n  const time = useRef(0)\n\n  useAnimationFrame(() => {\n    time.current += speed * 0.02\n\n    // Smooth floating motion on all axes\n    const newX = Math.sin(time.current * 0.7 + timeOffset) * amplitude[0]\n    const newY = Math.sin(time.current * 0.6 + timeOffset) * amplitude[1]\n    const newZ = Math.sin(time.current * 0.5 + timeOffset) * amplitude[2]\n\n    // 3D rotations with different frequencies for more organic movement\n    const newRotateX =\n      Math.sin(time.current * 0.5 + timeOffset) * rotationRange[0]\n    const newRotateY =\n      Math.sin(time.current * 0.4 + timeOffset) * rotationRange[1]\n    const newRotateZ =\n      Math.sin(time.current * 0.3 + timeOffset) * rotationRange[2]\n\n    x.set(newX)\n    y.set(newY)\n    z.set(newZ)\n    rotateX.set(newRotateX)\n    rotateY.set(newRotateY)\n    rotateZ.set(newRotateZ)\n  })\n\n  return (\n    <motion.div\n      style={{\n        x,\n        y,\n        z,\n        rotateX,\n        rotateY,\n        rotateZ,\n        transformStyle: \"preserve-3d\",\n      }}\n      className={cn(\"will-change-transform\", className)}\n    >\n      {children}\n    </motion.div>\n  )\n}\n\nexport default Float\n",
+      "type": "registry:ui",
+      "target": "components/fancy/blocks/float.tsx"
+    }
+  ]
+}

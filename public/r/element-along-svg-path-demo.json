@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "element-along-svg-path-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/element-along-svg-path.json",
+    "https://uwuui.com/r/demo-images.json"
+  ],
+  "files": [
+    {
+      "path": "examples/blocks/element-along-svg-path-demo.tsx",
+      "content": "import { useRef } from \"react\"\nimport { exampleImages } from \"@/utils/demo-images\"\n\nimport ElementAlongPath, {\n  ElementAlongPathItem,\n} from \"@/fancy/components/blocks/element-along-svg-path\"\n\nexport default function ElementAlongPathDemo() {\n  const containerRef = useRef<HTMLDivElement>(null)\n\n  return (\n    <div ref={containerRef} className=\"relative overflow-auto w-full h-full\">\n      <p className=\"h-[200%] absolute top-12 left-12 w-64 text-6xl\">\n        this week in the bag\n      </p>\n      <div className=\"sticky w-full h-full\">\n        <ElementAlongPath\n          path={\n            \"M3.5002 223.998C-15 50.9992 95.8557 -60.0575 190 37.4991C259 109 274 139.999 444 139.999\"\n          }\n          pathId=\"path-1\"\n          showPath={true}\n          viewBox=\"0 0 444 225\"\n          scrollContainer={containerRef}\n          animationType=\"auto\"\n          className=\"absolute w-full h-full top-0 left-0\"\n        >\n          {[...Array(1)].map((_, i) => (\n            <ElementAlongPathItem\n              key={i}\n              transition={{\n                duration: 3,\n                ease: [0.757, -0.002, 0.123, 0.993],\n              }}\n              className=\"pointer-events-auto absolute top-0 left-0\"\n            >\n              <img\n                src={exampleImages[i % exampleImages.length].url}\n                alt={`Example ${i}`}\n                className=\"w-20 h-20 object-cover shadow-2xl cursor-pointer hover:scale-105 duration-300 ease-in-out\"\n              />\n            </ElementAlongPathItem>\n          ))}\n        </ElementAlongPath>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/blocks/element-along-svg-path-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

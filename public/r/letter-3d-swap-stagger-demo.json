@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "letter-3d-swap-stagger-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/letter-3d-swap.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/letter-3d-swap-stagger-demo.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\nimport Letter3DSwap from \"@/fancy/components/text/letter-3d-swap\"\n\nexport default function Preview() {\n  const [debug, setDebug] = useState(false)\n  const sharedProps = {\n    mainClassName: \"text-lg sm:text-3xl md:text-4xl bg-background lowercase text-foreground\",\n    frontFaceClassName: `bg-background ${debug ? 'border' : ''}`,\n    secondFaceClassName: `bg-background ${debug ? 'border' : ''}`,\n    staggerDuration: 0.02,\n    transition: { type: \"spring\" as const, damping: 25, stiffness: debug ? 50 : 160 }\n  }\n\n  return (\n    <div className=\"relative w-dvw h-dvh flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 bg-background gap-4 sm:gap-6 md:gap-8\">\n      <button\n        className=\"absolute top-4 left-4 px-2 py-1 bg-background text-foreground rounded-md border text-[8px] cursor-pointer hover:bg-muted\"\n        onClick={() => setDebug(!debug)}\n      >\n        Debug: {debug ? \"On\" : \"Off\"}\n      </button>\n\n      <div className=\"flex flex-col items-center gap-4 sm:gap-6 md:gap-8 max-w-xs sm:max-w-xl md:max-w-2xl font-cotham\">\n        <Letter3DSwap \n          rotateDirection=\"left\"\n          staggerFrom=\"first\"\n          {...sharedProps}\n        >\n          Rotate Left, Stagger First\n        </Letter3DSwap>\n\n        <Letter3DSwap \n          rotateDirection=\"right\"\n          staggerFrom=\"last\"\n          {...sharedProps}\n        >\n          Rotate Right, Stagger Last\n        </Letter3DSwap>\n\n        <Letter3DSwap \n          rotateDirection=\"top\"\n          staggerFrom=\"center\"\n          {...sharedProps}\n        >\n          Rotate Top, Stagger Center\n        </Letter3DSwap>\n\n        <Letter3DSwap \n          rotateDirection=\"bottom\"\n          staggerFrom=\"random\"\n          {...sharedProps}\n        >\n          Rotate Bottom, Stagger Random\n        </Letter3DSwap>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/letter-3d-swap-stagger-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

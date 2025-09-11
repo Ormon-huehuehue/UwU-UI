@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animated-gradient-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/animated-gradient-with-svg.json"
+  ],
+  "files": [
+    {
+      "path": "examples/background/animated-gradient-demo.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport AnimatedGradient from \"@/fancy/components/background/animated-gradient-with-svg\"\n\ninterface BentoCardProps {\n  title: string\n  subtitle?: string\n  description?: string\n  buttonText?: string\n  align?: \"left\" | \"center\"\n}\n\nconst gradientColors = [\"#FF0000\", \"#FF4500\", \"#FF9900\"]\n\nconst BentoCard: React.FC<BentoCardProps> = ({\n  title,\n  subtitle,\n  description,\n  buttonText,\n  align = \"left\",\n}) => (\n  <div className=\"relative overflow-hidden rounded-2xl min-h-[120px] sm:min-h-[180px] w-dvw h-dvh flex flex-col justify-between p-4 sm:p-6 font-medium\">\n    <span className=\"absolute inset-0 z-0 pointer-events-none bg-[#ff592f]\">\n      <AnimatedGradient colors={gradientColors} speed={10} blur=\"medium\" />\n    </span>\n    <div\n      className={`relative z-10 flex-1 ${align === \"center\" ? \"items-center text-center\" : \"items-start text-left\"} flex flex-col justify-between w-full h-full`}\n    >\n      <div>\n        <div className=\"text-white text-xs sm:text-sm md:text-base font-semibold -mb-0.5\">\n          {title}\n        </div>\n        {subtitle && (\n          <div className=\"text-white/80 text-[10px] sm:text-xs md:text-sm mb-1 sm:mb-2\">\n            {subtitle}\n          </div>\n        )}\n      </div>\n      {description && (\n        <div className=\"text-white text-[10px] sm:text-xs mt-auto mb-1 sm:mb-2 text-pretty leading-tight\">{description}</div>\n      )}\n      {buttonText && (\n        <button className=\"mt-2 sm:mt-4 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white text-white text-[10px] sm:text-xs font-medium transition-colors cursor-pointer\">\n          {buttonText}\n        </button>\n      )}\n    </div>\n  </div>\n)\n\nconst AnimatedGradientDemo: React.FC = () => {\n  return (\n    <div className=\"w-full h-full flex items-center justify-center bg-background px-20 sm:px-8 py-8 sm:py-16\">\n      <div className=\"grid grid-cols-1 sm:grid-cols-12 gap-2 w-full max-w-lg\">\n        {/* Top left card */}\n        <div className=\"sm:col-span-8 h-32 sm:h-48\">\n          <BentoCard\n            title=\"Animated Bento\"\n            subtitle=\"#001\"\n            description=\"Using only SVG circles and blur\"\n          />\n        </div>\n        {/* Top right card */}\n        <div className=\"h-32 sm:h-48 sm:col-span-4\">\n          <BentoCard title=\"Gradients\" buttonText=\"Explore More\"  />\n        </div>\n      </div>\n    </div>\n  )\n}\n\nexport default AnimatedGradientDemo\n",
+      "type": "registry:block",
+      "target": "components/fancy/background/animated-gradient-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

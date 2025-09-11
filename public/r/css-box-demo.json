@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "css-box-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/css-box.json"
+  ],
+  "files": [
+    {
+      "path": "examples/blocks/css-box-demo.tsx",
+      "content": "import { useRef } from \"react\"\n\nimport CSSBox, { CSSBoxRef } from \"@/fancy/components/blocks/css-box\"\n\nexport default function CSSBoxDemo() {\n  const boxRef = useRef<CSSBoxRef>(null)\n\n  // Example text face component\n  const TextFace = ({\n    texts,\n    className,\n  }: {\n    texts: string[]\n    className?: string\n  }) => (\n    <div className={`flex flex-col ${className || \"\"}`}>\n      {texts.map((text, i) => (\n        <div key={i} className=\"text-[#0015ff] font-bold tracking-wider\">\n          {text}\n        </div>\n      ))}\n    </div>\n  )\n\n  return (\n    <CSSBox\n      ref={boxRef}\n      width={200}\n      height={200}\n      depth={200}\n      perspective={600}\n      stiffness={100}\n      damping={30}\n      faces={{\n        front: (\n          <TextFace\n            texts={[\"YOU CAN\", \"JUST\", \"DO THINGS\"]}\n            className=\"text-right justify-end items-end h-full w-full p-2 select-none\"\n          />\n        ),\n        back: (\n          <TextFace\n            texts={[\"MAKE THINGS\", \"YOU WISH\", \"EXISTED\"]} \n            className=\"text-left justify-end h-full w-full p-2 select-none\"\n          />\n        ),\n        right: (\n          <TextFace\n            texts={[\"MAKE THINGS\", \"YOU WISH\", \"EXISTED\"]}\n            className=\"text-left justify-end h-full w-full p-2 select-none\"\n          />\n        ),\n        left: (\n          <TextFace\n            texts={[\"BREAK\", \"THINGS\", \"MOVE\", \"FAST\"]}\n            className=\"items-end w-full h-full p-2 select-none\"\n          />\n        ),\n        top: (\n          <TextFace\n            texts={[\"YOU CAN\", \"JUST\", \"DO THINGS\"]}\n            className=\"text-right justify-end items-end h-full w-full p-2 select-none\" \n          />\n        ),\n        bottom: (\n          <TextFace\n            texts={[\"BREAK\", \"THINGS\", \"MOVE\", \"FAST\"]}\n            className=\"items-end w-full h-full p-2 select-none\"\n          />\n        ),\n      }}\n      className=\"text-3xl\"\n    />\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/blocks/css-box-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "letter-swap-demo-line",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/letter-swap-forward-anim.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/letter-swap-demo-line.tsx",
+      "content": "import LetterSwapForward from \"@/fancy/components/text/letter-swap-forward-anim\"\n\nexport default function Preview() {\n  return (\n    <div className=\"w-dvw h-dvh text-3xl flex flex-row gap-12 items-center justify-center font-calendas bg-[#0015ff]\">\n      <div className=\"items-center justify-center grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12  text-white\">\n        <LetterSwapForward label=\"oh, wow!\" staggerDuration={0} />\n        <LetterSwapForward label=\"nice!\" staggerDuration={0} reverse={false} />\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/letter-swap-demo-line.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

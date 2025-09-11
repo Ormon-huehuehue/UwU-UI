@@ -1,0 +1,45 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gooey-svg-filter-menu-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/gooey-svg-filter.json",
+    "https://uwuui.com/r/use-detect-browser.json"
+  ],
+  "files": [
+    {
+      "path": "examples/filter/gooey-svg-filter-menu-demo.tsx",
+      "content": "import { useState } from \"react\"\nimport { AnimatePresence, motion } from \"motion/react\"\nimport { Home, Mail, Menu, Settings, User, X } from \"lucide-react\"\n\nimport useDetectBrowser from \"@/hooks/use-detect-browser\"\nimport GooeySvgFilter from \"@/fancy/components/filter/gooey-svg-filter\"\n\nconst MENU_ITEMS = [\n  { icon: Home, label: \"Home\" },\n  { icon: Mail, label: \"Contact\" },\n  { icon: User, label: \"Profile\" },\n  { icon: Settings, label: \"Settings\" },\n]\n\nexport default function GooeyDemo() {\n  const [isOpen, setIsOpen] = useState(false)\n  const browser = useDetectBrowser()\n  const isSafari = browser === \"Safari\"\n\n  return (\n    <div className=\"relative w-dvw h-dvh flex items-center justify-center dark:bg-black bg-white\">\n      <GooeySvgFilter id=\"gooey-filter-menu\" strength={5} />\n\n      <div\n        className=\"absolute top-4 left-4\"\n        style={{ filter: \"url(#gooey-filter-menu)\" }}\n      >\n        {/* Menu Items */}\n        <AnimatePresence>\n          {isOpen &&\n            MENU_ITEMS.map((item, index) => {\n              const Icon = item.icon\n              return (\n                <motion.button\n                  key={item.label}\n                  className=\"absolute w-12 h-12 bg-[#efefef] rounded-full flex items-center justify-center\"\n                  initial={{ x: 0, opacity: 0 }}\n                  animate={{\n                    y: (index + 1) * 44,\n                    opacity: 1,\n                  }}\n                  exit={{\n                    y: 0,\n                    opacity: 0,\n                    transition: {\n                      delay:\n                        (MENU_ITEMS.length - index) * (isSafari ? 0.0 : 0.05),\n                      duration: isSafari ? 0 : 0.4,\n                      type: \"spring\",\n                      bounce: 0,\n                    },\n                  }}\n                  transition={{\n                    delay: index * (isSafari ? 0.0 : 0.05),\n                    duration: isSafari ? 0 : 0.4,\n                    type: \"spring\",\n                    bounce: 0,\n                  }}\n                >\n                  <AnimatePresence mode=\"wait\">\n                    <motion.div\n                      key={item.label}\n                      initial={{ opacity: 0, filter: \"blur(10px)\" }}\n                      animate={{ opacity: 1, filter: \"blur(0px)\" }}\n                      exit={{ opacity: 0, filter: \"blur(10px)\" }}\n                      transition={{\n                        delay: index * (isSafari ? 0.0 : 0.05),\n                        duration: isSafari ? 0 : 0.2,\n                        type: \"spring\",\n                        bounce: 0,\n                      }}\n                    >\n                      <Icon className=\"w-5 h-5 text-muted-foreground hover:text-black\" />\n                    </motion.div>\n                  </AnimatePresence>\n                </motion.button>\n              )\n            })}\n        </AnimatePresence>\n\n        {/* Main Menu Button */}\n        <motion.button\n          className=\"relative w-12 h-12 bg-[#efefef] rounded-full flex items-center justify-center\"\n          onClick={() => setIsOpen(!isOpen)}\n        >\n          <AnimatePresence mode=\"wait\">\n            {isOpen ? (\n              <motion.div\n                key=\"close\"\n                initial={{ opacity: 0, filter: \"blur(10px)\" }}\n                animate={{ opacity: 1, filter: \"blur(0px)\" }}\n                exit={{ opacity: 0, filter: \"blur(10px)\" }}\n                transition={{ duration: isSafari ? 0 : 0.2 }}\n              >\n                <X className=\"w-5 h-5 text-black\" />\n              </motion.div>\n            ) : (\n              <motion.div\n                key=\"menu\"\n                initial={{ opacity: 0, filter: \"blur(10px)\" }}\n                animate={{ opacity: 1, filter: \"blur(0px)\" }}\n                exit={{ opacity: 0, filter: \"blur(10px)\" }}\n                transition={{ duration: isSafari ? 0 : 0.2 }}\n              >\n                <Menu className=\"w-5 h-5 text-black\" />\n              </motion.div>\n            )}\n          </AnimatePresence>\n        </motion.button>\n      </div>\n\n      <p>Open the menu in the top left corner</p>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/filter/gooey-svg-filter-menu-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

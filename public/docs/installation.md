@@ -1,0 +1,39 @@
+# Installation
+
+## Table of Contents
+
+- [Adding a component](#adding-a-component)
+  - [Manually](#manually)
+- [Notes](#notes)
+
+The components are built with React, TypeScript, Tailwind CSS, and mainly with Motion (formerly Framer Motion).
+In order to use the components, you need to install the following dependencies:
+
+```bash
+tailwindcss@latest motion
+```
+
+Or follow the [Tailwind CSS installation guide](https://tailwindcss.com/docs/installation) to setup Tailwind CSS in your project.
+
+Some components uses other libraries too, in each case, you can find the installation instructions in the component's documentation.
+
+## Adding a component
+
+You have two options to add a component to your project:
+
+1. Manually
+2. Using the CLI (coming soon)
+
+### Manually
+
+Go to any of the components you want to use and copy the source code(s) from the "code" section. 
+Make sure to update your imports accordingly.
+We will be adding a CLI soon.
+
+## Notes
+
+If you prefer javascript instead of typescript, you can easily convert the code with a tool like [this](https://transform.tools/typescript-to-javascript).
+
+---
+
+*This documentation is also available in [interactive format](https://uwuui.com/docs/components/installation).*

@@ -1,0 +1,8 @@
+{
+  "files": [
+    {
+      "path": "src/components/chunky-button.tsx",
+      "content": "\"use client\"\nimport React, { useState } from \"react\";\nimport { motion } from \"framer-motion\";\n\nexport default function ButtonBlack({ title = \"Get started\", width = 144, height = 56 }) {\n  const [isPressed, setIsPressed] = useState(false);\n\n  const buttonStyle = {\n    width,\n    height,\n    borderRadius: \"16px\",\n    backgroundColor: \"#222426\",\n    display: \"flex\",\n    alignItems: \"center\",\n    justifyContent: \"center\",\n    cursor: \"pointer\",\n    userSelect: \"none\",\n    boxShadow: isPressed\n      ? \"0px 0px 0px rgba(5,5,5,0)\"\n      : \"0px 0.7px 0.3px rgba(5,5,5,0.06), 0px 2.7px 1.1px rgba(5,5,5,0.11), 0px 12px 4.8px rgba(5,5,5,0.36)\",\n    transition: \"box-shadow 0.1s ease\",\n  };\n\n  const textStyle = {\n    color: \"#E3E3E3\",\n    fontFamily: \"'Clash Grotesk', sans-serif\",\n    fontWeight: 600,\n    fontSize: \"18px\",\n  };\n\n  return (\n    <motion.div\n      style={buttonStyle as any}\n      onTapStart={() => setIsPressed(true)}\n      onTap={() => setIsPressed(false)}\n      onTapCancel={() => setIsPressed(false)}\n      animate={{ y: isPressed ? 4 : 0 }}\n      transition={{ type: \"spring\", stiffness: 500, damping: 30 }}\n    >\n      <span style={textStyle}>{title}</span>\n    </motion.div>\n  );\n}\n"
+    }
+  ]
+}

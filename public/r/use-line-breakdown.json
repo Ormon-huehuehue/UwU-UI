@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-line-breakdown",
+  "type": "registry:hook",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "files": [
+    {
+      "path": "hooks/use-line-breakdown.ts",
+      "content": "import { RefObject, useEffect, useState } from \"react\"\n\ninterface UseLineBreakdownResult {\n  lineCount: number\n  lines: string[][]\n}\n\nexport function useLineBreakdown(\n  elementRef: RefObject<HTMLElement>,\n  text: string\n): UseLineBreakdownResult {\n  const [breakdown, setBreakdown] = useState<UseLineBreakdownResult>({\n    lineCount: 0,\n    lines: [[]],\n  })\n\n  useEffect(() => {\n    const element = elementRef.current\n    if (!element) return\n\n    const calculateLines = () => {\n      // Get basic measurements\n      const style = window.getComputedStyle(element)\n      const lineHeight = parseInt(style.lineHeight)\n      const elementHeight = element.offsetHeight\n\n      const linesCount = Math.ceil(elementHeight / lineHeight)\n\n      console.log(elementHeight / lineHeight)\n\n      // Create temporary elements to measure text\n      const tempSpan = element.appendChild(document.createElement(\"span\"))\n      tempSpan.style.visibility = \"hidden\"\n      tempSpan.style.position = \"absolute\"\n      tempSpan.style.whiteSpace = \"nowrap\"\n      element.appendChild(tempSpan)\n\n      // Split text into words\n      const words = text.split(\" \")\n      const lineGroups: string[][] = [[]]\n      let currentLine = 0\n      let previousTop = 0\n\n      // Group words into lines\n      words.forEach((word, index) => {\n        tempSpan.textContent = word\n        const rect = tempSpan.getBoundingClientRect()\n\n        if (rect.top > previousTop && index > 0) {\n          currentLine++\n          lineGroups[currentLine] = []\n          previousTop = rect.top\n        }\n\n        lineGroups[currentLine].push(word)\n      })\n\n      element.removeChild(tempSpan)\n\n      setBreakdown({\n        lineCount: lineGroups.length,\n        lines: lineGroups,\n      })\n    }\n\n    calculateLines()\n\n    const resizeObserver = new ResizeObserver(calculateLines)\n    resizeObserver.observe(element)\n\n    return () => {\n      resizeObserver.disconnect()\n    }\n  }, [elementRef, text])\n\n  return breakdown\n}\n",
+      "type": "registry:hook",
+      "target": "hooks/use-line-breakdown.ts"
+    }
+  ]
+}

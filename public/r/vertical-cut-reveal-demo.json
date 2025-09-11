@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "vertical-cut-reveal-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/vertical-cut-reveal.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/vertical-cut-reveal-demo.tsx",
+      "content": "import VerticalCutReveal from \"@/fancy/components/text/vertical-cut-reveal\"\n\nexport default function Preview() {\n  return (\n    <div className=\"w-dvw h-dvh xs:text-2xl bg-white text-2xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl flex flex-col items-start justify-center font-overused-grotesk p-10 md:p-16 lg:p-24 text-[#0015ff] tracking-wide uppercase\">\n      <VerticalCutReveal\n        splitBy=\"characters\"\n        staggerDuration={0.025}\n        staggerFrom=\"first\"\n        transition={{\n          type: \"spring\",\n          stiffness: 200,\n          damping: 21,\n        }}\n      >\n        {`HI 👋, FRIEND!`}\n      </VerticalCutReveal>\n      <VerticalCutReveal\n        splitBy=\"characters\"\n        staggerDuration={0.025}\n        staggerFrom=\"last\"\n        reverse={true}\n        transition={{\n          type: \"spring\",\n          stiffness: 200,\n          damping: 21,\n          delay: 0.5,\n        }}\n      >\n        {`🌤️ IT IS NICE ⇗ TO`}\n      </VerticalCutReveal>\n      <VerticalCutReveal\n        splitBy=\"characters\"\n        staggerDuration={0.025}\n        staggerFrom=\"center\"\n        transition={{\n          type: \"spring\",\n          stiffness: 200,\n          damping: 21,\n          delay: 1.1,\n        }}\n      >\n        {`MEET 😊 YOU.`}\n      </VerticalCutReveal>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/vertical-cut-reveal-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

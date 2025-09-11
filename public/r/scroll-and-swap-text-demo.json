@@ -1,0 +1,43 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-and-swap-text-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "lenis"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/scroll-and-swap-text.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/scroll-and-swap-text-demo.tsx",
+      "content": "\"use client\"\n\nimport { useEffect, useRef } from \"react\"\nimport Lenis from \"lenis\"\n\nimport ScrollAndSwapText from \"@/fancy/components/text/scroll-and-swap-text\"\n\n// Generate an array of imaginary names\nconst names = [\n  \"Alexandra Rodriguez\",\n  \"Benjamin Chen\",\n  \"Catherine Williams\",\n  \"David Martinez\",\n  \"Elena Petrov\",\n  \"Francesco Rossi\",\n  \"Gabriela Santos\",\n  \"Henrik Larsson\",\n  \"Isabella Thompson\",\n  \"James Anderson\",\n  \"Katarina Novak\",\n  \"Leonardo Silva\",\n  \"Maria Gonzalez\",\n  \"Nikolai Volkov\",\n  \"Olivia Johnson\",\n  \"Pablo Hernandez\",\n  \"Qiana Washington\",\n  \"Ricardo Lopez\",\n  \"Sophia Kim\",\n  \"Thomas Mueller\",\n  \"Ursula Schmidt\",\n  \"Viktor Petersen\",\n  \"Wen Li\",\n  \"Xavier Dubois\",\n  \"Yasmin Hassan\",\n  \"Zachary Brown\",\n  \"Amelia Davis\",\n  \"Bruno Costa\",\n  \"Clara Johansson\",\n  \"Diego Morales\",\n  \"Evelyn Taylor\",\n  \"Felix Wagner\",\n  \"Grace Wilson\",\n  \"Hugo Andersen\",\n  \"Iris Nakamura\",\n  \"Julian Beck\",\n  \"Kira Popovic\",\n  \"Lucas Garcia\",\n  \"Maya Patel\",\n  \"Nathan Clark\",\n  \"Ophelia Martin\",\n  \"Pietro Romano\",\n  \"Quinn O'Brien\",\n  \"Rosa Fernandez\",\n  \"Sebastian Lee\",\n  \"Tara Mitchell\",\n  \"Ulrich Weber\",\n  \"Valentina Rosso\",\n  \"William Jones\",\n  \"Xiomara Reyes\",\n  \"Yuki Tanaka\",\n  \"Zara Ahmed\",\n  \"Andre Leclerc\",\n  \"Beatrice Hall\",\n  \"Carlos Mendoza\",\n  \"Delphine Moreau\",\n  \"Emilio Bianchi\",\n  \"Fiona Murphy\",\n  \"Giovanni Conti\",\n  \"Helena Svensson\",\n  \"Ivan Dimitrov\",\n  \"Jasmine Green\",\n  \"Kai Nielsen\",\n  \"Luna Torres\",\n  \"Marco Esposito\",\n  \"Nadia Kozlov\",\n  \"Oscar Lindberg\",\n  \"Penelope White\",\n  \"Quincy Adams\",\n  \"Rafael Vargas\",\n  \"Stella Jackson\",\n  \"Theo Van Der Berg\",\n  \"Uma Sharma\",\n  \"Vincenzo Ferrari\",\n  \"Willow Parker\",\n  \"Ximena Castillo\",\n  \"Yolanda King\",\n  \"Zander Cooper\",\n  \"Aria Blackwood\",\n  \"Bastien Dubois\",\n  \"Camille Laurent\",\n  \"Dante Ricci\",\n  \"Estelle Moreau\",\n  \"Fabio Santos\",\n  \"Gemma Wright\",\n  \"Hector Vega\",\n  \"Ingrid Hansen\",\n  \"Javier Ruiz\",\n  \"Kaia Storm\",\n  \"Liam O'Connor\",\n  \"Mila Petrov\",\n  \"Noah Fischer\",\n  \"Octavia Bell\",\n  \"Phoenix Rivera\",\n  \"Quentin Gray\",\n  \"Ruby Anderson\",\n  \"Sage Thompson\",\n  \"Tobias Klein\",\n  \"Unity Cross\",\n  \"Vera Kozlova\",\n  \"Wade Turner\",\n  \"Xara Moon\",\n  \"York Sterling\",\n  \"Zoe Martinez\",\n  \"Atlas Kane\",\n  \"Brielle Fox\",\n  \"Caspian Reed\",\n  \"Dara Singh\",\n  \"Eden Blake\",\n  \"Falcon Knight\",\n  \"Gaia Stone\",\n  \"Harbor Wells\",\n  \"Indigo Vale\",\n  \"Juno Pierce\",\n  \"Knox Rivers\",\n]\n\nexport default function Preview() {\n  const containerRef = useRef<HTMLDivElement>(null)\n\n  useEffect(() => {\n    if (!containerRef.current) return\n\n    const lenis = new Lenis({\n      autoRaf: true,\n      wrapper: containerRef.current,\n      duration: 3,\n      orientation: \"vertical\",\n      gestureOrientation: \"vertical\",\n      smoothWheel: true,\n      touchMultiplier: 2,\n    })\n\n    return () => {\n      lenis.destroy()\n    }\n  }, [])\n\n  return (\n    <div\n      className=\"w-dvw h-dvh rounded-lg items-center justify-start font-overused-grotesk p-4 overflow-auto overscroll-auto bg-blue-500 text-white relative\"\n      ref={containerRef}\n    >\n      <div className=\"min-h-[200vh] flex justify-center items-start pt-96 uppercase relative\">\n        <p className=\"absolute top-4 left-4 font-bold text-xl\">\n          SCROLL SLOWLY\n        </p>\n        <div className=\"flex md:text-4xl sm:text-2xl text-3xl lg:text-4xl xl:text-5xl justify-center items-center flex-col leading-none -space-y-0\">\n          {names.map((name, index) => (\n            <ScrollAndSwapText\n              key={index}\n              offset={[`0 0.2`, `0 0.8`]}\n              className=\"font-bold leading-tighter\"\n              containerRef={containerRef}\n            >\n              {name}\n            </ScrollAndSwapText>\n          ))}\n        </div>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/scroll-and-swap-text-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pixel-trail-custom-pixel-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/pixel-trail.json",
+    "https://uwuui.com/r/use-screen-size.json"
+  ],
+  "files": [
+    {
+      "path": "examples/background/pixel-trail-custom-pixel-demo.tsx",
+      "content": "import useScreenSize from \"@/hooks/use-screen-size\"\nimport PixelTrail from \"@/fancy/components/background/pixel-trail\"\n\nconst PixelTrailDemo: React.FC = () => {\n  const screenSize = useScreenSize()\n\n  return (\n    <div className=\"relative w-dvw h-dvh bg-white text-black flex flex-col font-calendas\">\n      <div className=\"absolute inset-0 z-0\">\n        <PixelTrail\n          pixelSize={screenSize.lessThan(`md`) ? 14 : 20}\n          fadeDuration={0}\n          delay={600}\n          pixelClassName=\"rounded-full bg-\"\n        />\n      </div>\n\n      <div className=\"justify-center items-center flex flex-col w-full h-full z-10 pointer-events-none space-y-2 md:space-y-4\">\n        <h2 className=\"text-xl cursor-pointer sm:text-3xl md:text-5xl tracking-tight\">\n          fancy ✽ components{\" \"}\n        </h2>\n        <p className=\"text-xs md:text-lg font-overused-grotesk\">\n          with react, motion, and typrscript.\n        </p>\n      </div>\n    </div>\n  )\n}\n\nexport default PixelTrailDemo\n",
+      "type": "registry:block",
+      "target": "components/fancy/background/pixel-trail-custom-pixel-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "drag-elements-momentum-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/drag-elements.json"
+  ],
+  "files": [
+    {
+      "path": "examples/blocks/drag-elements-momentum-demo.tsx",
+      "content": "import React from \"react\"\n\nimport DragElements from \"@/fancy/components/blocks/drag-elements\"\n\nconst DragElementsDemo: React.FC = () => {\n  return (\n    <div className=\"w-dvw h-dvh relative bg-[#1f464d] text-[#1f464d] overflow-hidden\">\n      <DragElements dragMomentum={true} className=\"p-30 md:p-40\">\n        <div className=\"text-2xl md:text-6xl px-6 py-3 md:px-8 md:py-4 rounded-full bg-[#e794da] shadow-lg rotate-[-2deg] justify-center items-center\">\n          super fun ✿\n        </div>\n        <div className=\"text-2xl md:text-6xl px-6 py-3 md:px-8 md:py-4 rounded-full bg-[#e794da] shadow-lg rotate-[2deg] justify-center items-center\">\n          funky time! ✴\n        </div>\n        <div className=\"text-2xl md:text-6xl px-6 py-3 md:px-8 md:py-4 rounded-full bg-[#e794da] shadow-lg rotate-[-4deg] justify-center items-center\">\n          awesome ✺\n        </div>\n      </DragElements>\n    </div>\n  )\n}\n\nexport default DragElementsDemo\n",
+      "type": "registry:block",
+      "target": "components/fancy/blocks/drag-elements-momentum-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

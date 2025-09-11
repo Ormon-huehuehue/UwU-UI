@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "letter-3d-swap-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/letter-3d-swap.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/letter-3d-swap-demo.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\nimport Letter3DSwap from \"@/fancy/components/text/letter-3d-swap\"\n\nexport default function Preview() {\n  const [debug, setDebug] = useState(false)\n\n  return (\n    <div className=\"relative w-dvw h-dvh flex flex-col items-center justify-center p-8 bg-background\">\n      {/* <button\n        className=\"absolute top-4 left-4 px-2 py-1 bg-background text-foreground rounded-md border text-[8px] cursor-pointer hover:bg-muted\"\n        onClick={() => setDebug(!debug)}\n      >\n        Debug: {debug ? \"On\" : \"Off\"}\n      </button> */}\n      <div className=\"flex flex-col items-center max-w-2xl font-cotham\">\n        <Letter3DSwap \n          mainClassName=\"text-2xl sm:text-5xl md:text-7xl bg-background lowercase\"\n          frontFaceClassName={`bg-background ${debug ? 'border' : ''} text-foreground`}\n          secondFaceClassName={`bg-background ${debug ? 'border' : ''} text-foreground`}\n          rotateDirection=\"top\"\n          staggerDuration={0.03}\n          staggerFrom=\"first\"\n          transition={{ type: \"spring\", damping: 25, stiffness: debug ? 50 : 160 }}\n        >\n          SET YOUR MIND TO IT\n        </Letter3DSwap>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/letter-3d-swap-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scramble-hover-sequential-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/scramble-hover.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/scramble-hover-sequential-demo.tsx",
+      "content": "import ScrambleHover from \"@/fancy/components/text/scramble-hover\"\n\nexport default function Preview() {\n  return (\n    <div className=\"w-dvw h-dvh text-sm sm:text-xl md:text-2xl justify-center items-center font-normal text-light overflow-hidden p-12 sm:p-20 flex flex-col md:p-24 space-y-20 bg-black text-white\">\n      <div className=\"text-left w-full\">\n        <ScrambleHover\n          text={\"from the start\"}\n          scrambleSpeed={40}\n          sequential={true}\n          revealDirection=\"start\"\n          useOriginalCharsOnly={false}\n          className=\"font-azeret-mono\"\n          characters=\"abcdefghijklmnopqrstuvwxyz!@#$%^&*()_+-=[]{}|;':\\,./<>?\"\n        />\n      </div>\n      <div className=\"text-center w-full\">\n        <ScrambleHover\n          text={\"from the center\"}\n          scrambleSpeed={40}\n          sequential={true}\n          revealDirection=\"center\"\n          useOriginalCharsOnly={false}\n          className=\"font-azeret-mono\"\n          characters=\"abcdefghijklmnopqrstuvwxyz!@#$%^&*()_+-=[]{}|;':\\,./<>?\"\n        />\n      </div>\n      <div className=\"text-right w-full\">\n        <ScrambleHover\n          text={\"from the end\"}\n          scrambleSpeed={40}\n          sequential={true}\n          revealDirection=\"end\"\n          useOriginalCharsOnly={false}\n          className=\"font-azeret-mono\"\n          characters=\"abcdefghijklmnopqrstuvwxyz!@#$%^&*()_+-=[]{}|;':\\,./<>?\"\n        />\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/scramble-hover-sequential-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

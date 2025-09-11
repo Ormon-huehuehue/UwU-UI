@@ -1,0 +1,44 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "box-carousel-video-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "motion"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/box-carousel.json",
+    "https://uwuui.com/r/use-screen-size.json"
+  ],
+  "files": [
+    {
+      "path": "examples/carousel/box-carousel-video-demo.tsx",
+      "content": "\"use client\"\n\nimport { useRef, useState } from \"react\"\nimport { AnimatePresence, motion } from \"motion/react\"\n\nimport BoxCarousel, {\n  type BoxCarouselRef,\n  type CarouselItem,\n} from \"@/fancy/components/carousel/box-carousel\"\nimport useScreenSize from \"@/hooks/use-screen-size\"\n\n// Sample carousel items with mix of images and videos\nconst carouselItems: CarouselItem[] = [\n  {\n    id: \"1\",\n    type: \"video\",\n    src: \"https://cdn.cosmos.so/3fe9c8a8-b562-4090-a5ac-5bbdf655a938.mp4\",\n    alt: \"@portalsandpaths\",\n  },\n  {\n    id: \"2\",\n    type: \"video\",\n    src: \"https://cdn.cosmos.so/594e87df-e8ca-4d03-8137-f78b5dab6793.mp4\",\n    alt: \"@studio.size\",\n  },\n  {\n    id: \"3\",\n    type: \"image\",\n    src: \"https://cdn.cosmos.so/92162e2e-abf6-4b98-a557-bfe25a336608?format=jpeg\",\n    alt: \"@david_wise\",\n  },\n  {\n    id: \"4\",\n    type: \"video\",\n    src: \"https://cdn.cosmos.so/aae0a1e6-d03d-43ae-aa7f-21627a950730.mp4\",\n    alt: \"@svenvranjes\",\n  },\n  {\n    id: \"5\",\n    type: \"image\",\n    src: \"https://cdn.cosmos.so/7a5f1a73-ca73-466b-afaf-2b3d0639aa1a?format=jpeg\",\n    alt: \"@deconstructie\",\n  },\n]\n\nexport default function BoxCarouselDemo() {\n  const carouselRef = useRef<BoxCarouselRef>(null)\n  const [currentIndex, setCurrentIndex] = useState(0)\n  const screenSize = useScreenSize()\n\n  // Responsive dimensions based on screen size\n  const getCarouselDimensions = () => {\n    if (screenSize.lessThan(\"md\")) {\n      return { width: 200, height: 150 }\n    }\n    return { width: 350, height: 250 }\n  }\n\n  const { width, height } = getCarouselDimensions()\n\n  const handleIndexChange = (index: number) => {\n    setCurrentIndex(index)\n  }\n\n  return (\n    <div className=\"w-full max-w-4xl h-full p-6 flex justify-items-center justify-center items-center text-muted-foreground bg-[#fefefe]\">\n\n\n      <div className=\"space-y-20\">\n        <div className=\"flex justify-center\">\n          <BoxCarousel\n            ref={carouselRef}\n            items={carouselItems}\n            width={width}\n            height={height}\n            direction=\"right\"\n            onIndexChange={handleIndexChange}\n            enableDrag\n            perspective={1000}\n          />\n        </div>\n\n        <div className=\"flex gap-2 justify-center w-full items-start\">\n          <AnimatePresence mode=\"popLayout\">\n            <motion.span\n              key={currentIndex}\n              layoutId=\"id\"\n              layout\n              initial={{ opacity: 0, y: 0 }}\n              animate={{ opacity: 1, y: 0 }}\n              exit={{ opacity: 0, y: 0 }}\n              transition={{ duration: 0.2, ease: \"easeOut\" }}\n              className=\"px-3 py-1.5 text-sm w-autp bg-gray-200 text-black rounded-xl\"\n            >\n              {carouselItems[currentIndex]?.alt}\n            </motion.span>\n          </AnimatePresence>\n        </div>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/carousel/box-carousel-video-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

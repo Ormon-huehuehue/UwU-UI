@@ -1,0 +1,45 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "css-box-scroll-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "motion"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/css-box.json",
+    "https://uwuui.com/r/utils.json",
+    "https://uwuui.com/r/use-screen-size.json"
+  ],
+  "files": [
+    {
+      "path": "examples/blocks/css-box-scroll-demo.tsx",
+      "content": "import { useRef } from \"react\"\nimport { useScroll, useTransform } from \"motion/react\"\n\nimport { cn } from \"@/lib/utils\"\nimport useScreenSize from \"@/hooks/use-screen-size\"\nimport CSSBox, { CSSBoxRef } from \"@/fancy/components/blocks/css-box\"\n\nconst BoxFace = ({\n  imageUrl,\n  className,\n}: {\n  imageUrl: string\n  className?: string\n}) => (\n  <div className={cn(\"w-full h-full relative\", className)}>\n    <img src={imageUrl} alt=\"\" className=\"w-full h-full object-cover\" />\n    <div\n      className=\"absolute inset-0\"\n      style={{\n        maskImage: \"linear-gradient(to top, white 20%, transparent 100%)\",\n        WebkitMaskImage: \"linear-gradient(to top, white 20%, transparent 100%)\",\n        backgroundColor: \"rgba(255,255,255,0.4)\",\n        backdropFilter: \"blur(8px)\",\n      }}\n    >\n      <div className=\"absolute bottom-0 w-full flex flex-col items-start justify-end pb-3\">\n        <div className=\"flex w-full justify-between px-2 items-end\">\n          <div className=\"text-[8px] font-black pb-1\">JUN14</div>\n          <div className=\"text-3xl md:text-5xl font-black px-2\">\n            New Arrivals\n          </div>\n          <div className=\"text-lg md:text-xl font-medium\">SS25</div>\n        </div>\n      </div>\n    </div>\n  </div>\n)\n\nexport default function CSSBoxScrollDemo() {\n  const boxRef = useRef<CSSBoxRef>(null)\n  const containerRef = useRef<HTMLDivElement>(null)\n  const screenSize = useScreenSize()\n\n  const { scrollYProgress } = useScroll({\n    container: containerRef,\n  })\n\n  // Transform scroll progress (0-1) to rotation (0-360)\n  const rotation = useTransform(scrollYProgress, [0, 1], [0, 360])\n\n  // Update box rotation when scroll transform changes\n  rotation.on(\"change\", (latest) => {\n    boxRef.current?.rotateTo(0, latest)\n  })\n\n  const imageUrl =\n    \"https://cdn.cosmos.so/276cdd4e-8a7a-4c32-955f-83c5900a0926?format=jpeg\"\n\n  const boxWidth = screenSize.lessThan(\"md\") ? 220 : 300\n  const boxHeight = screenSize.lessThan(\"md\") ? 300 : 400\n  const boxDepth = screenSize.lessThan(\"md\") ? 220 : 300\n\n  return (\n    <div\n      ref={containerRef}\n      className=\"relative w-dvw h-dvh overflow-y-auto bg-[#fefefe] flex\"\n    >\n      <div className=\"h-[400%] flex w-full items-start justify-center absolute\">\n        <div className=\"sticky py-28 md:py-16 top-0 left-0 px-6 md:px-12\">\n          <CSSBox\n            ref={boxRef}\n            width={boxWidth}\n            height={boxHeight}\n            depth={boxDepth}\n            perspective={2000}\n            draggable={false}\n            faces={{\n              front: <BoxFace imageUrl={imageUrl} />,\n              back: <BoxFace imageUrl={imageUrl} />,\n              left: <BoxFace imageUrl={imageUrl} />,\n              right: <BoxFace imageUrl={imageUrl} />,\n            }}\n          />\n        </div>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/blocks/css-box-scroll-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

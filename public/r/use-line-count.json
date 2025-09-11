@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-line-count",
+  "type": "registry:hook",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "files": [
+    {
+      "path": "hooks/use-line-count.ts",
+      "content": "import { useEffect, useState } from \"react\"\n\nexport function useLineCount(element: HTMLElement) {\n  const [lineCount, setLineCount] = useState(0)\n\n  useEffect(() => {\n    const calculateLines = () => {\n      if (!element) return\n      const elementHeight = element.offsetHeight\n      const style = window.getComputedStyle(element)\n      const lineHeight = parseInt(style.lineHeight)\n      const lines = Math.floor(elementHeight / lineHeight)\n      setLineCount(lines)\n    }\n\n    calculateLines()\n\n    const resizeObserver = new ResizeObserver(calculateLines)\n    resizeObserver.observe(element)\n\n    return () => {\n      resizeObserver.disconnect()\n    }\n  }, [element])\n\n  return lineCount\n}\n",
+      "type": "registry:hook",
+      "target": "hooks/use-line-count.ts"
+    }
+  ]
+}

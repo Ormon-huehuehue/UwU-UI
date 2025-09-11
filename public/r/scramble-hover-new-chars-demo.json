@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scramble-hover-new-chars-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/scramble-hover.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/scramble-hover-new-chars-demo.tsx",
+      "content": "import ScrambleHover from \"@/fancy/components/text/scramble-hover\"\n\nexport default function Preview() {\n  return (\n    <div className=\"w-dvw h-dvh  text-xl sm:text-3xl md:text-5xl bg-white text-foreground dark:text-muted font-normal overflow-hidden p-12 sm:p-20 flex flex-col md:p-24 space-y-2 space-x-6\">\n      <ScrambleHover\n        text={\"original characters\"}\n        scrambleSpeed={50}\n        maxIterations={8}\n        useOriginalCharsOnly={true}\n        className=\"cursor-pointer\"\n      />\n      <ScrambleHover\n        text={\"new characters\"}\n        scrambleSpeed={50}\n        maxIterations={8}\n        useOriginalCharsOnly={false}\n        className=\"cursor-pointer\"\n        characters=\"abcdefghijklmnopqrstuvwxyz!@#$%^&*()_+-=[]{}|;':\\,./<>?\"\n      />\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/scramble-hover-new-chars-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

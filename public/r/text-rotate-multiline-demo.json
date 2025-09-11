@@ -1,0 +1,43 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-rotate-multiline-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "motion"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/text-rotate.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/text-rotate-multiline-demo.tsx",
+      "content": "\"use client\"\n\nimport { LayoutGroup, motion } from \"motion/react\"\n\nimport TextRotate from \"@/fancy/components/text/text-rotate\"\n\nexport default function Preview() {\n  return (\n    <div className=\"w-dvw h-dvh flex flex-col items-start font-overused-grotesk  font-light overflow-hidden p-8 pt-20 sm:pt-16 sm:p-16 md:p-20 bg-white text-base sm:text-xl md:text-2xl leading-tight dark:text-muted text-foreground\">\n      <LayoutGroup>\n        <TextRotate\n          texts={[\n            \"A typeface family is an accomplishment on the order of a novel, a feature film screenplay, a computer language design and implementation, a major musical composition, a monumental sculpture, or other artistic or technical endeavors that consume a year or more of intensive creative effort.\",\n            \"Typography is two-dimensional architecture, based on experience and imagination, and guided by rules and readability. And this is the purpose of typography: The arrangement of design elements within a given structure should allow the reader to easily focus on the message, without slowing down the speed of his reading.\",\n          ]}\n          staggerFrom={\"first\"}\n          staggerDuration={0.01}\n          initial={{ opacity: 0, x: 10 }}\n          animate={{ opacity: 1, x: 0 }}\n          exit={{ opacity: 0, x: -10 }}\n          transition={{ type: \"spring\", damping: 30, stiffness: 400 }}\n          rotationInterval={4000}\n          splitBy=\"words\"\n        />\n        <motion.div\n          className=\"bg-[#ff5941] w-2 h-2 sm:w-3 sm:h-3 rounded-full my-6\"\n          layout\n        />\n        <TextRotate\n          texts={[\"Charles Bigelow\", \"Hermann Zapf\"]}\n          staggerFrom={\"first\"}\n          staggerDuration={0.025}\n          initial={{ opacity: 0, x: 10 }}\n          animate={{ opacity: 1, x: 0 }}\n          exit={{ opacity: 0, x: -10 }}\n          transition={{ type: \"spring\", damping: 30, stiffness: 400 }}\n          rotationInterval={4000}\n          splitBy=\"characters\"\n        />\n      </LayoutGroup>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/text-rotate-multiline-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

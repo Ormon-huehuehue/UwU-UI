@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "variable-font-hover-by-random-letter-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/variable-font-hover-by-random-letter.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/variable-font-hover-by-random-letter-demo.tsx",
+      "content": "import VariableFontHoverByRandomLetter from \"@/fancy/components/text/variable-font-hover-by-random-letter\"\n\nexport default function Preview() {\n  return (\n    <div className=\"w-dvw h-dvh rounded-lg items-center justify-center font-overused-grotesk p-24 bg-linear-to-br text-[#1f464d] bg-white \">\n      <div className=\"w-full h-full items-center justify-center flex\">\n        <VariableFontHoverByRandomLetter\n          label=\"Let's Go!\"\n          staggerDuration={0.03}\n          className=\"rounded-full items-center flex justify-center cursor-pointer px-8 py-5 align-text-top text-4xl sm:text-5xl md:text-7xl\"\n          fromFontVariationSettings=\"'wght' 400, 'slnt' 0\"\n          toFontVariationSettings=\"'wght' 900, 'slnt' 0\"\n        />\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/variable-font-hover-by-random-letter-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

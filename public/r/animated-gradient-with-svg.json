@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animated-gradient-with-svg",
+  "type": "registry:ui",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/utils.json",
+    "https://uwuui.com/r/use-debounced-dimensions.json"
+  ],
+  "cssVars": {
+    "@theme inline": {
+      "--animate-background-gradient": "background-gradient",
+      "@keyframes background-gradient": {
+        "0%, 100%": {
+          "transform": "translate(0, 0)",
+          "animationDelay": "var(--background-gradient-delay, 0s)"
+        },
+        "20%": {
+          "transform": "translate(calc(100% * var(--tx-1, 1)), calc(100% * var(--ty-1, 1)))"
+        },
+        "40%": {
+          "transform": "translate(calc(100% * var(--tx-2, -1)), calc(100% * var(--ty-2, 1)))"
+        },
+        "60%": {
+          "transform": "translate(calc(100% * var(--tx-3, 1)), calc(100% * var(--ty-3, -1)))"
+        },
+        "80%": {
+          "transform": "translate(calc(100% * var(--tx-4, -1)), calc(100% * var(--ty-4, -1)))"
+        }
+      }
+    }
+  },
+  "files": [
+    {
+      "path": "fancy/background/animated-gradient-with-svg.tsx",
+      "content": "\"use client\"\n\nimport React, { useMemo, useRef } from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { useDimensions } from \"@/hooks/use-debounced-dimensions\"\n\ninterface AnimatedGradientProps {\n  colors: string[]\n  speed?: number\n  blur?: \"light\" | \"medium\" | \"heavy\"\n}\n\nconst randomInt = (min: number, max: number) => {\n  return Math.floor(Math.random() * (max - min + 1)) + min\n}\n\nconst AnimatedGradient: React.FC<AnimatedGradientProps> = ({\n  colors,\n  speed = 5,\n  blur = \"light\",\n}) => {\n  const containerRef = useRef<HTMLDivElement>(null)\n  const dimensions = useDimensions(containerRef)\n\n  const circleSize = useMemo(\n    () => Math.max(dimensions.width, dimensions.height),\n    [dimensions.width, dimensions.height]\n  )\n\n  const blurClass =\n    blur === \"light\"\n      ? \"blur-2xl\"\n      : blur === \"medium\"\n        ? \"blur-3xl\"\n        : \"blur-[100px]\"\n\n  return (\n    <div ref={containerRef} className=\"absolute inset-0 overflow-hidden\">\n      <div className={cn(`absolute inset-0`, blurClass)}>\n        {colors.map((color, index) => {\n          const animationProps = {\n            animation: `background-gradient ${speed}s infinite ease-in-out`,\n            animationDuration: `${speed}s`,\n            top: `${Math.random() * 50}%`,\n            left: `${Math.random() * 50}%`,\n            \"--tx-1\": Math.random() - 0.5,\n            \"--ty-1\": Math.random() - 0.5,\n            \"--tx-2\": Math.random() - 0.5,\n            \"--ty-2\": Math.random() - 0.5,\n            \"--tx-3\": Math.random() - 0.5,\n            \"--ty-3\": Math.random() - 0.5,\n            \"--tx-4\": Math.random() - 0.5,\n            \"--ty-4\": Math.random() - 0.5,\n          } as React.CSSProperties\n\n          return (\n            <svg\n              key={index}\n              className={cn(\"absolute\", \"animate-background-gradient\")}\n              width={circleSize * randomInt(0.5, 1.5)}\n              height={circleSize * randomInt(0.5, 1.5)}\n              viewBox=\"0 0 100 100\"\n              style={animationProps}\n            >\n              <circle cx=\"50\" cy=\"50\" r=\"50\" fill={color} />\n            </svg>\n          )\n        })}\n      </div>\n    </div>\n  )\n}\n\nexport default AnimatedGradient\n",
+      "type": "registry:ui",
+      "target": "components/fancy/background/animated-gradient-with-svg.tsx"
+    }
+  ]
+}

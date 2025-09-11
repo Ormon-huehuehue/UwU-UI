@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-along-path-auto-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/text-along-path.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/text-along-path-auto-demo.tsx",
+      "content": "import React, { useRef } from \"react\"\n\nimport AnimatedPathText from \"@/fancy/components/text/text-along-path\"\n\nexport default function TextAlongPathAutoDemo() {\n  const containerRef = useRef<HTMLDivElement>(null)\n\n  const paths = [\n    \"M1 248C214 -47 582 158 679 -39\",\n    \"M1 208C214 -87 582 118 679 -79\",\n    \"M1 168C214 -127 582 78 679 -119\",\n  ]\n\n  const texts = [\n    `PARIS • LONDON • BERLIN • ROME • BARCELONA • MADRID • VIENNA • PRAGUE • AMSTERDAM • STOCKHOLM`,\n    `BUDAPEST • COPENHAGEN • OSLO • HELSINKI • MILAN • MUNICH • VENICE • MADRID • VIENNA • PRAGUE`,\n    `PARIS • BERLIN • ROME • BARCELONA • MADRID • VIENNA • PRAGUE • AMSTERDAM`,\n  ]\n\n  return (\n    <div\n      className=\"w-dvw h-dvh overflow-hidden relative bg-white\"\n      ref={containerRef}\n    >\n      <div className=\"absolute w-full h-full flex flex-col\">\n        {paths.map((path, i) => (\n          <AnimatedPathText\n            key={`auto-path-${i}`}\n            path={path}\n            pathId={`auto-path-${i}`}\n            svgClassName={`absolute -left-[100px] top-1/3 w-[calc(100%+200px)] h-full`}\n            viewBox=\"0 0 680 250\"\n            text={texts[i]}\n            textClassName={`text font-thin text-gray-800`}\n            animationType=\"auto\"\n            duration={i * 0.5 + 5}\n            textAnchor=\"start\"\n          />\n        ))}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/text-along-path-auto-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

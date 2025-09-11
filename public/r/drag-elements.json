@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "drag-elements",
+  "type": "registry:ui",
+  "dependencies": [
+    "motion"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "files": [
+    {
+      "path": "fancy/blocks/drag-elements.tsx",
+      "content": "\"use client\"\n\nimport React, { useEffect, useRef, useState } from \"react\"\nimport { InertiaOptions, motion } from \"motion/react\"\n\ntype DragElementsProps = {\n  children: React.ReactNode\n  dragElastic?:\n    | number\n    | { top?: number; left?: number; right?: number; bottom?: number }\n    | boolean\n  dragConstraints?:\n    | { top?: number; left?: number; right?: number; bottom?: number }\n    | React.RefObject<Element>\n  dragMomentum?: boolean\n  dragTransition?: InertiaOptions\n  dragPropagation?: boolean\n  selectedOnTop?: boolean\n  className?: string\n}\n\nconst DragElements: React.FC<DragElementsProps> = ({\n  children,\n  dragElastic = 0.5,\n  dragConstraints,\n  dragMomentum = true,\n  dragTransition = { bounceStiffness: 200, bounceDamping: 300 },\n  dragPropagation = true,\n  selectedOnTop = true,\n  className,\n}) => {\n  const constraintsRef = useRef<HTMLDivElement>(null)\n  const [zIndices, setZIndices] = useState<number[]>([])\n\n  const [isDragging, setIsDragging] = useState(false)\n\n  useEffect(() => {\n    setZIndices(\n      Array.from({ length: React.Children.count(children) }, (_, i) => i)\n    )\n  }, [children])\n\n  const bringToFront = (index: number) => {\n    if (selectedOnTop) {\n      setZIndices((prevIndices) => {\n        const newIndices = [...prevIndices]\n        const currentIndex = newIndices.indexOf(index)\n        newIndices.splice(currentIndex, 1)\n        newIndices.push(index)\n        return newIndices\n      })\n    }\n  }\n\n  return (\n    <div ref={constraintsRef} className={`relative w-full h-full ${className}`}>\n      {React.Children.map(children, (child, index) => (\n        <motion.div\n          key={index}\n          drag\n          dragElastic={dragElastic}\n          dragConstraints={dragConstraints || constraintsRef}\n          dragMomentum={dragMomentum}\n          dragTransition={dragTransition}\n          dragPropagation={dragPropagation}\n          style={{\n            zIndex: zIndices.indexOf(index),\n\n            cursor: isDragging ? \"grabbing\" : \"grab\",\n          }}\n          onDragStart={() => {\n            bringToFront(index)\n            setIsDragging(true)\n          }}\n          onDragEnd={() => setIsDragging(false)}\n          whileDrag={{ cursor: \"grabbing\" }}\n          className={\"absolute\"}\n        >\n          {child}\n        </motion.div>\n      ))}\n    </div>\n  )\n}\n\nexport default DragElements\n",
+      "type": "registry:ui",
+      "target": "components/fancy/blocks/drag-elements.tsx"
+    }
+  ]
+}

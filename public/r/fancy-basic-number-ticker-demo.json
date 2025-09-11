@@ -1,0 +1,44 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "fancy-basic-number-ticker-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react",
+    "motion"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/basic-number-ticker.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/fancy-basic-number-ticker-demo.tsx",
+      "content": "\"use client\"\n\nimport { useEffect, useRef } from \"react\"\nimport {\n  Activity,\n  ArrowDownRight,\n  DollarSign,\n  LucideIcon,\n  TrendingUp,\n  Zap,\n} from \"lucide-react\"\nimport { motion, useInView } from \"motion/react\"\n\nimport NumberTicker, {\n  NumberTickerRef,\n} from \"@/fancy/components/text/basic-number-ticker\"\n\nconst cards = [\n  {\n    title: \"Revenue\",\n    icon: DollarSign,\n    from: 0,\n    target: 1250321,\n    prefix: \"$\",\n    suffix: \"\",\n    gradient: \"from-gray-100 to-blue-400\",\n    size: \"large\",\n  },\n  {\n    title: \"Conversion Rate\",\n    icon: TrendingUp,\n    from: 0,\n    target: 12.5,\n    prefix: \"\",\n    suffix: \"%\",\n    gradient: \"from-gray-100 to-purple-200\",\n    size: \"small\",\n  },\n  {\n    title: \"Bounce Rate\",\n    icon: ArrowDownRight,\n    from: 100,\n    target: 35.8,\n    prefix: \"\",\n    suffix: \"%\",\n    gradient: \"from-gray-100 to-orange-200\",\n    size: \"small\",\n  },\n  {\n    title: \"Avg. Session Duration\",\n    icon: Zap,\n    from: 0,\n    target: 245,\n    prefix: \"\",\n    suffix: \"s\",\n    gradient: \"from-gray-100 to-purple-200\",\n    size: \"small\",\n  },\n  {\n    title: \"New Users\",\n    icon: TrendingUp,\n    from: 0,\n    target: 15420,\n    prefix: \"\",\n    suffix: \"\",\n    gradient: \"from-gray-100 to-orange-200\",\n    size: \"small\",\n  },\n  {\n    title: \"Active Users\",\n    icon: Activity,\n    from: 0,\n    target: 8750,\n    prefix: \"\",\n    suffix: \"\",\n    gradient: \"from-gray-100 to-blue-200\",\n    size: \"small\",\n  },\n]\n\ninterface CardProps {\n  title: string\n  icon: LucideIcon\n  from: number\n  target: number\n  prefix: string\n  suffix: string\n  gradient: string\n  size: string\n}\n\nconst Card = ({ card, index }: { card: CardProps; index: number }) => {\n  const cardRef = useRef<HTMLDivElement>(null)\n  const tickerRef = useRef<NumberTickerRef>(null)\n  const inView = useInView(cardRef, { once: false })\n\n  useEffect(() => {\n    if (inView) {\n      tickerRef.current?.startAnimation()\n    }\n  }, [inView])\n\n  return (\n    <motion.div\n      ref={cardRef}\n      initial={{ opacity: 0, y: 10 }}\n      animate={{ opacity: 1, y: 0 }}\n      transition={{ duration: 0.5, delay: index * 0.1 }}\n      className={`p-6 bg-linear-to-b from-50% to-130% flex justify-between flex-col text-foreground dark:text-muted ${\n        card.gradient\n      } ${card.size === \"large\" ? \"col-span-2 row-span-2\" : \"\"}`}\n    >\n      <div className=\"flex justify-between items-center mb-4\">\n        <h3 className=\"text-xs md:text-sm\">{card.title}</h3>\n        <card.icon className={`h-4 w-4`} />\n      </div>\n      <div\n        className={`${card.size === \"large\" ? \"text-2xl md:text-5xl\" : \"text-xl md:text-3xl\"}`}\n      >\n        {card.prefix}\n        <NumberTicker\n          ref={tickerRef}\n          from={card.from}\n          target={card.target}\n          transition={{\n            duration: 3,\n            ease: \"easeInOut\",\n            type: \"tween\",\n            delay: index * 0.2,\n          }}\n          className=\"tabular-nums\"\n          autoStart={false}\n        />\n        {card.suffix}\n      </div>\n    </motion.div>\n  )\n}\n\nexport default function FancyNumberTickerDemo() {\n  return (\n    <div className=\"w-dvw h-dvh font-azeret-mono bg-white\">\n      <div className=\"grid grid-cols-3 grid-rows-2 h-full\">\n        {cards.map((card, index) => (\n          <Card key={index} card={card} index={index} />\n        ))}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/fancy-basic-number-ticker-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

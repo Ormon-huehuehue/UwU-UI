@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pixel-trail-no-fade-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/pixel-trail.json"
+  ],
+  "files": [
+    {
+      "path": "examples/background/pixel-trail-no-fade-demo.tsx",
+      "content": "import Image from \"next/image\"\n\nimport PixelTrail from \"@/fancy/components/background/pixel-trail\"\n\nconst PixelTrailDemo: React.FC = () => {\n  return (\n    <div className=\"w-dvw h-dvh flex flex-col overflow-hidden\">\n      <Image\n        src=\"https://images.unsplash.com/photo-1562016600-ece13e8ba570?q=80&w=2838&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n        alt=\"water surface\"\n        fill\n        className=\"absolute inset-0 z-0 contrast-[70%]\"\n      />\n      <div className=\"absolute inset-0 z-1\">\n        <PixelTrail\n          pixelSize={20}\n          delay={130}\n          fadeDuration={0}\n          pixelClassName=\"bg-[#f1ff76]\"\n        />\n      </div>\n\n      <ul className=\"flex w-full items-center font-bold space-x-6 px-6 py-4 text-[#f1ff76] z-10 justify-between text-2xl md:text-4xl\">\n        <a>WATER SUPPLY CO.</a>\n        <a\n          href=\"\"\n          className=\"hover:underline cursor-pointer  font-bold uppercase text-[#f1ff76]\"\n        >\n          Menu\n        </a>\n      </ul>\n      <div className=\"z-0 text-[#f1ff76] text-6xl mt-12 mx-6\">\n        <div className=\"flex flex-row items-center\">\n          <h2 className=\"font-tiny5 text-6xl md:text-9xl uppercase\">100%</h2>\n          <h2 className=\"text-5xl md:text-8xl ml-4 md:ml-8\">purity</h2>\n        </div>\n        <p className=\"mt-3 text-base md:text-3xl\">\n          {\n            \"we deliver more than just hydration — we offer nature's purest refreshment, untouched by modern contaminants. Our water is sourced from deep, protected aquifers and naturally filtered through ancient rock layers, with unmatched clarity and taste.\"\n          }\n        </p>\n      </div>\n    </div>\n  )\n}\n\nexport default PixelTrailDemo\n",
+      "type": "registry:block",
+      "target": "components/fancy/background/pixel-trail-no-fade-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

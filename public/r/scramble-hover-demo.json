@@ -1,0 +1,43 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scramble-hover-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "motion"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/scramble-hover.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/scramble-hover-demo.tsx",
+      "content": "\"use client\"\n\nimport { motion } from \"motion/react\"\n\nimport ScrambleHover from \"@/fancy/components/text/scramble-hover\"\n\nexport default function Preview() {\n  const models = [\n    \"Llama 3.1 405B Instruct Turbo\",\n    \"Llama 3.2 3B Instruct Turbo\",\n    \"Gemma 2 27B\",\n    \"Mistral 7B Instruct v0.3\",\n    \"Mixtral 8x7B Instruct\",\n    \"DeepSeek LLM Chat 67B\",\n    \"Qwen 2.5 72B Instruct Turbo\",\n    \"WizardLM 2 8x22B\",\n    \"Nous Hermes 2 Mixtral\",\n    \"StripedHyena Nous 7B\",\n    \"DBRX Instruct\",\n    \"MythoMax L2 13B\",\n    \"SOLAR 10.7B Instruct\",\n    \"Gemma 2B Instruct\",\n  ]\n\n  return (\n    <div className=\"w-dvw h-dvh flex flex-col  justify-center items-end bg-white text-foreground dark:text-muted font-normal overflow-hidden py-20 px-8 sm:px-16 md:px-24 lg:px-32 text-right text-sm sm:text-lg md:text-xl\">\n      {models.map((model, index) => (\n        <motion.div\n          layout\n          key={model}\n          animate={{ opacity: [0, 1, 1], y: [10, 10, 0] }}\n          transition={{\n            duration: 0.1,\n            ease: \"circInOut\",\n            delay: index * 0.05 + 0.5,\n            times: [0, 0.2, 1],\n          }}\n        >\n          <ScrambleHover\n            text={model}\n            scrambleSpeed={50}\n            maxIterations={8}\n            useOriginalCharsOnly={true}\n            className=\"cursor-pointer\"\n          />\n        </motion.div>\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/scramble-hover-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

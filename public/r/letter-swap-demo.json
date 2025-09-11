@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "letter-swap-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/letter-swap-forward-anim.json",
+    "https://uwuui.com/r/letter-swap-pingpong-anim.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/letter-swap-demo.tsx",
+      "content": "import LetterSwapForward from \"@/fancy/components/text/letter-swap-forward-anim\"\nimport LetterSwapPingPong from \"@/fancy/components/text/letter-swap-pingpong-anim\"\n\nexport default function Preview() {\n  return (\n    <div className=\"w-dvw h-dvh rounded-lg bg-white text-xl md:text-3xl  flex flex-col items-center justify-center font-calendas\">\n      <div className=\" p-12 text-[#0015ff] rounded-xl align-text-top  gap-y-1 md:gap-y-2 flex flex-col\">\n        <LetterSwapForward\n          label=\"Hover me chief!\"\n          reverse={true}\n          className=\"italic\"\n        />\n        <LetterSwapForward\n          label=\"{awesome}\"\n          reverse={false}\n          className=\"font-bold\"\n        />\n        <LetterSwapForward\n          label=\"Good day!\"\n          staggerFrom={\"center\"}\n          className=\"mono\"\n        />\n        <LetterSwapPingPong\n          label=\"More text?\"\n          staggerFrom={\"center\"}\n          reverse={false}\n          className=\"font-overused-grotesk font-bold\"\n        />\n        <LetterSwapPingPong label=\"oh, seriously?!\" staggerFrom={\"last\"} />\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/letter-swap-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

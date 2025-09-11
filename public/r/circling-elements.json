@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "circling-elements",
+  "type": "registry:ui",
+  "dependencies": [
+    "motion"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/utils.json"
+  ],
+  "cssVars": {
+    "@keyframes circling": {
+      "0%": {
+        "transform": "rotate(calc(var(--circling-direction, 1) * (var(--circling-offset) * 1deg))) translate(calc(var(--circling-radius) * 1px), 0) rotate(calc(var(--circling-direction, 1) * (var(--circling-offset) * -1deg)))"
+      },
+      "100%": {
+        "transform": "rotate(calc(var(--circling-direction, 1) * (360deg + (var(--circling-offset) * 1deg)))) translate(calc(var(--circling-radius) * 1px), 0) rotate(calc(var(--circling-direction, 1) * (-360deg + (var(--circling-offset) * -1deg))))"
+      }
+    }
+  },
+  "files": [
+    {
+      "path": "fancy/blocks/circling-elements.tsx",
+      "content": "\"use client\"\n\nimport { Children } from \"react\"\nimport { motion } from \"motion/react\"\n\nimport { cn } from \"@/lib/utils\"\n\ntype CirclingElementsProps = {\n  children: React.ReactNode\n  radius?: number\n  duration?: number // in seconds\n  easing?: string\n  direction?: \"normal\" | \"reverse\"\n  className?: string\n  pauseOnHover?: boolean\n}\n\nconst CirclingElements: React.FC<CirclingElementsProps> = ({\n  children,\n  radius = 100,\n  duration = 10,\n  easing = \"linear\",\n  direction = \"normal\",\n  className,\n  pauseOnHover = false,\n}) => {\n  return (\n    <div className={cn(\"relative z-0 group/circling\", className)}>\n      {Children.map(children, (child, index) => {\n        const offset = (index * 360) / Children.count(children)\n\n        const animationProps = {\n          \"--circling-duration\": duration,\n          \"--circling-radius\": radius,\n          \"--circling-offset\": offset,\n          \"--circling-direction\": direction === \"reverse\" ? -1 : 1,\n          animation: `circling ${duration}s ${easing} infinite`,\n          animationName: \"circling\",\n          animationDuration: `${duration}s`,\n          animationTimingFunction: easing,\n          animationIterationCount: \"infinite\",\n        } as React.CSSProperties\n\n        return (\n          <motion.div\n            key={index}\n            style={animationProps}\n            className={cn(\n              \"transform-gpu animate-circling absolute -translate-x-1/2 -translate-y-1/2\",\n              pauseOnHover &&\n                \"group-hover/circling:![animation-play-state:paused]\"\n            )}\n          >\n            {child}\n          </motion.div>\n        )\n      })}\n    </div>\n  )\n}\n\nexport default CirclingElements\n",
+      "type": "registry:ui",
+      "target": "components/fancy/blocks/circling-elements.tsx"
+    }
+  ]
+}

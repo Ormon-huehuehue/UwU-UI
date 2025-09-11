@@ -1,0 +1,43 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "media-between-text-vertical-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/media-between-text.json",
+    "https://uwuui.com/r/use-screen-size.json",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "examples/blocks/media-between-text-vertical-demo.tsx",
+      "content": "import { useRef, useState } from \"react\"\n\nimport useScreenSize from \"@/hooks/use-screen-size\"\nimport { Button } from \"@/components/ui/button\"\nimport MediaBetweenText, {\n  MediaBetweenTextRef,\n} from \"@/fancy/components/blocks/media-between-text\"\n\nexport default function Preview() {\n  const ref = useRef<MediaBetweenTextRef>(null)\n  const [isOpen, setIsOpen] = useState(false)\n  const screenSize = useScreenSize()\n\n  return (\n    <div className=\"w-dvw h-dvh flex flex-col items-center justify-center bg-background\">\n      <Button\n        onClick={() => {\n          setIsOpen(!isOpen)\n          if (!isOpen) {\n            ref.current?.animate()\n          } else {\n            ref.current?.reset()\n          }\n        }}\n        size={\"sm\"}\n        variant={\"outline\"}\n        className=\"absolute top-4 left-4 h-8\"\n      >\n        {isOpen ? \"Close\" : \"Open\"}\n      </Button>\n\n      <MediaBetweenText\n        firstText=\"Artificial \"\n        secondText=\"Intelligence\"\n        mediaUrl={\n          \"https://cdn.cosmos.so/47c0223f-c704-4d5a-8b47-c48262ebe301?format=jpeg\"\n        }\n        mediaType=\"image\"\n        triggerType=\"ref\"\n        ref={ref}\n        mediaContainerClassName=\"w-full h-[60px] sm:h-[100px] overflow-hidden pt-1\"\n        className=\"cursor-pointer text-3xl sm:text-7xl font-calendas flex flex-col font-light items-center justify-center\"\n        leftTextClassName=\"\"\n        rightTextClassName=\"italic\"\n        animationVariants={{\n          initial: {\n            width: screenSize.lessThan(\"sm\") ? \"160px\" : \"280px\",\n            height: 0,\n            transition: { duration: 0.7, ease: [0.944, 0.008, 0.147, 1.002] },\n          },\n          animate: {\n            width: screenSize.lessThan(\"sm\") ? \"200px\" : \"330px\",\n            height: screenSize.lessThan(\"sm\") ? \"200px\" : \"300px\",\n            transition: { duration: 0.7, ease: [0.944, 0.008, 0.147, 1.002] },\n          },\n        }}\n      />\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/blocks/media-between-text-vertical-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

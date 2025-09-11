@@ -1,0 +1,44 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-along-path-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "motion"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/text-along-path.json",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "examples/text/text-along-path-demo.tsx",
+      "content": "import { useCallback, useState } from \"react\"\nimport { AnimatePresence, motion } from \"motion/react\"\n\nimport { Button } from \"@/components/ui/button\"\nimport AnimatedPathText from \"@/fancy/components/text/text-along-path\"\n\nexport default function Preview() {\n  // Rounded rectangle path\n  const rectPath =\n    \"M 20,20 L 180,20 A 20,20 0 0,1 200,40 L 200,160 A 20,20 0 0,1 180,180 L 20,180 A 20,20 0 0,1 0,160 L 0,40 A 20,20 0 0,1 20,20\"\n  const [buttonState, setButtonState] = useState<\n    \"idle\" | \"loading\" | \"success\"\n  >(\"idle\")\n  const [email, setEmail] = useState(\"\")\n\n  const buttonCopy = {\n    idle: \"Subscribe\",\n    loading: (\n      <motion.div className=\"h-2 w-2 sm:h-4 sm:w-4 animate-spin rounded-full border-2 border-white border-t-transparent\" />\n    ),\n    success: \"Done ✓\",\n  } as const\n\n  const handleSubmit = useCallback(() => {\n    if (buttonState === \"success\") return\n\n    setButtonState(\"loading\")\n\n    setTimeout(() => {\n      setButtonState(\"success\")\n    }, 1750)\n\n    setTimeout(() => {\n      setButtonState(\"idle\")\n      setEmail(\"\")\n    }, 3500)\n  }, [buttonState])\n\n  return (\n    <div className=\"w-dvw h-dvh flex justify-center items-center text-[#0015ff] relative bg-white\">\n      <AnimatedPathText\n        path={rectPath}\n        svgClassName=\"absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 py-2 sm:py-8\"\n        viewBox=\"-20 10 240 180\"\n        text=\"JOIN THE WAITLIST ✉ JOIN THE WAITLIST ✉ JOIN THE WAITLIST ✉ JOIN THE WAITLIST ✉ JOIN THE WAITLIST ✉ \"\n        textClassName=\"text-[10.6px] lowercase font-azeret-mono text-[#0015ff]\"\n        duration={20}\n        preserveAspectRatio=\"none\"\n        textAnchor=\"start\"\n      />\n\n      {/* This is just fluff for the demo */}\n      <div className=\"absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 sm:w-80 p-6 \">\n        <div className=\"space-y-2\">\n          <input\n            type=\"email\"\n            placeholder=\"Enter your email\"\n            value={email}\n            onChange={(e) => setEmail(e.target.value)}\n            className=\"w-full px-3 py-2 sm:px-4 sm:py-2 border border-[#0015ff] focus:outline-hidden focus:ring-primary-blue/50 font-azeret-mono text-xs sm:text-base placeholder:text-[#0015ff] rounded-lg bg-white\"\n          />\n          <Button\n            type=\"submit\"\n            onClick={handleSubmit}\n            disabled={buttonState === \"loading\"}\n            className=\"w-full px-3 py-2 h-9 sm:h-11 sm:px-8 sm:py-2 bg-[#0015ff] text-white hover:bg-[#0015ff]/90 transition-colors font-azeret-mono text-xs sm:text-base rounded-lg\"\n          >\n            <AnimatePresence mode=\"popLayout\" initial={false}>\n              <motion.span\n                transition={{ type: \"spring\", duration: 0.3, bounce: 0 }}\n                initial={{ opacity: 0, y: -25 }}\n                animate={{ opacity: 1, y: 0 }}\n                exit={{ opacity: 0, y: 25 }}\n                key={buttonState}\n              >\n                {buttonCopy[buttonState]}\n              </motion.span>\n            </AnimatePresence>\n          </Button>\n        </div>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/text-along-path-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

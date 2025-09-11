@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "random-letter-swap-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/random-letter-swap-forward-anim.json",
+    "https://uwuui.com/r/random-letter-swap-pingpong-anim.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/random-letter-swap-demo.tsx",
+      "content": "import RandomLetterSwapForward from \"@/fancy/components/text/random-letter-swap-forward-anim\"\nimport RandomLetterSwapPingPong from \"@/fancy/components/text/random-letter-swap-pingpong-anim\"\n\nexport default function Preview() {\n  return (\n    <div className=\"w-dvw h-dvh rounded-lg bg-white text-3xl md:text-5xl flex flex-col items-center justify-center font-overused-grotesk\">\n      <div className=\"h-full text-red-500 rounded-xl py-12  align-text-center gap-y-1 md:gap-y-2 flex flex-col justify-center items-center\">\n        <RandomLetterSwapForward\n          label=\"Right here!\"\n          reverse={true}\n          className=\"\"\n        />\n        <RandomLetterSwapForward\n          label=\"Right now!\"\n          reverse={false}\n          className=\"font-bold italic px-4\"\n        />\n        <RandomLetterSwapPingPong label=\"Right here!\" className=\"\" />\n        <RandomLetterSwapPingPong\n          label=\"Right now!\"\n          reverse={false}\n          className=\" font-bold\"\n        />\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/random-letter-swap-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

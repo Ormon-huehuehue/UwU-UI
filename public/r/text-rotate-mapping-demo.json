@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-rotate-mapping-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/text-rotate.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/text-rotate-mapping-demo.tsx",
+      "content": "\"use client\"\n\nimport TextRotate from \"@/fancy/components/text/text-rotate\"\n\nexport default function Preview() {\n  return (\n    <div className=\"w-dvw h-dvh text-2xl sm:text-3xl md:text-5xl flex flex-col items-center justify-center font-cotham text font-normal overflow-hidden p-12 gap-12 bg-white text-black\">\n      <TextRotate\n        texts={[\n          \"The problem isn't how to make the world more technological. It's about how to make the world more humane again.\",\n          \"The problem isn't how to make the world more technological. It's about how to make the world more humane again.\",\n        ]}\n        mainClassName=\"overflow-hidden md:leading-10 flex whitespace-pre text-lg sm:text-xl md:text-5xl max-w-xl text-center\"\n        staggerFrom={\"random\"}\n        animatePresenceMode=\"wait\"\n        splitBy=\"characters\"\n        initial={[{ x: \"120%\" }, { y: \"120%\" }, { x: \"-120%\" }, { y: \"-120%\" }]}\n        animate={[{ x: 0 }, { y: 0 }, { x: 0 }, { y: 0 }]}\n        exit={[{ x: \"-120%\" }, { y: \"-120%\" }, { x: \"120%\" }, { y: \"120%\" }]}\n        loop\n        staggerDuration={0.01}\n        splitLevelClassName=\"overflow-hidden\"\n        elementLevelClassName=\"overflow-hidden md:py-[4px]\"\n        transition={{ ease: [0.909, 0.151, 0.153, 0.86], duration: 1 }}\n        rotationInterval={4000}\n      />\n    </div>\n  )\n}",
+      "type": "registry:block",
+      "target": "components/fancy/text/text-rotate-mapping-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

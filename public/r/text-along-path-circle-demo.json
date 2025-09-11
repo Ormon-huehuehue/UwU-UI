@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-along-path-circle-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/text-along-path.json",
+    "https://uwuui.com/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/text-along-path-circle-demo.tsx",
+      "content": "import { cn } from \"@/lib/utils\"\nimport AnimatedPathText from \"@/fancy/components/text/text-along-path\"\n\nexport default function Preview() {\n  const circlePath =\n    \"M 100 100 m -50, 0 a 50,50 0 1,1 100,0 a 50,50 0 1,1 -100,0\"\n\n  return (\n    <div className=\"w-dvw h-dvh flex justify-center items-center relative \">\n      {[0, 90, 180, 270].map((rotation, i) => (\n        <AnimatedPathText\n          key={rotation}\n          path={circlePath}\n          pathId={`circle-path-${i}`}\n          svgClassName={cn(\n            \"absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full \",\n            {\n              \"rotate-0\": rotation === 0,\n              \"rotate-90\": rotation === 90,\n              \"rotate-180\": rotation === 180,\n              \"-rotate-90\": rotation === 270,\n            }\n          )}\n          easingFunction={{\n            calcMode: \"spline\",\n            keyTimes: \"0;1\",\n            keySplines: \"0.762 0.002 0.253 0.999\",\n          }}\n          viewBox=\"0 0 200 200\"\n          text=\"loading\"\n          textClassName=\"text-[15px]\"\n          duration={2.5}\n          textAnchor=\"start\"\n        />\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/text-along-path-circle-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

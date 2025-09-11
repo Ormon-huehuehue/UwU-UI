@@ -1,0 +1,43 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "vertical-cut-reveal-scroll-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "motion"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/vertical-cut-reveal.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/vertical-cut-reveal-scroll-demo.tsx",
+      "content": "\"use client\"\n\nimport { useEffect, useRef } from \"react\"\nimport { useInView } from \"motion/react\"\n\nimport VerticalCutReveal, {\n  VerticalCutRevealRef,\n} from \"@/fancy/components/text/vertical-cut-reveal\"\n\nexport default function Preview() {\n  const ref = useRef(null)\n  const textRef = useRef<VerticalCutRevealRef>(null)\n  const isInView = useInView(ref, { once: false })\n\n  useEffect(() => {\n    if (isInView) {\n      textRef.current?.startAnimation()\n    } else {\n      textRef.current?.reset()\n    }\n  }, [isInView])\n\n  return (\n    <div className=\"w-dvw h-dvh font-overused-grotesk bg-[#0015ff] overflow-auto text-white text md:text-4xl lg:text-4xl font-bold text-xl\">\n      <div className=\"h-full flex w-full  justify-center items-center \">\n        Scroll down champ ↓\n      </div>\n      <div className=\"h-full  flex text-white justify-center items-center\">\n        <div ref={ref}>\n          <VerticalCutReveal\n            splitBy=\"characters\"\n            staggerDuration={0.02}\n            staggerFrom=\"first\"\n            transition={{\n              type: \"spring\",\n              stiffness: 200,\n              damping: 35,\n              delay: 0.1,\n            }}\n            containerClassName=\"text-[#00000] leading-snug\"\n            ref={textRef}\n            autoStart={false}\n          >\n            {`howdy! 👋`}\n          </VerticalCutReveal>\n        </div>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/vertical-cut-reveal-scroll-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

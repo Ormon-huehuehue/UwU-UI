@@ -1,0 +1,43 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gravity-body-types-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/gravity.json"
+  ],
+  "files": [
+    {
+      "path": "examples/physics/gravity-body-types-demo.tsx",
+      "content": "import {\n  Atom,\n  AudioLines,\n  BatteryCharging,\n  Brain,\n  Cloud,\n  Cog,\n  Cpu,\n  Cuboid,\n  Earth,\n  Eye,\n  Globe,\n  HandMetal,\n  Heart,\n  Laptop,\n  Layers,\n  MessageCircle,\n  Microscope,\n  Move,\n  PaintRoller,\n  PersonStanding,\n  Pyramid,\n  Regex,\n  Rocket,\n  Satellite,\n  Save,\n  ScanFace,\n  Settings,\n  Sigma,\n  Sparkles,\n  Star,\n  Sun,\n  TrendingUp,\n  Zap,\n} from \"lucide-react\"\n\nimport Gravity, { MatterBody } from \"@/fancy/components/physics/gravity\"\n\nexport default function Preview() {\n  const icons = [\n    { icon: Atom, size: 24 },\n    { icon: Brain, size: 24 },\n    { icon: Cog, size: 24 },\n    { icon: Cpu, size: 24 },\n    { icon: TrendingUp, size: 24 },\n    { icon: Globe, size: 24 },\n    { icon: Laptop, size: 24 },\n    { icon: Microscope, size: 24 },\n    { icon: Pyramid, size: 24 },\n    { icon: Rocket, size: 24 },\n    { icon: PaintRoller, size: 24 },\n    { icon: Eye, size: 24 },\n    { icon: ScanFace, size: 24 },\n    { icon: PersonStanding, size: 24 },\n    { icon: Sun, size: 24 },\n    { icon: Sparkles, size: 24 },\n    { icon: Regex, size: 24 },\n    { icon: Cloud, size: 24 },\n    { icon: Settings, size: 24 },\n    { icon: MessageCircle, size: 24 },\n    { icon: Cuboid, size: 24 },\n    { icon: Atom, size: 24 },\n    { icon: Brain, size: 24 },\n    { icon: AudioLines, size: 24 },\n    { icon: BatteryCharging, size: 24 },\n    { icon: Satellite, size: 24 },\n    { icon: Move, size: 24 },\n    { icon: Star, size: 24 },\n    { icon: HandMetal, size: 24 },\n    { icon: Heart, size: 24 },\n    { icon: Save, size: 24 },\n    { icon: Layers, size: 24 },\n    { icon: Earth, size: 24 },\n    { icon: Zap, size: 24 },\n    { icon: Sigma, size: 24 },\n  ]\n\n  return (\n    <div className=\"w-dvw h-dvh flex flex-col items-center relative bg-white\">\n      <h2 className=\" text-black pt-24 text-xl ponter-events-none\">\n        icons from lucide.dev\n      </h2>\n      <Gravity gravity={{ x: 0, y: 1 }} className=\"w-full h-full\">\n        {icons.map((IconData, index) => {\n          const Icon = IconData.icon\n          const randomX = Math.random() * 60 + 20 // Random x between 20-80%\n          const randomY = Math.random() * 20 + 5 // Random y between 5-25%\n          const bodyType = Math.random() > 0.7 ? \"rectangle\" : \"circle\"\n\n          return (\n            <MatterBody\n              key={index}\n              matterBodyOptions={{ friction: 0.5, restitution: 0.2 }}\n              bodyType={bodyType}\n              x={`${randomX}%`}\n              y={`${randomY}%`}\n            >\n              <div\n                className={`p-4 ${\n                  bodyType === \"circle\" ? \"rounded-full\" : \"rounded-md\"\n                } bg-white border border-border shadow-md text-foreground dark:text-muted`}\n              >\n                <Icon size={IconData.size} />\n              </div>\n            </MatterBody>\n          )\n        })}\n      </Gravity>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/physics/gravity-body-types-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

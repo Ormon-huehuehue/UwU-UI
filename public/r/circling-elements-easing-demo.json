@@ -1,0 +1,43 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "circling-elements-easing-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/circling-elements.json",
+    "https://uwuui.com/r/demo-images.json",
+    "https://uwuui.com/r/use-screen-size.json"
+  ],
+  "files": [
+    {
+      "path": "examples/blocks/circling-elements-easing-demo.tsx",
+      "content": "import React from \"react\"\nimport Image from \"next/image\"\nimport { exampleImages } from \"@/utils/demo-images\"\n\nimport useScreenSize from \"@/hooks/use-screen-size\"\nimport CirclingElements from \"@/fancy/components/blocks/circling-elements\"\n\nconst CirclingElementsDemo: React.FC = () => {\n  const screenSize = useScreenSize()\n\n  return (\n    <div className=\"relative w-dvw h-dvh bg-[#efefef] flex items-center justify-center\">\n      <CirclingElements\n        radius={screenSize.lessThan(`md`) ? 100 : 180}\n        duration={8}\n        direction=\"reverse\"\n        easing=\"0.944, 0.008, 0.147, 1.002\"\n      >\n        {[...exampleImages, ...exampleImages].map((image, index) => (\n          <div\n            key={index}\n            className=\"w-20 h-20 md:w-28 md:h-28 absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer hover:scale-125 duration-200 ease-out\"\n          >\n            <Image\n              src={image.url}\n              fill\n              alt=\"image\"\n              className=\"object-cover shadow-2xl \"\n            />\n          </div>\n        ))}\n      </CirclingElements>\n    </div>\n  )\n}\n\nexport default CirclingElementsDemo\n",
+      "type": "registry:block",
+      "target": "components/fancy/blocks/circling-elements-easing-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

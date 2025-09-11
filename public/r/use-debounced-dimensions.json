@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-debounced-dimensions",
+  "type": "registry:hook",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "files": [
+    {
+      "path": "hooks/use-debounced-dimensions.ts",
+      "content": "import { RefObject, useEffect, useState } from \"react\"\n\ninterface Dimensions {\n  width: number\n  height: number\n}\n\nexport function useDimensions(\n  ref: RefObject<HTMLElement | SVGElement>\n): Dimensions {\n  const [dimensions, setDimensions] = useState<Dimensions>({\n    width: 0,\n    height: 0,\n  })\n\n  useEffect(() => {\n    let timeoutId: NodeJS.Timeout\n\n    const updateDimensions = () => {\n      if (ref.current) {\n        const { width, height } = ref.current.getBoundingClientRect()\n        setDimensions({ width, height })\n      }\n    }\n\n    const debouncedUpdateDimensions = () => {\n      clearTimeout(timeoutId)\n      timeoutId = setTimeout(updateDimensions, 250) // Wait 250ms after resize ends\n    }\n\n    // Initial measurement\n    updateDimensions()\n\n    window.addEventListener(\"resize\", debouncedUpdateDimensions)\n\n    return () => {\n      window.removeEventListener(\"resize\", debouncedUpdateDimensions)\n      clearTimeout(timeoutId)\n    }\n  }, [ref])\n\n  return dimensions\n}\n",
+      "type": "registry:hook",
+      "target": "hooks/use-debounced-dimensions.ts"
+    }
+  ]
+}

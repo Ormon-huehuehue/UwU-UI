@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "basic-number-ticker-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/basic-number-ticker.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/basic-number-ticker-demo.tsx",
+      "content": "import NumberTicker from \"@/fancy/components/text/basic-number-ticker\"\n\nconst NumberTickerDemo = () => {\n  return (\n    <div className=\"p-10 flex w-dvw h-dvh justify-center items-center bg-white\">\n      <p className=\"w-full text-7xl md:text-9xl flex justify-center font-azeret-mono text-[#1f464d]\">\n        <NumberTicker\n          from={0}\n          target={100}\n          autoStart={true}\n          transition={{ duration: 3.5, type: \"tween\", ease: \"easeInOut\" }}\n          onComplete={() => console.log(\"complete\")}\n          onStart={() => console.log(\"start\")}\n        />\n        %\n      </p>\n    </div>\n  )\n}\n\nexport default NumberTickerDemo\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/basic-number-ticker-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

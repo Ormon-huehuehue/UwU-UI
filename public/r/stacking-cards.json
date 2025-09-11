@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stacking-cards",
+  "type": "registry:ui",
+  "dependencies": [
+    "motion"
+  ],
+  "author": "Khoa Phan <https://www.pldkhoa.dev>",
+  "registryDependencies": [
+    "https://uwuui.com/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "fancy/blocks/stacking-cards.tsx",
+      "content": "// author: Khoa Phan <https://www.pldkhoa.dev>\n\n\"use client\"\n\nimport {\n  createContext,\n  useContext,\n  useRef,\n  type HTMLAttributes,\n  type PropsWithChildren,\n} from \"react\"\nimport {\n  motion,\n  useScroll,\n  useTransform,\n  type MotionValue,\n  type UseScrollOptions,\n} from \"motion/react\"\n\nimport { cn } from \"@/lib/utils\"\n\ninterface StackingCardsProps\n  extends PropsWithChildren,\n    HTMLAttributes<HTMLDivElement> {\n  scrollOptons?: UseScrollOptions\n  scaleMultiplier?: number\n  totalCards: number\n}\n\ninterface StackingCardItemProps\n  extends HTMLAttributes<HTMLDivElement>,\n    PropsWithChildren {\n  index: number\n  topPosition?: string\n}\n\nexport default function StackingCards({\n  children,\n  className,\n  scrollOptons,\n  scaleMultiplier,\n  totalCards,\n  ...props\n}: StackingCardsProps) {\n  const targetRef = useRef<HTMLDivElement>(null)\n  const { scrollYProgress } = useScroll({\n    offset: [\"start start\", \"end end\"],\n    ...scrollOptons,\n    target: targetRef,\n  })\n\n  return (\n    <StackingCardsContext.Provider\n      value={{ progress: scrollYProgress, scaleMultiplier, totalCards }}\n    >\n      <div className={cn(className)} ref={targetRef} {...props}>\n        {children}\n      </div>\n    </StackingCardsContext.Provider>\n  )\n}\n\nconst StackingCardItem = ({\n  index,\n  topPosition,\n  className,\n  children,\n  ...props\n}: StackingCardItemProps) => {\n  const {\n    progress,\n    scaleMultiplier,\n    totalCards = 0,\n  } = useStackingCardsContext() // Get from Context\n  const scaleTo = 1 - (totalCards - index) * (scaleMultiplier ?? 0.03)\n  const rangeScale = [index * (1 / totalCards), 1]\n  const scale = useTransform(progress, rangeScale, [1, scaleTo])\n  const top = topPosition ?? `${5 + index * 3}%`\n\n  return (\n    <div className={cn(\"h-full sticky top-0\", className)} {...props}>\n      <motion.div\n        className={\"origin-top relative h-full\"}\n        style={{ top, scale }}\n      >\n        {children}\n      </motion.div>\n    </div>\n  )\n}\n\nconst StackingCardsContext = createContext<{\n  progress: MotionValue<number>\n  scaleMultiplier?: number\n  totalCards?: number\n} | null>(null)\n\nexport const useStackingCardsContext = () => {\n  const context = useContext(StackingCardsContext)\n  if (!context)\n    throw new Error(\"StackingCardItem must be used within StackingCards\")\n  return context\n}\n\nexport { StackingCardItem }\n",
+      "type": "registry:ui",
+      "target": "components/fancy/blocks/stacking-cards.tsx"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gooey-svg-filter-pixel-trail-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/pixel-trail.json",
+    "https://uwuui.com/r/gooey-svg-filter.json",
+    "https://uwuui.com/r/use-detect-browser.json",
+    "https://uwuui.com/r/use-screen-size.json"
+  ],
+  "files": [
+    {
+      "path": "examples/filter/gooey-svg-filter-pixel-trail-demo.tsx",
+      "content": "import useDetectBrowser from \"@/hooks/use-detect-browser\"\nimport useScreenSize from \"@/hooks/use-screen-size\"\nimport PixelTrail from \"@/fancy/components/background/pixel-trail\"\nimport GooeySvgFilter from \"@/fancy/components/filter/gooey-svg-filter\"\n\nexport default function GooeyDemo() {\n  const screenSize = useScreenSize()\n  const browserName = useDetectBrowser()\n  const isSafari = browserName === \"Safari\"\n\n  return (\n    <div className=\"relative w-dvw h-dvh flex flex-col items-center justify-center gap-8 bg-black text-center text-pretty\">\n      <img\n        src=\"https://images.aiscribbles.com/34fe5695dbc942628e3cad9744e8ae13.png?v=60d084\"\n        alt=\"impressionist painting\"\n        className=\"w-full h-full object-cover absolute inset-0 opacity-70\"\n      />\n\n      <GooeySvgFilter id=\"gooey-filter-pixel-trail\" strength={5} />\n\n      <div\n        className=\"absolute inset-0 z-0\"\n        style={{ filter: isSafari ? \"none\" : \"url(#gooey-filter-pixel-trail)\" }}\n      >\n        <PixelTrail\n          pixelSize={screenSize.lessThan(`md`) ? 24 : 32}\n          fadeDuration={0}\n          delay={500}\n          pixelClassName=\"bg-white\"\n        />\n      </div>\n\n      <p className=\"text-white text-4xl sm:text-5xl md:text-7xl z-10 font-calendas w-1/2 font-bold\">\n        Speaking things into existence\n        <span className=\"font-overused-grotesk\"></span>\n      </p>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/filter/gooey-svg-filter-pixel-trail-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

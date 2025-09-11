@@ -1,0 +1,43 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pixelate-svg-filter-text",
+  "type": "registry:block",
+  "dependencies": [
+    "motion"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/pixelate-svg-filter.json"
+  ],
+  "files": [
+    {
+      "path": "examples/filter/pixelate-svg-filter-text.tsx",
+      "content": "import { useEffect, useRef, useState } from \"react\"\nimport { animate, useMotionValue, useMotionValueEvent } from \"motion/react\"\n\nimport PixelateSvgFilter from \"@/fancy/components/filter/pixelate-svg-filter\"\n\nexport default function PixelateSVGFilterDemo() {\n  const containerRef = useRef<HTMLDivElement>(null)\n  const pixelSize = useMotionValue(16)\n  const [size, setSize] = useState(16)\n  const [isAnimating, setIsAnimating] = useState(true)\n\n  useMotionValueEvent(pixelSize, \"change\", (latest) => {\n    setSize(latest)\n  })\n\n  useEffect(() => {\n    const controls = animate(pixelSize, 1, {\n      duration: 1.2,\n      ease: \"easeOut\",\n      onComplete: () => setIsAnimating(false),\n    })\n\n    return controls.stop\n  }, [])\n\n  return (\n    <div\n      className=\"relative flex flex-col md:flex-row w-dvw h-dvh bg-background p-4 sm:p-8 md:p-12\"\n      ref={containerRef}\n    >\n      {isAnimating && (\n        <PixelateSvgFilter id=\"pixelate-text-filter\" size={size} />\n      )}\n\n      {/* Left Content */}\n      <div\n        className=\"flex-1 mb-8 md:mb-0\"\n        style={{\n          filter: isAnimating ? \"url(#pixelate-text-filter)\" : undefined,\n        }}\n      >\n        <div className=\"mb-4 sm:mb-6\">\n          <h1 className=\"text-lg sm:text-xl mb-1\">Ari — Yu</h1>\n          <a\n            href=\"mailto:hello@arianexus.io\"\n            className=\"text-muted-foreground text-xs sm:text-sm\"\n          >\n            hello@ariyu.co\n          </a>\n        </div>\n\n        <div className=\"mb-12 sm:mb-16 md:mb-24\">\n          <h2 className=\"text-base sm:text-lg font-bold\">Creative Director</h2>\n          <h2 className=\"text-base sm:text-lg font-bold\">& Writer</h2>\n        </div>\n\n        <div className=\"w-full md:w-1/2\">\n          <h3 className=\"text-sm sm:text-base font-medium mb-2\">\n            Selected Works\n          </h3>\n          <p className=\"text-[10px] sm:text-xs text-muted-foreground\">\n            Dreamweaver #93 Dec 2023 Starlight #87 \"digital dreams\" The Quantum\n            Mirror Press Holograph Vol.5 crystal edition 2020 Byte Flow Vol.12\n            Neural Canvas #9 Synthmagazin 11/2020 VOID 2020 zine Nebula #4 VOID\n            量子 + Wave zines Binary Pulse volume 7 Cyber Cascade\n            (self-published)\n          </p>\n        </div>\n      </div>\n\n      {/* Right Content - Image */}\n      <div className=\"hidden md:block md:w-36 md:h-36 relative mx-auto md:mr-12\">\n        <img\n          className=\"w-full h-full object-cover absolute inset-0\"\n          src={\n            \"https://images.unsplash.com/photo-1729009704569-474ddd86ed3a?q=80&w=2043&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n          }\n          style={{\n            filter: isAnimating ? \"url(#pixelate-text-filter)\" : undefined,\n          }}\n        />\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/filter/pixelate-svg-filter-text.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

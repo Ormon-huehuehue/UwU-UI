@@ -1,0 +1,44 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cursor-attractor-and-gravity-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "motion"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/cursor-attractor-and-gravity.json",
+    "https://uwuui.com/r/use-screen-size.json"
+  ],
+  "files": [
+    {
+      "path": "examples/physics/cursor-attractor-and-gravity-demo.tsx",
+      "content": "import { motion } from \"motion/react\"\n\nimport useScreenSize from \"@/hooks/use-screen-size\"\nimport Gravity, {\n  MatterBody,\n} from \"@/fancy/components/physics/cursor-attractor-and-gravity\"\n\nexport default function Preview() {\n  const screenSize = useScreenSize()\n  const words = [\n    \"we\",\n    \"analyze\",\n    { text: \"millions\", highlight: true },\n    { text: \"of\", highlight: true },\n    { text: \"data\", highlight: true },\n    { text: \"points\", highlight: true },\n    \"per\",\n    \"second\",\n    \"to\",\n    \"provide\",\n    \"you\",\n    \"with\",\n    \"the\",\n    \"most\",\n    \"accurate\",\n    \"insights.\",\n  ]\n\n  return (\n    <div className=\"w-dvw h-dvh flex flex-col relative font-overused-grotesk justify-center items-center bg-white\">\n      <Gravity\n        attractorStrength={0.0}\n        cursorStrength={0.0004}\n        cursorFieldRadius={200}\n        className=\"w-full h-full z-0 absolute\"\n      >\n        {[...Array(150)].map((_, i) => {\n          // Adjust max size based on screen size\n          const maxSize = screenSize.lessThan(\"sm\")\n            ? 20\n            : screenSize.lessThan(\"md\")\n              ? 30\n              : 40\n          const size = Math.max(\n            screenSize.lessThan(\"sm\") ? 10 : 20,\n            Math.random() * maxSize\n          )\n          return (\n            <MatterBody\n              key={i}\n              matterBodyOptions={{ friction: 0.5, restitution: 0.2 }}\n              x={`${Math.random() * 100}%`}\n              y={`${Math.random() * 100}%`}\n            >\n              <div\n                className=\"rounded-full bg-[#eee]\"\n                style={{\n                  width: `${size}px`,\n                  height: `${size}px`,\n                }}\n              />\n            </MatterBody>\n          )\n        })}\n      </Gravity>\n      <span className=\"text z-10 sm:text-lg md:text-xl text-black px-4 py-2 w-2/3 flex flex-wrap whitespace-pre-wrap\">\n        {words.map((word, index) => {\n          const text = typeof word === \"string\" ? word : word.text\n          const highlight = typeof word === \"object\" && word.highlight\n\n          return (\n            <motion.span\n              key={index}\n              initial={{ opacity: 0 }}\n              animate={{ opacity: 1 }}\n              transition={{ duration: 0.5, delay: index * 0.05 }}\n              className={`${highlight ? \"text-[#0015ff]\" : \"\"} ${index < words.length - 1 ? \"mr-1\" : \"\"}`}\n            >\n              {text}\n            </motion.span>\n          )\n        })}\n      </span>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/physics/cursor-attractor-and-gravity-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

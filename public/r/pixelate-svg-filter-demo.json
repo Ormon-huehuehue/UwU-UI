@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pixelate-svg-filter-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/pixelate-svg-filter.json",
+    "https://uwuui.com/r/use-mouse-position.json"
+  ],
+  "files": [
+    {
+      "path": "examples/filter/pixelate-svg-filter-demo.tsx",
+      "content": "import { useRef } from \"react\"\nimport PixelateSvgFilter from \"@/fancy/components/filter/pixelate-svg-filter\"\nimport { useMousePosition } from \"@/hooks/use-mouse-position\"\n\nexport default function PixelateSVGFilterDemo() {\n    const containerRef = useRef<HTMLDivElement>(null)\n    const mousePosition = useMousePosition(containerRef)\n    const pixelSize = Math.min(Math.max(mousePosition.x / 30, 1), 64)\n\n  return (\n    <div className=\"relative flex flex-col items-center justify-center w-dvw h-dvh gap-4 bg-black\" ref={containerRef}>\n      <PixelateSvgFilter id=\"pixelate-filter\" size={pixelSize} crossLayers />\n      <div \n        id=\"image-container\"\n        className=\"w-1/2 md:w-1/3 h-1/2 overflow-hidden relative text-white\"\n        style={{ filter: \"url(#pixelate-filter)\" }}\n      >\n        <video\n          src={\"https://cdn.cosmos.so/96ae0b34-289d-489d-94a1-c68925ddd3a9.mp4\"}\n          className=\"w-full h-full object-cover absolute inset-0\"\n          autoPlay\n          muted\n          playsInline\n          loop\n          //style={{ filter: \"url(#pixelate-filter)\" }}\n\n        />\n      </div>\n      \n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/filter/pixelate-svg-filter-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

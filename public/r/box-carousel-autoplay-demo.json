@@ -1,0 +1,44 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "box-carousel-autoplay-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/box-carousel.json",
+    "https://uwuui.com/r/use-screen-size.json"
+  ],
+  "files": [
+    {
+      "path": "examples/carousel/box-carousel-autoplay-demo.tsx",
+      "content": "\"use client\"\n\nimport { useRef, useState, useEffect } from \"react\"\nimport { Bug, BugOff } from \"lucide-react\"\nimport BoxCarousel, { \n  type BoxCarouselRef, \n  type CarouselItem, \n} from \"@/fancy/components/carousel/box-carousel\"\nimport useScreenSize from \"@/hooks/use-screen-size\"\n\n// Sample carousel items with mix of images and videos\nconst carouselItems: CarouselItem[] = [\n  {\n    id: \"1\",\n    type: \"image\",\n    src: \"https://cdn.cosmos.so/778d0640-d4b8-45b4-8bbe-862e759c231d?format=jpeg\",\n    alt: \"Blurry poster\"\n  },\n  {\n    id: \"2\", \n    type: \"image\",\n    src: \"https://cdn.cosmos.so/27ac2696-1f2b-498e-8d3d-11f2dd358ab9?format=jpeg\",\n    alt: \"Abstract blurry figure\"\n  },\n  {\n    id: \"3\",\n    type: \"image\", \n    src: \"https://cdn.cosmos.so/c48b739d-202d-4340-ab6b-afa34f0d7142?format=jpeg\",\n    alt: \"Long exposure photo of a person\"\n  },\n  {\n    id: \"4\",\n    type: \"image\",\n    src: \"https://cdn.cosmos.so/5332f9ac-7823-4635-871d-d4b3032e1c62?format=jpeg\", \n    alt: \"Blurry portrait photo of a person\"\n  },\n  {\n    id: \"5\",\n    type: \"image\",\n    src: \"https://cdn.cosmos.so/d9ed937e-7c3b-4f64-a4f3-708d639f13a1?format=jpeg\",\n    alt: \"Long exposure shots with multiple people\"\n  },\n  {\n    id: \"6\",\n    type: \"image\",\n    src: \"https://cdn.cosmos.so/33b43e2a-da66-42d9-a0b1-08165d80b0aa?format=jpeg\",\n    alt: \"Close up blurry photo of a person poster\"\n  },\n  {\n    id: \"7\",\n    type: \"image\",\n    src: \"https://cdn.cosmos.so/40342df7-2ea2-4297-add2-fe17cdc62551?format=jpeg\",\n    alt: \"Long exposure shot of a motorcyclist\"\n  },\n]\n\nexport default function BoxCarouselDemo() {\n  const carouselRef = useRef<BoxCarouselRef>(null)\n  const [debug, setDebug] = useState(false)\n\n  const screenSize = useScreenSize()\n\n  // Responsive dimensions based on screen size\n  const getCarouselDimensions = () => {\n    if (screenSize.lessThan(\"md\")) {\n      return { width: 200, height: 150 }\n    }\n    return { width: 350, height: 250 }\n  }\n\n  const { width, height } = getCarouselDimensions()\n\n  const handleIndexChange = (index: number) => {\n    console.log('Index changed:', index)\n  }\n\n  const toggleDebug = () => {\n    setDebug(!debug)\n  }\n\n  return (\n    <div className=\"w-full max-w-4xl h-full p-6 flex justify-items-center justify-center items-center text-muted-foreground bg-[#fefefe]\">\n      <button\n        onClick={toggleDebug}\n        className=\"absolute top-4 left-4 p-1.5 border border-black text-black rounded-full cursor-pointer transition-all duration-300 ease-out hover:bg-gray-100 active:scale-95\"\n        title={debug ? \"Debug Mode: ON\" : \"Debug Mode: OFF\"}\n      >\n        {debug ? (\n          <Bug size={10} />\n        ) : (\n          <BugOff size={10} />\n        )}\n      </button>\n\n      <div className=\"space-y-24\">\n\n        <div className=\"flex justify-center\">\n          <BoxCarousel\n            ref={carouselRef}\n            items={carouselItems}\n            width={width}\n            height={height}\n            direction=\"top\"\n            autoPlay\n            autoPlayInterval={1500}\n            onIndexChange={handleIndexChange}\n            debug={debug}\n            enableDrag\n            perspective={1000}\n          />\n        </div>\n\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/carousel/box-carousel-autoplay-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

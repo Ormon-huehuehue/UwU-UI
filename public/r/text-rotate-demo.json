@@ -1,0 +1,43 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-rotate-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "motion"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/text-rotate.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/text-rotate-demo.tsx",
+      "content": "\"use client\"\n\nimport { LayoutGroup, motion } from \"motion/react\"\n\nimport TextRotate from \"@/fancy/components/text/text-rotate\"\n\nexport default function Preview() {\n  return (\n    <div className=\"w-dvw h-dvh text-2xl sm:text-3xl md:text-5xl flex flex-row items-center justify-center font-overused-grotesk bg-white dark:text-muted text-foreground font-light overflow-hidden p-12 sm:p-20 md:p-24\">\n      <LayoutGroup>\n        <motion.p className=\"flex whitespace-pre\" layout>\n          <motion.span\n            className=\"pt-0.5 sm:pt-1 md:pt-2\"\n            layout\n            transition={{ type: \"spring\", damping: 30, stiffness: 400 }}\n          >\n            Make it{\" \"}\n          </motion.span>\n          <TextRotate\n            texts={[\n              \"work!\",\n              \"fancy ✽\",\n              \"right\",\n              \"fast\",\n              \"fun\",\n              \"rock\",\n              \"🕶️🕶️🕶️\",\n            ]}\n            mainClassName=\"text-white px-2 sm:px-2 md:px-3 bg-[#ff5941] overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg\"\n            staggerFrom={\"last\"}\n            initial={{ y: \"100%\" }}\n            animate={{ y: 0 }}\n            exit={{ y: \"-120%\" }}\n            staggerDuration={0.025}\n            splitLevelClassName=\"overflow-hidden pb-0.5 sm:pb-1 md:pb-1\"\n            transition={{ type: \"spring\", damping: 30, stiffness: 400 }}\n            rotationInterval={2000}\n          />\n        </motion.p>\n      </LayoutGroup>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/text-rotate-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

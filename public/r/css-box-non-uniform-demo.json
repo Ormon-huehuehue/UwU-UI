@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "css-box-non-uniform-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/css-box.json",
+    "https://uwuui.com/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "examples/blocks/css-box-non-uniform-demo.tsx",
+      "content": "import { useEffect, useRef } from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport CSSBox, { CSSBoxRef } from \"@/fancy/components/blocks/css-box\"\n\nconst BoxText = ({ className }: { className?: string }) => (\n  <div\n    className={cn(\n      \"w-full h-full text-white flex items-center justify-center p-2 text-sm font-bold bg-transparent\",\n      className\n    )}\n  >\n    ANYTHING IS POSSIBLE\n  </div>\n)\n\nexport default function CSSBox2Demo() {\n  const boxRefs = useRef<(CSSBoxRef | null)[]>([])\n\n  useEffect(() => {\n    const animate = async () => {\n      const delay = (ms: number) =>\n        new Promise((resolve) => setTimeout(resolve, ms))\n\n      while (true) {\n        // Rotate to right face\n        for (let i = 0; i < boxRefs.current.length; i++) {\n          boxRefs.current[i]?.showRight()\n          await delay(50)\n        }\n        await delay(1000)\n\n        // Rotate to back face\n        for (let i = 0; i < boxRefs.current.length; i++) {\n          boxRefs.current[i]?.showBack()\n          await delay(50)\n        }\n        await delay(1000)\n\n        // Rotate to left face\n        for (let i = 0; i < boxRefs.current.length; i++) {\n          boxRefs.current[i]?.showLeft()\n          await delay(50)\n        }\n        await delay(1000)\n\n        // Rotate to front face\n        for (let i = 0; i < boxRefs.current.length; i++) {\n          boxRefs.current[i]?.showFront()\n          await delay(50)\n        }\n        await delay(1000)\n      }\n    }\n\n    animate()\n  }, [])\n\n  return (\n    <div className=\"flex flex-col items-center justify-center w-dvw h-dvh bg-black\">\n      <div>\n        {[...Array(12)].map((_, index) => (\n          <CSSBox\n            key={index}\n            ref={(el) => {\n              if (el) boxRefs.current[index] = el\n            }}\n            width={200}\n            height={30}\n            depth={200}\n            draggable={false}\n            className=\"hover:z-10\"\n            faces={{\n              front: <BoxText className=\" border-white \" />,\n              back: <BoxText className=\" border-white\" />,\n              left: <BoxText className=\" border-white bg-white text-black\" />,\n              right: <BoxText className=\" border-white bg-white text-black\" />,\n            }}\n          />\n        ))}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/blocks/css-box-non-uniform-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

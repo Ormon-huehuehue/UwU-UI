@@ -1,0 +1,2324 @@
+{
+  "animated-gradient-with-svg": {
+    "name": "animated-gradient-with-svg",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/background/animated-gradient-with-svg",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "cssVars": {
+      "@theme inline": {
+        "--animate-background-gradient": "background-gradient",
+        "@keyframes background-gradient": {
+          "0%, 100%": {
+            "transform": "translate(0, 0)",
+            "animationDelay": "var(--background-gradient-delay, 0s)"
+          },
+          "20%": {
+            "transform": "translate(calc(100% * var(--tx-1, 1)), calc(100% * var(--ty-1, 1)))"
+          },
+          "40%": {
+            "transform": "translate(calc(100% * var(--tx-2, -1)), calc(100% * var(--ty-2, 1)))"
+          },
+          "60%": {
+            "transform": "translate(calc(100% * var(--tx-3, 1)), calc(100% * var(--ty-3, -1)))"
+          },
+          "80%": {
+            "transform": "translate(calc(100% * var(--tx-4, -1)), calc(100% * var(--ty-4, -1)))"
+          }
+        }
+      }
+    }
+  },
+  "pixel-trail": {
+    "name": "pixel-trail",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/background/pixel-trail",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion",
+      "uuid"
+    ]
+  },
+  "circling-elements": {
+    "name": "circling-elements",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/blocks/circling-elements",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ],
+    "cssVars": {
+      "@keyframes circling": {
+        "0%": {
+          "transform": "rotate(calc(var(--circling-direction, 1) * (var(--circling-offset) * 1deg))) translate(calc(var(--circling-radius) * 1px), 0) rotate(calc(var(--circling-direction, 1) * (var(--circling-offset) * -1deg)))"
+        },
+        "100%": {
+          "transform": "rotate(calc(var(--circling-direction, 1) * (360deg + (var(--circling-offset) * 1deg)))) translate(calc(var(--circling-radius) * 1px), 0) rotate(calc(var(--circling-direction, 1) * (-360deg + (var(--circling-offset) * -1deg))))"
+        }
+      }
+    }
+  },
+  "css-box": {
+    "name": "css-box",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/blocks/css-box",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "drag-elements": {
+    "name": "drag-elements",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/blocks/drag-elements",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "element-along-svg-path": {
+    "name": "element-along-svg-path",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/blocks/element-along-svg-path",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "float": {
+    "name": "float",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/blocks/float",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "marquee-along-svg-path": {
+    "name": "marquee-along-svg-path",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/blocks/marquee-along-svg-path",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "media-between-text": {
+    "name": "media-between-text",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/blocks/media-between-text",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "screensaver": {
+    "name": "screensaver",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/blocks/screensaver",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "simple-carousel": {
+    "name": "simple-carousel",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/blocks/simple-carousel",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "simple-marquee": {
+    "name": "simple-marquee",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/blocks/simple-marquee",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "stacking-cards": {
+    "name": "stacking-cards",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/blocks/stacking-cards",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "Khoa Phan <https://www.pldkhoa.dev>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "box-carousel": {
+    "name": "box-carousel",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/carousel/box-carousel",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "gooey-svg-filter": {
+    "name": "gooey-svg-filter",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/filter/gooey-svg-filter",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>"
+  },
+  "pixelate-svg-filter": {
+    "name": "pixelate-svg-filter",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/filter/pixelate-svg-filter",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>"
+  },
+  "image-trail": {
+    "name": "image-trail",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/image/image-trail",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "parallax-floating": {
+    "name": "parallax-floating",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/image/parallax-floating",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "cursor-attractor-and-gravity": {
+    "name": "cursor-attractor-and-gravity",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/physics/cursor-attractor-and-gravity",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "lodash",
+      "matter-js",
+      "svg-path-commander",
+      "poly-decomp",
+      "@types/matter-js"
+    ]
+  },
+  "elastic-line": {
+    "name": "elastic-line",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/physics/elastic-line",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "gravity": {
+    "name": "gravity",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/physics/gravity",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "lodash",
+      "matter-js",
+      "svg-path-commander",
+      "poly-decomp",
+      "@types/matter-js"
+    ]
+  },
+  "basic-number-ticker": {
+    "name": "basic-number-ticker",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/text/basic-number-ticker",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "breathing-text": {
+    "name": "breathing-text",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/text/breathing-text",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "letter-3d-swap": {
+    "name": "letter-3d-swap",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/text/letter-3d-swap",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "letter-swap-forward-anim": {
+    "name": "letter-swap-forward-anim",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/text/letter-swap-forward-anim",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "letter-swap-pingpong-anim": {
+    "name": "letter-swap-pingpong-anim",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/text/letter-swap-pingpong-anim",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "lodash",
+      "motion"
+    ]
+  },
+  "random-letter-swap-forward-anim": {
+    "name": "random-letter-swap-forward-anim",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/text/random-letter-swap-forward-anim",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "lodash",
+      "motion"
+    ]
+  },
+  "random-letter-swap-pingpong-anim": {
+    "name": "random-letter-swap-pingpong-anim",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/text/random-letter-swap-pingpong-anim",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "lodash",
+      "motion"
+    ]
+  },
+  "scramble-hover": {
+    "name": "scramble-hover",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/text/scramble-hover",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "scramble-in": {
+    "name": "scramble-in",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/text/scramble-in",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>"
+  },
+  "scroll-and-swap-text": {
+    "name": "scroll-and-swap-text",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/text/scroll-and-swap-text",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "text-along-path": {
+    "name": "text-along-path",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/text/text-along-path",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "text-cursor-proximity": {
+    "name": "text-cursor-proximity",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/text/text-cursor-proximity",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "text-highlighter": {
+    "name": "text-highlighter",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/text/text-highlighter",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "text-rotate": {
+    "name": "text-rotate",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/text/text-rotate",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "typewriter": {
+    "name": "typewriter",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/text/typewriter",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "underline-center": {
+    "name": "underline-center",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/text/underline-center",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "underline-comes-in-goes-out": {
+    "name": "underline-comes-in-goes-out",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/text/underline-comes-in-goes-out",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "clsx",
+      "motion"
+    ]
+  },
+  "underline-goes-out-comes-in": {
+    "name": "underline-goes-out-comes-in",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/text/underline-goes-out-comes-in",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "clsx",
+      "motion"
+    ]
+  },
+  "underline-to-background": {
+    "name": "underline-to-background",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/text/underline-to-background",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "variable-font-and-cursor": {
+    "name": "variable-font-and-cursor",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/text/variable-font-and-cursor",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "variable-font-cursor-proximity": {
+    "name": "variable-font-cursor-proximity",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/text/variable-font-cursor-proximity",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "variable-font-hover-by-letter": {
+    "name": "variable-font-hover-by-letter",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/text/variable-font-hover-by-letter",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "lodash",
+      "motion"
+    ]
+  },
+  "variable-font-hover-by-random-letter": {
+    "name": "variable-font-hover-by-random-letter",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/text/variable-font-hover-by-random-letter",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "vertical-cut-reveal": {
+    "name": "vertical-cut-reveal",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "fancy/text/vertical-cut-reveal",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "arrow-button-example": {
+    "name": "arrow-button-example",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/arrow-button-example",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>"
+  },
+  "animated-gradient-demo": {
+    "name": "animated-gradient-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/background/animated-gradient-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/background/animated-gradient-with-svg"
+    ]
+  },
+  "pixel-trail-custom-pixel-demo": {
+    "name": "pixel-trail-custom-pixel-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/background/pixel-trail-custom-pixel-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/background/pixel-trail"
+    ]
+  },
+  "pixel-trail-demo": {
+    "name": "pixel-trail-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/background/pixel-trail-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/background/pixel-trail"
+    ]
+  },
+  "pixel-trail-no-fade-demo": {
+    "name": "pixel-trail-no-fade-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/background/pixel-trail-no-fade-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/background/pixel-trail"
+    ]
+  },
+  "circling-elements-demo": {
+    "name": "circling-elements-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/blocks/circling-elements-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/blocks/circling-elements"
+    ]
+  },
+  "circling-elements-easing-demo": {
+    "name": "circling-elements-easing-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/blocks/circling-elements-easing-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/blocks/circling-elements"
+    ]
+  },
+  "css-box-demo": {
+    "name": "css-box-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/blocks/css-box-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/blocks/css-box"
+    ]
+  },
+  "css-box-hover-demo": {
+    "name": "css-box-hover-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/blocks/css-box-hover-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/blocks/css-box"
+    ]
+  },
+  "css-box-non-uniform-demo": {
+    "name": "css-box-non-uniform-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/blocks/css-box-non-uniform-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/blocks/css-box"
+    ]
+  },
+  "css-box-scroll-demo": {
+    "name": "css-box-scroll-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/blocks/css-box-scroll-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/blocks/css-box"
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "drag-elements-demo": {
+    "name": "drag-elements-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/blocks/drag-elements-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/blocks/drag-elements"
+    ]
+  },
+  "drag-elements-momentum-demo": {
+    "name": "drag-elements-momentum-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/blocks/drag-elements-momentum-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/blocks/drag-elements"
+    ]
+  },
+  "element-along-svg-path-demo": {
+    "name": "element-along-svg-path-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/blocks/element-along-svg-path-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/blocks/element-along-svg-path"
+    ]
+  },
+  "float-demo": {
+    "name": "float-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/blocks/float-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/blocks/float"
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "float-offset-demo": {
+    "name": "float-offset-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/blocks/float-offset-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/blocks/float"
+    ]
+  },
+  "marquee-along-svg-path-demo": {
+    "name": "marquee-along-svg-path-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/blocks/marquee-along-svg-path-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/blocks/marquee-along-svg-path"
+    ]
+  },
+  "marquee-along-svg-path-mapping-demo": {
+    "name": "marquee-along-svg-path-mapping-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/blocks/marquee-along-svg-path-mapping-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/blocks/marquee-along-svg-path"
+    ]
+  },
+  "marquee-along-svg-path-scroll-demo": {
+    "name": "marquee-along-svg-path-scroll-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/blocks/marquee-along-svg-path-scroll-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/blocks/marquee-along-svg-path"
+    ]
+  },
+  "media-between-text-demo": {
+    "name": "media-between-text-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/blocks/media-between-text-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/blocks/media-between-text"
+    ]
+  },
+  "media-between-text-scroll-demo": {
+    "name": "media-between-text-scroll-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/blocks/media-between-text-scroll-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/blocks/media-between-text"
+    ]
+  },
+  "media-between-text-vertical-demo": {
+    "name": "media-between-text-vertical-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/blocks/media-between-text-vertical-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/blocks/media-between-text"
+    ]
+  },
+  "screensaver-demo": {
+    "name": "screensaver-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/blocks/screensaver-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/blocks/screensaver"
+    ]
+  },
+  "simple-marquee-3d-demo": {
+    "name": "simple-marquee-3d-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/blocks/simple-marquee-3d-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/blocks/simple-marquee"
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "simple-marquee-demo": {
+    "name": "simple-marquee-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/blocks/simple-marquee-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/blocks/simple-marquee"
+    ]
+  },
+  "simple-marquee-drag-demo": {
+    "name": "simple-marquee-drag-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/blocks/simple-marquee-drag-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/blocks/simple-marquee",
+      "fancy/text/vertical-cut-reveal"
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "simple-marquee-easing-demo": {
+    "name": "simple-marquee-easing-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/blocks/simple-marquee-easing-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/blocks/simple-marquee"
+    ]
+  },
+  "simple-marquee-explainer-demo": {
+    "name": "simple-marquee-explainer-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/blocks/simple-marquee-explainer-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/blocks/simple-marquee"
+    ]
+  },
+  "stacking-cards-demo": {
+    "name": "stacking-cards-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/blocks/stacking-cards-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "Khoa Phan <https://www.pldkhoa.dev>",
+    "registryDependencies": [
+      "fancy/blocks/stacking-cards"
+    ]
+  },
+  "sticky-footer-demo": {
+    "name": "sticky-footer-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/blocks/sticky-footer-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>"
+  },
+  "box-carousel-autoplay-demo": {
+    "name": "box-carousel-autoplay-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/carousel/box-carousel-autoplay-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/carousel/box-carousel"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  "box-carousel-demo": {
+    "name": "box-carousel-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/carousel/box-carousel-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/carousel/box-carousel"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  "box-carousel-video-demo": {
+    "name": "box-carousel-video-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/carousel/box-carousel-video-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/carousel/box-carousel"
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "gooey-svg-filter-demo": {
+    "name": "gooey-svg-filter-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/filter/gooey-svg-filter-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/filter/gooey-svg-filter"
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "gooey-svg-filter-menu-demo": {
+    "name": "gooey-svg-filter-menu-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/filter/gooey-svg-filter-menu-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/filter/gooey-svg-filter"
+    ],
+    "dependencies": [
+      "motion",
+      "lucide-react"
+    ]
+  },
+  "gooey-svg-filter-pixel-trail-demo": {
+    "name": "gooey-svg-filter-pixel-trail-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/filter/gooey-svg-filter-pixel-trail-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/background/pixel-trail",
+      "fancy/filter/gooey-svg-filter"
+    ]
+  },
+  "pixelate-svg-filter-demo": {
+    "name": "pixelate-svg-filter-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/filter/pixelate-svg-filter-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/filter/pixelate-svg-filter"
+    ]
+  },
+  "pixelate-svg-filter-text": {
+    "name": "pixelate-svg-filter-text",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/filter/pixelate-svg-filter-text",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/filter/pixelate-svg-filter"
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "image-trail-demo": {
+    "name": "image-trail-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/image/image-trail-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/image/image-trail"
+    ]
+  },
+  "image-trail-instant-demo": {
+    "name": "image-trail-instant-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/image/image-trail-instant-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/image/image-trail"
+    ]
+  },
+  "image-trail-various-elements-demo": {
+    "name": "image-trail-various-elements-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/image/image-trail-various-elements-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/image/image-trail"
+    ]
+  },
+  "image-trail-zindex-demo": {
+    "name": "image-trail-zindex-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/image/image-trail-zindex-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/image/image-trail"
+    ]
+  },
+  "parallax-floating-demo": {
+    "name": "parallax-floating-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/image/parallax-floating-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/image/parallax-floating"
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "cursor-attractor-and-gravity-demo": {
+    "name": "cursor-attractor-and-gravity-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/physics/cursor-attractor-and-gravity-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/physics/cursor-attractor-and-gravity"
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "cursor-attractor-and-gravity-image-demo": {
+    "name": "cursor-attractor-and-gravity-image-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/physics/cursor-attractor-and-gravity-image-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/physics/cursor-attractor-and-gravity"
+    ]
+  },
+  "cursor-attractor-and-gravity-svg-demo": {
+    "name": "cursor-attractor-and-gravity-svg-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/physics/cursor-attractor-and-gravity-svg-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/physics/cursor-attractor-and-gravity"
+    ]
+  },
+  "elastic-line-demo": {
+    "name": "elastic-line-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/physics/elastic-line-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/physics/elastic-line"
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "gravity-body-types-demo": {
+    "name": "gravity-body-types-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/physics/gravity-body-types-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/physics/gravity"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  "gravity-demo": {
+    "name": "gravity-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/physics/gravity-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/physics/gravity"
+    ]
+  },
+  "gravity-non-draggable-demo": {
+    "name": "gravity-non-draggable-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/physics/gravity-non-draggable-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/physics/gravity"
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "gravity-svg-bodies-demo": {
+    "name": "gravity-svg-bodies-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/physics/gravity-svg-bodies-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/physics/gravity"
+    ]
+  },
+  "basic-number-ticker-demo": {
+    "name": "basic-number-ticker-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/basic-number-ticker-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/basic-number-ticker"
+    ]
+  },
+  "breathing-text-demo": {
+    "name": "breathing-text-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/breathing-text-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/breathing-text"
+    ]
+  },
+  "fancy-basic-number-ticker-demo": {
+    "name": "fancy-basic-number-ticker-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/fancy-basic-number-ticker-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/basic-number-ticker"
+    ],
+    "dependencies": [
+      "lucide-react",
+      "motion"
+    ]
+  },
+  "letter-3d-swap-demo": {
+    "name": "letter-3d-swap-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/letter-3d-swap-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/letter-3d-swap"
+    ]
+  },
+  "letter-3d-swap-explanation-left-demo": {
+    "name": "letter-3d-swap-explanation-left-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/letter-3d-swap-explanation-left-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "letter-3d-swap-explanation-top-demo": {
+    "name": "letter-3d-swap-explanation-top-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/letter-3d-swap-explanation-top-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "letter-3d-swap-rotate-top-explainer": {
+    "name": "letter-3d-swap-rotate-top-explainer",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/letter-3d-swap-rotate-top-explainer",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/letter-3d-swap"
+    ]
+  },
+  "letter-3d-swap-stagger-demo": {
+    "name": "letter-3d-swap-stagger-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/letter-3d-swap-stagger-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/letter-3d-swap"
+    ]
+  },
+  "letter-swap-demo-line": {
+    "name": "letter-swap-demo-line",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/letter-swap-demo-line",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/letter-swap-forward-anim"
+    ]
+  },
+  "letter-swap-demo-stagger": {
+    "name": "letter-swap-demo-stagger",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/letter-swap-demo-stagger",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/letter-swap-forward-anim"
+    ]
+  },
+  "letter-swap-demo": {
+    "name": "letter-swap-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/letter-swap-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/letter-swap-forward-anim",
+      "fancy/text/letter-swap-pingpong-anim"
+    ]
+  },
+  "random-letter-swap-demo": {
+    "name": "random-letter-swap-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/random-letter-swap-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/random-letter-swap-forward-anim",
+      "fancy/text/random-letter-swap-pingpong-anim"
+    ]
+  },
+  "scramble-hover-demo": {
+    "name": "scramble-hover-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/scramble-hover-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/scramble-hover"
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "scramble-hover-diff-class-demo": {
+    "name": "scramble-hover-diff-class-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/scramble-hover-diff-class-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/scramble-hover"
+    ]
+  },
+  "scramble-hover-new-chars-demo": {
+    "name": "scramble-hover-new-chars-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/scramble-hover-new-chars-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/scramble-hover"
+    ]
+  },
+  "scramble-hover-sequential-demo": {
+    "name": "scramble-hover-sequential-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/scramble-hover-sequential-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/scramble-hover"
+    ]
+  },
+  "scramble-in-demo": {
+    "name": "scramble-in-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/scramble-in-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/scramble-in"
+    ]
+  },
+  "scroll-and-swap-text-demo": {
+    "name": "scroll-and-swap-text-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/scroll-and-swap-text-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/scroll-and-swap-text"
+    ],
+    "dependencies": [
+      "lenis"
+    ]
+  },
+  "text-along-path-auto-demo": {
+    "name": "text-along-path-auto-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/text-along-path-auto-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/text-along-path"
+    ]
+  },
+  "text-along-path-circle-demo": {
+    "name": "text-along-path-circle-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/text-along-path-circle-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/text-along-path"
+    ]
+  },
+  "text-along-path-demo": {
+    "name": "text-along-path-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/text-along-path-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/text-along-path"
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "text-along-path-scroll-demo": {
+    "name": "text-along-path-scroll-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/text-along-path-scroll-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/text-along-path"
+    ]
+  },
+  "text-cursor-proximity-demo": {
+    "name": "text-cursor-proximity-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/text-cursor-proximity-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/text-cursor-proximity"
+    ]
+  },
+  "text-cursor-proximity-falloff-demo": {
+    "name": "text-cursor-proximity-falloff-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/text-cursor-proximity-falloff-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/text-cursor-proximity"
+    ]
+  },
+  "text-highlighter-demo": {
+    "name": "text-highlighter-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/text-highlighter-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/text-highlighter"
+    ],
+    "dependencies": [
+      "lenis"
+    ]
+  },
+  "text-highlighter-hover-demo": {
+    "name": "text-highlighter-hover-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/text-highlighter-hover-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/text-highlighter"
+    ]
+  },
+  "text-highlighter-ref-demo": {
+    "name": "text-highlighter-ref-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/text-highlighter-ref-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/text-highlighter"
+    ]
+  },
+  "text-highlighter-scroll-demo": {
+    "name": "text-highlighter-scroll-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/text-highlighter-scroll-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/text-highlighter"
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "text-rotate-custom-animation-demo": {
+    "name": "text-rotate-custom-animation-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/text-rotate-custom-animation-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/text-rotate"
+    ]
+  },
+  "text-rotate-demo": {
+    "name": "text-rotate-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/text-rotate-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/text-rotate"
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "text-rotate-mapping-demo": {
+    "name": "text-rotate-mapping-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/text-rotate-mapping-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/text-rotate"
+    ]
+  },
+  "text-rotate-multiline-demo": {
+    "name": "text-rotate-multiline-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/text-rotate-multiline-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/text-rotate"
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "text-rotate-scroll-step-demo": {
+    "name": "text-rotate-scroll-step-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/text-rotate-scroll-step-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/text-rotate"
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "text-rotate-stagger-demo": {
+    "name": "text-rotate-stagger-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/text-rotate-stagger-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/text-rotate"
+    ]
+  },
+  "text-rotate-step-demo": {
+    "name": "text-rotate-step-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/text-rotate-step-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/text-rotate"
+    ],
+    "dependencies": [
+      "lucide-react",
+      "motion"
+    ]
+  },
+  "typewriter-demo": {
+    "name": "typewriter-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/typewriter-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/typewriter"
+    ]
+  },
+  "underline-demo": {
+    "name": "underline-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/underline-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/underline-center",
+      "fancy/text/underline-comes-in-goes-out",
+      "fancy/text/underline-goes-out-comes-in"
+    ]
+  },
+  "underline-to-background-demo": {
+    "name": "underline-to-background-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/underline-to-background-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/underline-to-background"
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "variable-font-and-cursor-demo": {
+    "name": "variable-font-and-cursor-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/variable-font-and-cursor-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/variable-font-and-cursor"
+    ]
+  },
+  "variable-font-cursor-proximity-demo": {
+    "name": "variable-font-cursor-proximity-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/variable-font-cursor-proximity-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/variable-font-cursor-proximity"
+    ]
+  },
+  "variable-font-cursor-proximity-falloff-demo": {
+    "name": "variable-font-cursor-proximity-falloff-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/variable-font-cursor-proximity-falloff-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/variable-font-cursor-proximity"
+    ]
+  },
+  "variable-font-hover-by-letter-demo": {
+    "name": "variable-font-hover-by-letter-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/variable-font-hover-by-letter-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/variable-font-hover-by-letter"
+    ]
+  },
+  "variable-font-hover-by-random-letter-demo": {
+    "name": "variable-font-hover-by-random-letter-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/variable-font-hover-by-random-letter-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/variable-font-hover-by-random-letter"
+    ]
+  },
+  "vertical-cut-reveal-demo": {
+    "name": "vertical-cut-reveal-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/vertical-cut-reveal-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/vertical-cut-reveal"
+    ]
+  },
+  "vertical-cut-reveal-letter-random-demo": {
+    "name": "vertical-cut-reveal-letter-random-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/vertical-cut-reveal-letter-random-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/vertical-cut-reveal"
+    ]
+  },
+  "vertical-cut-reveal-line-demo": {
+    "name": "vertical-cut-reveal-line-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/vertical-cut-reveal-line-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/vertical-cut-reveal"
+    ]
+  },
+  "vertical-cut-reveal-scroll-demo": {
+    "name": "vertical-cut-reveal-scroll-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/vertical-cut-reveal-scroll-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/vertical-cut-reveal"
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "vertical-cut-reveal-stagger-demo": {
+    "name": "vertical-cut-reveal-stagger-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/vertical-cut-reveal-stagger-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/vertical-cut-reveal"
+    ]
+  },
+  "vertical-cut-reveal-word-demo": {
+    "name": "vertical-cut-reveal-word-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/text/vertical-cut-reveal-word-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "registryDependencies": [
+      "fancy/text/vertical-cut-reveal"
+    ]
+  },
+  "use-debounced-dimensions": {
+    "name": "use-debounced-dimensions",
+    "type": "registry:hook",
+    "files": [
+      {
+        "path": "hooks/use-debounced-dimensions",
+        "type": "registry:hook"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>"
+  },
+  "use-detect-browser": {
+    "name": "use-detect-browser",
+    "type": "registry:hook",
+    "files": [
+      {
+        "path": "hooks/use-detect-browser",
+        "type": "registry:hook"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>"
+  },
+  "use-dimensions": {
+    "name": "use-dimensions",
+    "type": "registry:hook",
+    "files": [
+      {
+        "path": "hooks/use-dimensions",
+        "type": "registry:hook"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>"
+  },
+  "use-elastic-line-events": {
+    "name": "use-elastic-line-events",
+    "type": "registry:hook",
+    "files": [
+      {
+        "path": "hooks/use-elastic-line-events",
+        "type": "registry:hook"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>"
+  },
+  "use-line-breakdown": {
+    "name": "use-line-breakdown",
+    "type": "registry:hook",
+    "files": [
+      {
+        "path": "hooks/use-line-breakdown",
+        "type": "registry:hook"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>"
+  },
+  "use-line-count": {
+    "name": "use-line-count",
+    "type": "registry:hook",
+    "files": [
+      {
+        "path": "hooks/use-line-count",
+        "type": "registry:hook"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>"
+  },
+  "use-mounted": {
+    "name": "use-mounted",
+    "type": "registry:hook",
+    "files": [
+      {
+        "path": "hooks/use-mounted",
+        "type": "registry:hook"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>"
+  },
+  "use-mouse-position-ref": {
+    "name": "use-mouse-position-ref",
+    "type": "registry:hook",
+    "files": [
+      {
+        "path": "hooks/use-mouse-position-ref",
+        "type": "registry:hook"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>"
+  },
+  "use-mouse-position": {
+    "name": "use-mouse-position",
+    "type": "registry:hook",
+    "files": [
+      {
+        "path": "hooks/use-mouse-position",
+        "type": "registry:hook"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>"
+  },
+  "use-mouse-vector": {
+    "name": "use-mouse-vector",
+    "type": "registry:hook",
+    "files": [
+      {
+        "path": "hooks/use-mouse-vector",
+        "type": "registry:hook"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>"
+  },
+  "use-screen-size": {
+    "name": "use-screen-size",
+    "type": "registry:hook",
+    "files": [
+      {
+        "path": "hooks/use-screen-size",
+        "type": "registry:hook"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>"
+  },
+  "calculate-position": {
+    "name": "calculate-position",
+    "type": "registry:lib",
+    "files": [
+      {
+        "path": "utils/calculate-position",
+        "type": "registry:lib"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>"
+  },
+  "demo-images": {
+    "name": "demo-images",
+    "type": "registry:lib",
+    "files": [
+      {
+        "path": "utils/demo-images",
+        "type": "registry:lib"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>"
+  },
+  "svg-path-to-vertices": {
+    "name": "svg-path-to-vertices",
+    "type": "registry:lib",
+    "files": [
+      {
+        "path": "utils/svg-path-to-vertices",
+        "type": "registry:lib"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "svg-path-commander"
+    ]
+  },
+  "utils": {
+    "name": "utils",
+    "type": "registry:lib",
+    "files": [
+      {
+        "path": "utils/utils",
+        "type": "registry:lib"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "clsx",
+      "tailwind-merge"
+    ]
+  }
+}

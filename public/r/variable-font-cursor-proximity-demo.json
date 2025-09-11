@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "variable-font-cursor-proximity-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/variable-font-cursor-proximity.json",
+    "https://uwuui.com/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/variable-font-cursor-proximity-demo.tsx",
+      "content": "\"use client\"\n\nimport { useRef } from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport VariableFontCursorProximity from \"@/fancy/components/text/variable-font-cursor-proximity\"\n\nconst texts = [\"Overstimulated\", \"Underutilized\", \"Familiar\", \"Extraordinary\"]\n\nexport default function Preview() {\n  const containerRef = useRef<HTMLDivElement>(null)\n\n  return (\n    <div\n      className=\"w-dvw h-dvh rounded-lg items-center justify-center font-overused-grotesk bg-[#ff5941] cursor-pointer relative overflow-hidden\"\n      ref={containerRef}\n    >\n      <div className=\"w-full h-full flex flex-col items-center justify-center gap-4 text-white\">\n        {texts.map((text, i) => (\n          <VariableFontCursorProximity\n            key={i}\n            className={cn(\"text-4xl md:text-6xl lg:text-7xl leading-none\")}\n            fromFontVariationSettings=\"'wght' 400, 'slnt' 0\"\n            toFontVariationSettings=\"'wght' 900, 'slnt' -10\"\n            radius={200}\n            containerRef={containerRef}\n          >\n            {text}\n          </VariableFontCursorProximity>\n        ))}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/variable-font-cursor-proximity-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

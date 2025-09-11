@@ -1,0 +1,43 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "underline-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/underline-center.json",
+    "https://uwuui.com/r/underline-comes-in-goes-out.json",
+    "https://uwuui.com/r/underline-goes-out-comes-in.json"
+  ],
+  "files": [
+    {
+      "path": "examples/text/underline-demo.tsx",
+      "content": "import Link from \"next/link\"\n\nimport CenterUnderline from \"@/fancy/components/text/underline-center\"\nimport ComesInGoesOutUnderline from \"@/fancy/components/text/underline-comes-in-goes-out\"\nimport GoesOutComesInUnderline from \"@/fancy/components/text/underline-goes-out-comes-in\"\n\nexport default function UnderlineDemo() {\n  return (\n    <div className=\"w-dvw h-dvh flex flex-col items-center justify-center bg-white\">\n      <div className=\"flex flex-row font-overused-grotesk items-start text-[#0015ff] h-full py-36 uppercase space-x-8 text-sm sm:text-lg md:text-xl lg:text-2xl\">\n        <div>Contact</div>\n        <ul className=\"flex flex-col space-y-1 h-full\">\n          <Link className=\"\" href=\"#\">\n            <CenterUnderline>LINKEDIN</CenterUnderline>\n          </Link>\n          <Link className=\"\" href=\"#\">\n            <ComesInGoesOutUnderline direction=\"right\">\n              INSTAGRAM\n            </ComesInGoesOutUnderline>\n          </Link>\n          <Link className=\"\" href=\"#\">\n            <ComesInGoesOutUnderline direction=\"left\">\n              X (TWITTER)\n            </ComesInGoesOutUnderline>\n          </Link>\n\n          <div className=\"pt-12\">\n            <ul className=\"flex flex-col space-y-1 h-full\">\n              <Link className=\"\" href=\"#\">\n                <GoesOutComesInUnderline direction=\"left\">\n                  FANCY@FANCY.DEV\n                </GoesOutComesInUnderline>\n              </Link>\n              <Link className=\"\" href=\"#\">\n                <GoesOutComesInUnderline direction=\"right\">\n                  HELLO@FANCY.DEV\n                </GoesOutComesInUnderline>\n              </Link>\n            </ul>\n          </div>\n        </ul>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/text/underline-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

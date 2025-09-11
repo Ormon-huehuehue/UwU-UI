@@ -1,0 +1,38 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sticky-footer-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "files": [
+    {
+      "path": "examples/blocks/sticky-footer-demo.tsx",
+      "content": "import React from \"react\"\n\nconst Preview: React.FC = () => {\n  return (\n    <div className=\"w-full bg-[#efefef] items-center justify-center h-full overflow-auto\">\n      {/* add relative positioning to the main conent */}\n      <div className=\"relative w-dvw h-dvh z-10 text-2xl md:text-7xl font-bold uppercase flex justify-center items-center bg-[#ff5941] text-white whitespace-pre\">\n        Scroll down ↓\n      </div>\n\n      {/* Sticky footer. The only important thing here is the z-index, the sticky position and the bottom value */}\n      <div className=\"sticky z-0 bottom-0 left-0 w-full h-80 bg-white flex justify-center items-center\">\n        <div className=\"relative overflow-hidden w-full h-full flex justify-end px-12 text-right items-start py-12 text-[#ff5941]\">\n          <div className=\"flex flex-row space-x-12 sm:pace-x-16  md:space-x-24 text-sm sm:text-lg md:text-xl\">\n            <ul>\n              <li className=\"hover:underline cursor-pointer\">Home</li>\n              <li className=\"hover:underline cursor-pointer\">Docs</li>\n              <li className=\"hover:underline cursor-pointer\">Comps</li>\n            </ul>\n            <ul>\n              <li className=\"hover:underline cursor-pointer\">Github</li>\n              <li className=\"hover:underline cursor-pointer\">Instagram</li>\n              <li className=\"hover:underline cursor-pointer\">X (Twitter)</li>\n            </ul>\n          </div>\n          <h2 className=\"absolute bottom-0 left-0  translate-y-1/3 sm:text-[192px]  text-[80px] text-[#ff5941] font-calendas\">\n            fancy\n          </h2>\n        </div>\n      </div>\n    </div>\n  )\n}\n\nexport default Preview\n",
+      "type": "registry:block",
+      "target": "components/fancy/blocks/sticky-footer-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}
