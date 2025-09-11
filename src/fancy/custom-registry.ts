@@ -7,6 +7,8 @@ import GooeyButton from "@/components/goey-button";
 import SingleKey from "@/components/mech-key";
 import ToggleSwitch from "@/components/toggle-switch";
 import Cwickablebutton from "@/components/cwickable";
+import LegoButton from "@/components/lego-button";
+import ShinyCard from "@/components/shiny-card";
 
 export const customRegistry = {
   "3d-button": {
@@ -44,6 +46,14 @@ export const customRegistry = {
   "cwickable-button": {
     component: Cwickablebutton,
     name: "Cwickable Button",
+  },
+  "lego-button": {
+    component: LegoButton,
+    name: "Lego Button",
+  },
+  "shiny-card": {
+    component: ShinyCard,
+    name: "Shiny Card",
   },
 } as const;
 

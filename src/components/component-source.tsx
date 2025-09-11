@@ -29,7 +29,9 @@ export function ComponentSource({
           "goey-button": "/components/goey-button.tsx",
           "mech-key": "/components/mech-key.tsx",
           "toggle-switch": "/components/toggle-switch.tsx",
-          "cwickable-button": "/components/cwickable.tsx"
+          "cwickable-button": "/components/cwickable.tsx",
+          "lego-button": "/components/lego-button.tsx",
+          "shiny-card": "/components/shiny-card.tsx",
         };
         
         // Get the file path for the component

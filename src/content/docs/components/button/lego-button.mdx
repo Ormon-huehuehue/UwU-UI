@@ -1,0 +1,132 @@
+---
+title: Lego Button
+description: A Lego-styled button with a springy press effect.
+component: true
+author: Sarthak Kapila
+---
+
+<ComponentPreview name="lego-button" />
+
+## Installation
+
+{/* Coming soon */}
+
+## Usage
+
+<CodeSnippet title="Lego Button Example">
+```tsx
+import LegoElements from "@/components/lego-button";
+
+export default function Example() {
+  return (
+    <>
+      <LegoElements 
+        variant="A"
+        onVariantChange={(variant) => console.log('Variant changed:', variant)}
+      />
+      <LegoElements 
+        variant="B"
+        onVariantChange={(variant) => console.log('Variant changed:', variant)}
+      />
+      <LegoElements 
+        variant="C"
+        label="Get Started"
+        link="/signup"
+        newTab={true}
+      />
+    </>
+  );
+}
+```
+
+</CodeSnippet>
+
+## Understanding the component
+
+The button uses a subtle elevation shadow that collapses on press, creating a tactile feel. Motion is powered by a spring animation for a responsive interaction.
+
+## Credits
+
+By Sarthak Kapila.
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>label</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>`"Get started"`</TableCell>
+      <TableCell>Text displayed inside the button.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>text</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>`"Get started"`</TableCell>
+      <TableCell>Text displayed inside the button.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>link</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>`"#"`</TableCell>
+      <TableCell>Optional link to wrap the button (Next.js `Link`).</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>width</TableCell>
+      <TableCell>`number`</TableCell>
+      <TableCell>`144`</TableCell>
+      <TableCell>Button width in pixels.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>newTab</TableCell>
+      <TableCell>`boolean`</TableCell>
+      <TableCell>`false`</TableCell>
+      <TableCell>Open link in new tab.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>smoothScroll</TableCell>
+      <TableCell>`boolean`</TableCell>
+      <TableCell>`false`</TableCell>
+      <TableCell>Smooth scroll to link.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>height</TableCell>
+      <TableCell>`number`</TableCell>
+      <TableCell>`56`</TableCell>
+      <TableCell>Button height in pixels.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>className</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Optional class name on the root container.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>style</TableCell>
+      <TableCell>`React.CSSProperties`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Inline styles for the root container.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>layoutId</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Optional layout id for the root container.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>onVariantChange</TableCell>
+      <TableCell>`(variant: string) => void`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Callback function when the variant changes.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+

@@ -1,0 +1,64 @@
+---
+title: Shiny Card
+description: A shiny card with a shiny effect.
+component: true
+author: Sarthak Kapila
+---
+
+<ComponentPreview name="shiny-card" />
+
+## Installation
+
+{/* Coming soon */}
+
+## Usage
+
+<CodeSnippet title="Shiny Card Example">
+```tsx
+import ShinyCard from "@/components/shiny-card";
+
+export default function Example() {
+  return <ShinyCard />;
+}
+```
+</CodeSnippet>
+
+## Understanding the component
+
+The card uses a subtle elevation shadow that collapses on press, creating a tactile feel. Motion is powered by a spring animation for a responsive interaction.
+
+## Credits
+
+By Sarthak Kapila.
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>variant</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>`"assets"`</TableCell>
+      <TableCell>Variant of the card.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>className</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Optional class name on the root container.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>style</TableCell>
+      <TableCell>`React.CSSProperties`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Inline styles for the root container.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
