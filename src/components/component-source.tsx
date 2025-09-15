@@ -46,35 +46,8 @@ export function ComponentSource({
           console.error(`Registry fetch failed for ${name}:`, registryError)
         }
 
-        // Fallback to API source endpoint
-        const componentFilePaths: Record<string, string> = {
-          "3d-button": "/components/3D-button.tsx",
-          "arrow-button": "/components/arrow-pointer.tsx",
-          "backup-button": "/components/backup-button.tsx",
-          "chonky-button": "/components/chunky-button.tsx",
-          "shiny-tooltip-button": "/components/Hover-2-seats.tsx",
-          "goey-button": "/components/goey-button.tsx",
-          "mech-key": "/components/mech-key.tsx",
-          "toggle-switch": "/components/toggle-switch.tsx",
-          "cwickable-button": "/components/cwickable.tsx",
-          "lego-button": "/components/lego-button.tsx",
-          "shiny-card": "/components/shiny-card.tsx",
-          "lumi-card": "/fancy/examples/card/lumi-card-demo.tsx",
-        }
-
-        const filePath = componentFilePaths[name]
-        if (filePath) {
-          const response = await fetch(`/api/source?file=${encodeURIComponent(filePath)}`)
-          if (!response.ok) {
-            throw new Error(`Failed to fetch source code: ${response.statusText}`)
-          }
-          const { code } = await response.json()
-          setSourceCode(code)
-          return
-        }
-
-        console.error(`Could not resolve source for ${name}`)
-        setSourceCode("// Source code could not be loaded")
+        console.error(`Could not resolve source for ${name} - registry file not found or empty`)
+        setSourceCode("// Source code could not be loaded - registry file not found")
       } catch (error) {
         console.error(`Failed to load source for ${name}:`, error);
         setSourceCode("// Error loading source code");
