@@ -28,7 +28,10 @@ export function ComponentSource({
             const mainFile = files.find((f) => {
               const base = f.path.split("/").pop() || ""
               const fileNameWithoutExt = base.replace(/\.(tsx|ts)$/i, "")
-              return fileNameWithoutExt.toLowerCase() === name.toLowerCase()
+              // More flexible matching - check if the name matches after normalizing case and hyphens
+              const normalizedFileName = fileNameWithoutExt.toLowerCase().replace(/[-_]/g, '')
+              const normalizedName = name.toLowerCase().replace(/[-_]/g, '')
+              return normalizedFileName === normalizedName
             })
             if (mainFile?.content) {
               setSourceCode(mainFile.content)
