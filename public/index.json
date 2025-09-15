@@ -1092,6 +1092,17 @@
     ],
     "author": "daniel petho <https://www.danielpetho.com>"
   },
+  "lumi-card-demo": {
+    "name": "lumi-card-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/card/lumi-card-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>"
+  },
   "box-carousel-autoplay-demo": {
     "name": "box-carousel-autoplay-demo",
     "type": "registry:block",

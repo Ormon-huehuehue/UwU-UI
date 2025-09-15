@@ -22,6 +22,12 @@ const nextConfig = {
         port: "",
         hostname: "musicbrainz.org",
         pathname: "/**",
+      },
+      {
+        protocol: "https",
+        port: "",
+        hostname: "framerusercontent.com",
+        pathname: "/**",
       }
     ],
   },

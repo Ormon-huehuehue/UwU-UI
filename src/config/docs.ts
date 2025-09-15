@@ -291,6 +291,11 @@ export const docsConfig: SidebarNavItem[] = [
         href: "/docs/components/card/shiny-card",
         items: [],
       },
+      {
+        title: "Lumi Card",
+        href: "/docs/components/card/lumi-card",
+        items: [],
+      },
     ],
   },
 ]

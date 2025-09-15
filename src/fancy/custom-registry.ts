@@ -9,6 +9,7 @@ import ToggleSwitch from "@/components/toggle-switch";
 import Cwickablebutton from "@/components/cwickable";
 import LegoButton from "@/components/lego-button";
 import ShinyCard from "@/components/shiny-card";
+import LumiCardDemo from "./examples/card/lumi-card-demo";
 
 export const customRegistry = {
   "3d-button": {
@@ -54,6 +55,10 @@ export const customRegistry = {
   "shiny-card": {
     component: ShinyCard,
     name: "Shiny Card",
+  },
+  "lumi-card": {
+    component: LumiCardDemo,
+    name: "Lumi Card",
   },
 } as const;
 

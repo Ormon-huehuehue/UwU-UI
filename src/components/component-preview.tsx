@@ -50,6 +50,7 @@ export function ComponentPreview({
           "cwickable-button": "/components/cwickable.tsx",
           "lego-button": "/components/lego-button.tsx",
           "shiny-card": "/components/shiny-card.tsx",
+          "lumi-card": "/fancy/examples/card/lumi-card-demo.tsx",
         };
         
         // Get the file path for the component

@@ -19,6 +19,7 @@ export function ComponentSource({
   React.useEffect(() => {
     async function loadSourceCode() {
       try {
+        // Try to load from registry first
         try {
           const registryResponse = await fetch(`/r/${encodeURIComponent(name)}.json`, { cache: "force-cache" })
           if (registryResponse.ok) {
@@ -26,7 +27,8 @@ export function ComponentSource({
             const files: Array<{ path: string; content: string }> = registry.files || []
             const mainFile = files.find((f) => {
               const base = f.path.split("/").pop() || ""
-              return base.replace(/\.(tsx|ts)$/i, "") === name
+              const fileNameWithoutExt = base.replace(/\.(tsx|ts)$/i, "")
+              return fileNameWithoutExt.toLowerCase() === name.toLowerCase()
             })
             if (mainFile?.content) {
               setSourceCode(mainFile.content)
@@ -34,8 +36,10 @@ export function ComponentSource({
             }
           }
         } catch (_) {
+          // Registry fetch failed, continue to fallback
         }
 
+        // Fallback to API source endpoint
         const componentFilePaths: Record<string, string> = {
           "3d-button": "/components/3D-button.tsx",
           "arrow-button": "/components/arrow-pointer.tsx",
@@ -48,6 +52,7 @@ export function ComponentSource({
           "cwickable-button": "/components/cwickable.tsx",
           "lego-button": "/components/lego-button.tsx",
           "shiny-card": "/components/shiny-card.tsx",
+          "lumi-card": "/fancy/examples/card/lumi-card-demo.tsx",
         }
 
         const filePath = componentFilePaths[name]

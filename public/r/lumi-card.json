@@ -1,0 +1,17 @@
+{
+  "name": "lumi-card",
+  "type": "registry:block",
+  "files": [
+    {
+      "path": "fancy/examples/card/lumi-card-demo.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\nimport LumiCard from \"@/components/lumi-card\"\n\nexport default function LumiCardDemo() {\n  return (\n    <LumiCard\n      title=\"UwU UI\"\n      subtitle=\"Cool UI components\"\n      footerLabel=\"github\"\n      imageUrl=\"https://framerusercontent.com/images/OIHZCKGdnHNaGppookHuHF0eKA4.png\"\n    />\n  )\n}",
+      "type": "registry:block",
+      "target": "components/fancy/card/lumi-card-demo.tsx"
+    }
+  ],
+  "author": "Sarthak Kapila",
+  "dependencies": [
+    "react",
+    "styled-components"
+  ]
+}

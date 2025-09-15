@@ -1,0 +1,84 @@
+---
+title: Lumi Card
+description: A lumi card with a lumi effect.
+component: true
+author: Sarthak Kapila
+---
+
+<ComponentPreview name="lumi-card" />
+
+## Installation
+
+{/* Coming soon */}
+
+## Usage
+
+<CodeSnippet title="Lumi Card Example">
+```tsx
+import LumiCard from "@/components/lumi-card";
+
+export default function Example() {
+  return (
+    <LumiCard
+          title={"UwU UI"}
+          subtitle={"Cool UI components"}
+          footerLabel={"github"}
+          imageUrl={"https://framerusercontent.com/images/OIHZCKGdnHNaGppookHuHF0eKA4.png"}
+        />
+  )
+}
+```
+</CodeSnippet>
+
+## Understanding the component
+
+The card uses a subtle elevation shadow that collapses on press, creating a tactile feel. Motion is powered by a spring animation for a responsive interaction.
+
+## Credits
+
+By Sarthak Kapila.
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>title</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Title of the card.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>subtitle</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Subtitle of the card.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>footerLabel</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Footer label of the card.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>imageUrl</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Image URL of the card.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>videoUrl</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>-</TableCell>
+      <TableCell>Video URL of the card.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
