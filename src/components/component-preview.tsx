@@ -37,42 +37,38 @@ export function ComponentPreview({
   React.useEffect(() => {
     async function loadSourceCode() {
       try {
-        // Map component names to their file paths
-        const componentFilePaths: Record<string, string> = {
-          "3d-button": "/components/3D-button.tsx",
-          "arrow-button": "/components/arrow-pointer.tsx",
-          "backup-button": "/components/backup-button.tsx",
-          "chonky-button": "/components/chunky-button.tsx",
-          "shiny-tooltip-button": "/components/Hover-2-seats.tsx",
-          "goey-button": "/components/goey-button.tsx",
-          "mech-key": "/components/mech-key.tsx",
-          "toggle-switch": "/components/toggle-switch.tsx",
-          "cwickable-button": "/components/cwickable.tsx",
-          "lego-button": "/components/lego-button.tsx",
-          "shiny-card": "/components/shiny-card.tsx",
-          "lumi-card": "/fancy/examples/card/lumi-card-demo.tsx",
-        };
-        
-        // Get the file path for the component
-        const filePath = componentFilePaths[name];
-        
-        if (!filePath) {
-          console.error(`Could not find file path for ${name}`);
-          setSourceCode("");
-          return;
+        // Try to load from registry first
+        try {
+          const registryResponse = await fetch(`/r/${encodeURIComponent(name)}.json`)
+          if (registryResponse.ok) {
+            const registry = await registryResponse.json()
+            const files: Array<{ path: string; content: string }> = registry.files || []
+            const mainFile = files.find((f) => {
+              const base = f.path.split("/").pop() || ""
+              const fileNameWithoutExt = base.replace(/\.(tsx|ts)$/i, "")
+              // More flexible matching - check if the name matches after normalizing case and hyphens
+              const normalizedFileName = fileNameWithoutExt.toLowerCase().replace(/[-_]/g, '')
+              const normalizedName = name.toLowerCase().replace(/[-_]/g, '')
+              return normalizedFileName === normalizedName
+            })
+            if (mainFile?.content) {
+              setSourceCode(mainFile.content)
+              return
+            } else if (files.length > 0 && files[0].content) {
+              // Fallback to first file if no match found
+              setSourceCode(files[0].content)
+              return
+            }
+          }
+        } catch (registryError) {
+          console.error(`Registry fetch failed for ${name}:`, registryError)
         }
-        
-        // Fetch the component source code
-        const response = await fetch(`/api/source?file=${encodeURIComponent(filePath)}`);
-        if (!response.ok) {
-          throw new Error(`Failed to fetch source code: ${response.statusText}`);
-        }
-        
-        const { code } = await response.json();
-        setSourceCode(code);
+
+        console.error(`Could not resolve source for ${name} - registry file not found or empty`)
+        setSourceCode("// Source code could not be loaded - registry file not found")
       } catch (error) {
         console.error(`Failed to load source for ${name}:`, error);
-        setSourceCode("");
+        setSourceCode("// Error loading source code");
       }
     }
     loadSourceCode();
