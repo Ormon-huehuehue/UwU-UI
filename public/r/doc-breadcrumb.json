@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "doc-breadcrumb",
+  "type": "registry:ui",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "files": [
+    {
+      "path": "components/doc-breadcrumb.tsx",
+      "content": "interface DocBreadcrumbProps {\n  componentType: string\n  title: string\n}\n\nexport function DocBreadcrumb({ componentType, title }: DocBreadcrumbProps) {\n  return (\n    <div className=\"pb-6 flex items-center space-x-1 text-[13px] md:text-base text-muted-foreground\">\n      <div className=\"font-medium whitespace-nowrap\">\n        Docs\n      </div>\n      <span className=\"font-serif\">&#8594;</span>\n      <div\n        data-algolia-level-0\n        className=\"font-medium text-muted-foreground\"\n      >\n        {componentType}\n      </div>\n      <span className=\"font-serif\">&#8594;</span>\n      <div className=\"font-medium text-foreground\">{title}</div>\n    </div>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": "components/fancy/components/doc-breadcrumb.tsx"
+    }
+  ]
+}

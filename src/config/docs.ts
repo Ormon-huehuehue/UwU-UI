@@ -76,6 +76,11 @@ export const docsConfig: SidebarNavItem[] = [
         href: "/docs/components/button/lego-button",
         items: [],
       },
+      {
+        title: "Glowy Button",
+        href: "/docs/components/button/glowy-button",
+        items: [],
+      },
       // {
       //   title: "Text Cursor Proximity",
       //   href: "/docs/components/text/text-cursor-proximity",
@@ -294,6 +299,16 @@ export const docsConfig: SidebarNavItem[] = [
       {
         title: "Lumi Card",
         href: "/docs/components/card/lumi-card",
+        items: [],
+      },
+      {
+        title: "Socials Card",
+        href: "/docs/components/card/socials-card",
+        items: [],
+      },
+      {
+        title: "WakaTime Stats Card",
+        href: "/docs/components/card/wakatime-stats-card",
         items: [],
       },
     ],

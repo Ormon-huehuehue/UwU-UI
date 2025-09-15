@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-switcher",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/button.json"
+  ],
+  "files": [
+    {
+      "path": "components/theme-switcher.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { Moon, Sun } from \"lucide-react\"\nimport { useTheme } from \"next-themes\"\n\nimport { Button } from \"./ui/button\"\n\nconst ThemeSwitcher = () => {\n  const { setTheme, resolvedTheme } = useTheme()\n\n  return (\n    <Button\n      className=\"flex items-center justify-center w-8 h-8 hover:bg-transparent text-foreground relative group\"\n      onClick={() => setTheme(resolvedTheme === \"dark\" ? \"light\" : \"dark\")}\n      variant={\"ghost\"}\n    >\n      <Sun className=\"absolute h-[19px] w-[19px] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 group-hover:[stroke-width:3px] duration-300 ease-out\" />\n      <Moon className=\"absolute h-[19px] w-[19px] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 group-hover:[stroke-width:3px] duration-300 ease-out\" />\n      <span className=\"sr-only\">Toggle theme</span>\n    </Button>\n  )\n}\n\nexport default ThemeSwitcher\n",
+      "type": "registry:ui",
+      "target": "components/fancy/components/theme-switcher.tsx"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "footer",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "files": [
+    {
+      "path": "components/footer.tsx",
+      "content": "import { ExternalLinkIcon } from \"lucide-react\";\n\nexport function Footer() {\n  return (\n    <footer className=\"flex items-center justify-center w-full h-20 mb-4\">\n      <div className=\"flex w-full mx-4 rounded-2xl bg-background items-center justify-center h-full border border-border\">\n      </div>\n    </footer>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": "components/fancy/components/footer.tsx"
+    }
+  ]
+}

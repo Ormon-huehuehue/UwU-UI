@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "doc-author",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "files": [
+    {
+      "path": "components/doc-author.tsx",
+      "content": "import { ExternalLink, ExternalLinkIcon } from \"lucide-react\"\n\ninterface DocAuthorProps {\n  author: string\n}\n\nexport function DocAuthor({ author }: DocAuthorProps) {\n  if (!author || author.length === 0 || author === \"undefined\") {\n    return null\n  }\n\n  return (\n    <p className=\"pt-4 text text-muted-foreground flex flex-row whitespace-pre text-lg\">\n      by {\" \"}\n      {author.match(/\\[([^\\]]+)\\]\\(([^)]+)\\)/g)\n        ? author.split(\",\").map((authorItem, i) => {\n            const match = authorItem.match(/\\[([^\\]]+)\\]\\(([^)]+)\\)/)\n            if (match) {\n              return (\n                <span key={i}>\n                  {i > 0 && \" \"}\n                  <a\n                    href={match[2]}\n                    className=\"no-underline text-blue hover:text-blue-400 dark:hover:text-blue-500 dark:text-blue-300 duration-300 transition-colors ease-out inline-flex items-center font-medium\"\n                  >\n                    {match[1].trim()}\n                    <ExternalLinkIcon\n                      className=\"ml-1 mt-0.5\"\n                      size={14}\n                      strokeWidth={2.5}\n                    />\n                  </a>\n                </span>\n              )\n            }\n            return (\n              <span key={i}>\n                {i > 0 && \" \"}\n                {authorItem.trim()}\n              </span>\n            )\n          })\n        : author.match(/(.*?)\\s*<(https?:\\/\\/[^>]+)>/g)\n          ? author.split(\",\").map((authorItem, i) => {\n              const match = authorItem.match(/(.*?)\\s*<(https?:\\/\\/[^>]+)>/)\n              if (match) {\n                return (\n                  <span key={i}>\n                    {i > 0 && \" \"}\n                    <a\n                      href={match[2]}\n                      className=\"no-underline text-blue hover:text-blue-400 dark:hover:text-blue-300 dark:text-blue-400 duration-300 transition-colors ease-out inline-flex items-center font-medium\"\n                    >\n                      {match[1].trim()}\n                      <ExternalLinkIcon\n                        className=\"ml-1 mt-0.5\"\n                        size={14}\n                        strokeWidth={2.5}\n                      />\n                    </a>\n                  </span>\n                )\n              }\n              return (\n                <span key={i}>\n                  {i > 0 && \" \"}\n                  {authorItem.trim()}\n                </span>\n              )\n            })\n          : author}\n    </p>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": "components/fancy/components/doc-author.tsx"
+    }
+  ]
+}

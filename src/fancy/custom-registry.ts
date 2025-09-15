@@ -10,6 +10,8 @@ import Cwickablebutton from "@/components/cwickable";
 import LegoButton from "@/components/lego-button";
 import ShinyCard from "@/components/shiny-card";
 import LumiCardDemo from "./examples/card/lumi-card-demo";
+import SocialsCard from "@/components/socials-card";
+import WakaTimeStatsCard from "@/components/wakatime-stats-card";
 
 export const customRegistry = {
   "3d-button": {
@@ -48,6 +50,10 @@ export const customRegistry = {
     component: Cwickablebutton,
     name: "Cwickable Button",
   },
+  // "glowy-button": {
+  //   component: GlowyButton,
+  //   name: "Glowy Button",
+  // },
   "lego-button": {
     component: LegoButton,
     name: "Lego Button",
@@ -59,6 +65,14 @@ export const customRegistry = {
   "lumi-card": {
     component: LumiCardDemo,
     name: "Lumi Card",
+  },
+  "socials-card": {
+    component: SocialsCard,
+    name: "Socials Card",
+  },
+  "wakatime-stats-card": {
+    component: WakaTimeStatsCard,
+    name: "WakaTime Stats Card",
   },
 } as const;
 

@@ -4,9 +4,9 @@ const fs = require("fs")
 const path = require("path")
 
 // @ts-ignore
-const baseDir = path.join(__dirname, "..", "fancy")
+const baseDir = path.join(__dirname, "..")
 const componentsDir = path.join(baseDir, "components")
-const examplesDir = path.join(baseDir, "examples")
+const examplesDir = path.join(baseDir, "fancy", "examples")
 const hooksDir = path.join(__dirname, "..", "hooks")
 const utilsDir = path.join(__dirname, "..", "utils")
 
@@ -40,9 +40,9 @@ function getAuthor(componentName: string, type: "ui" | "example" | "hook" | "uti
   // Get the source file path based on type
   let sourceFilePath
   if (type === "example") {
-    sourceFilePath = path.join(baseDir, "examples", "blocks", `${componentName}.tsx`)
+    sourceFilePath = path.join(baseDir, "fancy", "examples", "blocks", `${componentName}.tsx`)
   } else if (type === "ui") {
-    sourceFilePath = path.join(baseDir, "components", "blocks", `${componentName}.tsx`)
+    sourceFilePath = path.join(baseDir, "components", `${componentName}.tsx`)
   } else if (type === "hook") {
     sourceFilePath = path.join(__dirname, "..", "hooks", `${componentName}.ts`)
   } else if (type === "util") {
@@ -222,7 +222,7 @@ function generateRegistryItem(
       ? "@/hooks/"
       : type === "example"
         ? "@/fancy/examples/"
-        : "@/fancy/components/"
+        : "@/components/"
   const importPath = `${basePath}${relativePath}`.replace(/\\/g, "/")
   const importPathWithoutExt = importPath.replace(/\.tsx?$/, "")
 
@@ -253,7 +253,7 @@ function generateRegistryItem(
       case "example":
         return `examples/${pathWithoutExt}`
       case "ui":
-        return `fancy/${pathWithoutExt}`
+        return `components/${pathWithoutExt}`
       case "util":
         return `utils/${pathWithoutExt}`
     }

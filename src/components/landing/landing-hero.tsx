@@ -3,7 +3,6 @@
 import Link from "next/link"
 import { LayoutGroup, motion } from "motion/react"
 import TextRotate from "@/fancy/components/text/text-rotate"
-import LumiCard from "../lumi-card"
 
 export function LandingHero() {
   return (

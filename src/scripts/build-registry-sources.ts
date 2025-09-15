@@ -108,11 +108,10 @@ function processItemFiles(registryItem: any): any[] {
       const hookPath = file.path.replace("hooks/", "")
       sourceFilePath = path.join(baseDir, "src", "hooks", `${hookPath}.ts`)
     } else if (file.type === "registry:ui") {
-      const componentPath = file.path.replace("fancy/", "")
+      const componentPath = file.path.replace("components/", "")
       sourceFilePath = path.join(
         baseDir,
         "src",
-        "fancy",
         "components",
         `${componentPath}.tsx`
       )

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toc",
+  "type": "registry:ui",
+  "dependencies": [
+    "motion"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/utils.json",
+    "https://uwuui.com/r/use-mounted.json"
+  ],
+  "files": [
+    {
+      "path": "components/toc.tsx",
+      "content": "// @ts-nocheck\n\"use client\"\n\nimport * as React from \"react\"\n\nimport { TableOfContents } from \"@/lib/toc\"\nimport { cn } from \"@/lib/utils\"\nimport { useMounted } from \"@/hooks/use-mounted\"\nimport { motion } from \"motion/react\"\n\ninterface TocProps {\n  toc: TableOfContents\n}\n\nexport function DashboardTableOfContents({ toc }: TocProps) {\n  const itemIds = React.useMemo(\n    () =>\n      toc.items\n        ? toc.items\n            .flatMap((item) => [item.url, item?.items?.map((item) => item.url)])\n            .flat()\n            .filter(Boolean)\n            .map((id) => id?.split(\"#\")[1])\n        : [],\n    [toc]\n  )\n  const activeHeading = useActiveItem(itemIds)\n  const mounted = useMounted()\n\n  if (!toc?.items || !mounted) {\n    return null\n  }\n\n  return (\n    <div className=\"space-y-2\">\n      <p className=\"font-medium\">On This Page</p>\n      <Tree tree={toc} activeItem={activeHeading} />\n    </div>\n  )\n}\n\nfunction useActiveItem(itemIds: string[]) {\n  const [activeId, setActiveId] = React.useState(null)\n\n  React.useEffect(() => {\n    const observer = new IntersectionObserver(\n      (entries) => {\n        entries.forEach((entry) => {\n          if (entry.isIntersecting) {\n            setActiveId(entry.target.id)\n          }\n        })\n      },\n      { rootMargin: `0% 0% -80% 0%` }\n    )\n\n    itemIds?.forEach((id) => {\n      const element = document.getElementById(id)\n      if (element) {\n        observer.observe(element)\n      }\n    })\n\n    return () => {\n      itemIds?.forEach((id) => {\n        const element = document.getElementById(id)\n        if (element) {\n          observer.unobserve(element)\n        }\n      })\n    }\n  }, [itemIds])\n\n  return activeId\n}\n\ninterface TreeProps {\n  tree: TableOfContents\n  level?: number\n  activeItem?: string\n}\n\nfunction Tree({ tree, level = 1, activeItem }: TreeProps) {\n  return tree?.items?.length && level < 3 ? (\n    <ul className={cn(\"m-0 list-none\", { \"pl-3\": level !== 1 })}>\n      {tree.items.map((item, index) => {\n        return (\n          <li key={index} className={cn(\"mt-0 pt-1\")}>\n            <motion.a\n              href={item.url}\n              onClick={(e) => {\n                e.preventDefault()\n                document.querySelector(item.url)?.scrollIntoView({\n                  behavior: \"smooth\",\n                })\n              }}\n              initial={{ fontVariationSettings: \"'wght' 400\", color: item.url === `#${activeItem}` ? \"var(--foreground)\" : \"hsl(var(--muted-foreground))\"  }}\n              whileHover={{ fontVariationSettings: \"'wght' 500\", color: \"var(--foreground)\", transition: {duration: 0.3, ease: \"easeOut\"}}}\n              animate={{\n                fontVariationSettings: item.url === `#${activeItem}` ? \"'wght' 500\" : \"'wght' 400\",\n                color: item.url === `#${activeItem}` ? \"var(--foreground)\" : \"hsl(var(--muted-foreground))\",\n                transition: {duration: 0.3, ease: \"easeOut\"}\n              }}\n              className={cn(\n                \"inline-block no-underline duration-300 transition-colors ease-out\",\n                item.url === `#${activeItem}`\n                  ? \"text-foreground\"\n                  : \"text-muted-foreground\"\n              )}\n            >\n              {item.title}\n            </motion.a>\n            {item.items?.length ? (\n              <Tree tree={item} level={level + 1} activeItem={activeItem} />\n            ) : null}\n          </li>\n        )\n      })}\n    </ul>\n  ) : null\n}\n",
+      "type": "registry:ui",
+      "target": "components/fancy/components/toc.tsx"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "explanation-demo",
+  "type": "registry:ui",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/utils.json",
+    "https://uwuui.com/r/icons.json"
+  ],
+  "files": [
+    {
+      "path": "components/explanation-demo.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cn } from \"@/lib/utils\"\nimport { Icons } from \"@/components/icons\"\n// import { registry } from \"@/fancy/index\"\n\ninterface ExplanationDemoProps extends React.HTMLAttributes<HTMLDivElement> {\n  name: string\n  extractClassname?: boolean\n  extractedClassNames?: string\n  align?: \"center\" | \"start\" | \"end\"\n  framerLink?: string\n  description?: string\n}\n\nexport function ExplanationDemo({\n  name,\n  children,\n  className,\n  framerLink,\n  extractClassname,\n  extractedClassNames,\n  align = \"center\",\n  description,\n  ...props\n}: ExplanationDemoProps) {\n  const [previewKey, setPreviewKey] = React.useState(0)\n\n  // const Preview = React.useMemo(() => {\n  //   const Component = registry[name]?.component\n\n  //   if (!Component) {\n  //     return (\n  //       <p\n  //         data-algolia-ignore\n  //         className=\"text text-muted-foreground justify-center items-center flex w-full h-full whitespace-pre\"\n  //       >\n  //         Component{\" \"}\n  //         <code className=\"relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm whitespace-pre\">\n  //           {name}\n  //         </code>{\" \"}\n  //         not found.\n  //       </p>\n  //     )\n  //   }\n\n  //   return <Component />\n  // }, [name])\n\n  return (\n    <div\n      data-algolia-ignore\n      className={cn(\n        \"group relative my-8 flex flex-col h-full w-full\",\n        className\n      )}\n      {...props}\n    >\n      <div className=\"border border-border flex rounded-2xl\">\n        <div className=\"w-full flex items-center justify-center rounded-2xl min-h-[530px] overflow-hidden relative max-h-[620px]\">\n          <React.Suspense\n            fallback={\n              <div className=\"flex items-center justify-center w-full h-full text-sm text-muted-foreground\">\n                <Icons.spinner className=\"mr-2 h-4 w-4 animate-spin\" />\n                Loading...\n              </div>\n            }\n          >\n            {/* <React.Fragment key={previewKey}>{Preview}</React.Fragment> */}\n          </React.Suspense>\n        </div>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": "components/fancy/components/explanation-demo.tsx"
+    }
+  ]
+}

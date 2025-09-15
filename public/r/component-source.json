@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "component-source",
+  "type": "registry:ui",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/code-snippet.json"
+  ],
+  "files": [
+    {
+      "path": "components/component-source.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { CodeSnippet } from \"./code-snippet\"\n\ninterface ComponentSourceProps extends React.HTMLAttributes<HTMLDivElement> {\n  name: string\n}\n\nexport function ComponentSource({\n  name,\n  children,\n  className,\n  ...props\n}: ComponentSourceProps) {\n  const [sourceCode, setSourceCode] = React.useState(\"\")\n\n  React.useEffect(() => {\n    async function loadSourceCode() {\n      try {\n        // Try to load from registry first\n        try {\n          const registryResponse = await fetch(`/r/${encodeURIComponent(name)}.json`)\n          if (registryResponse.ok) {\n            const registry = await registryResponse.json()\n            const files: Array<{ path: string; content: string }> = registry.files || []\n            const mainFile = files.find((f) => {\n              const base = f.path.split(\"/\").pop() || \"\"\n              const fileNameWithoutExt = base.replace(/\\.(tsx|ts)$/i, \"\")\n              // More flexible matching - check if the name matches after normalizing case and hyphens\n              const normalizedFileName = fileNameWithoutExt.toLowerCase().replace(/[-_]/g, '')\n              const normalizedName = name.toLowerCase().replace(/[-_]/g, '')\n              return normalizedFileName === normalizedName\n            })\n            if (mainFile?.content) {\n              setSourceCode(mainFile.content)\n              return\n            } else if (files.length > 0 && files[0].content) {\n              // Fallback to first file if no match found\n              setSourceCode(files[0].content)\n              return\n            }\n          }\n        } catch (registryError) {\n          console.error(`Registry fetch failed for ${name}:`, registryError)\n        }\n\n        console.error(`Could not resolve source for ${name} - registry file not found or empty`)\n        setSourceCode(\"// Source code could not be loaded - registry file not found\")\n      } catch (error) {\n        console.error(`Failed to load source for ${name}:`, error);\n        setSourceCode(\"// Error loading source code\");\n      }\n    }\n    loadSourceCode();\n  }, [name])\n\n  return <CodeSnippet title={name + \".tsx\"} code={sourceCode} language=\"tsx\" />\n}\n",
+      "type": "registry:ui",
+      "target": "components/fancy/components/component-source.tsx"
+    }
+  ]
+}

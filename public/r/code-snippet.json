@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-snippet",
+  "type": "registry:ui",
+  "dependencies": [
+    "prism-react-renderer"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/copy-button.json"
+  ],
+  "files": [
+    {
+      "path": "components/code-snippet.tsx",
+      "content": "\"use client\"\n\nimport React from 'react';\nimport { CopyButton } from './copy-button';\nimport { Highlight, PrismTheme } from 'prism-react-renderer';\nimport theme from '@/styles/prism-theme.json';\n\ninterface CodeSnippetProps {\n  title?: string;\n  code: string;\n  language?: string;\n}\n\nexport const CodeSnippet: React.FC<CodeSnippetProps> = ({\n  title,\n  code,\n  language = 'typescript',\n}) => {\n  const lines = code.trim().split('\\n');\n\n  const handleCopy = async () => {\n    try {\n      await navigator.clipboard.writeText(code);\n    } catch (err) {\n      console.warn('Copy failed:', err);\n    }\n  };\n\n  return (\n    <div className=\"border rounded-2xl overflow-hidden pointer-events-auto\" style={{ borderColor: 'var(--editor-border)' }}>\n      {title ? (\n        <div className=\"flex items-center justify-between pl-4 pr-3 py-2 border-b h-11\" style={{ borderColor: 'var(--editor-border)', backgroundColor: 'var(--editor-bg)' }}>\n          <h3 className=\"text-white text-sm font-medium\">{title}</h3>\n          <CopyButton onCopy={handleCopy} />\n        </div>\n      ) : null}\n      <div className=\"py-4 relative overflow-y-auto max-h-[calc(530px-44px)]\" style={{ backgroundColor: 'var(--editor-bg)' }}>\n        {!title && (\n          <div className={`absolute ${\n            lines.length === 1 \n              ? \"top-1/2 -translate-y-1/2 right-3\" \n              : \"top-4 right-3\"\n          }`}>\n            <CopyButton\n              onCopy={handleCopy}\n            />\n          </div>\n        )}\n        <Highlight\n          theme={theme as PrismTheme}\n          code={code.trim()}\n          language={language}\n        >\n          {({ className, style, tokens, getLineProps, getTokenProps }) => (\n            <pre className={`${className} text-[13px] overflow-x-auto font-mono font-medium`} style={style}>\n              {tokens.map((line, i) => (\n                <div \n                  key={i} \n                  {...getLineProps({ line })} \n                  className=\"flex items-center py-px px-4\"\n                  style={{ \n                    backgroundColor: 'transparent'\n                  }}\n                  onMouseEnter={(e) => {\n                    e.currentTarget.style.backgroundColor = 'var(--editor-border)'\n                  }}\n                  onMouseLeave={(e) => {\n                    e.currentTarget.style.backgroundColor = 'transparent'\n                  }}\n                >\n                  <span className=\"mr-4 select-none text-muted-foreground text-right text-[10px] items-center flex\">\n                    {i + 1}\n                  </span>\n                  <span>\n                    {line.map((token, key) => (\n                      <span key={key} {...getTokenProps({ token })} />\n                    ))}\n                  </span>\n                </div>\n              ))}\n            </pre>\n          )}\n        </Highlight>\n      </div>\n    </div>\n  );\n};",
+      "type": "registry:ui",
+      "target": "components/fancy/components/code-snippet.tsx"
+    }
+  ]
+}

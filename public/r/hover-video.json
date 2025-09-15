@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hover-video",
+  "type": "registry:ui",
+  "dependencies": [
+    "motion"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "files": [
+    {
+      "path": "components/landing/hover-video.tsx",
+      "content": "import { useState } from \"react\"\nimport { motion } from \"motion/react\"\n\ninterface HoverVideoProps {\n  thumbnail: string // URL for the image\n  videoSrc: string // URL for the video\n  className?: string // Optional additional styling\n  delay?: number // Optional delay for the animation\n}\n\nconst HoverVideo: React.FC<HoverVideoProps> = ({\n  thumbnail,\n  videoSrc,\n  className,\n  delay = 0,\n}) => {\n  const [isHovered, setIsHovered] = useState(false)\n\n  return (\n    <motion.div\n      className={`relative overflow-hidden ${className}`}\n      onMouseEnter={() => setIsHovered(true)}\n      onMouseLeave={() => setIsHovered(false)}\n      animate={{ opacity: 1 }}\n      initial={{ opacity: 0 }}\n      transition={{ duration: 0.2, ease: \"easeOut\", delay: delay }}\n    >\n      {/* Thumbnail */}\n      <motion.img\n        src={thumbnail}\n        alt=\"Thumbnail\"\n        className=\"absolute inset-0 w-full h-full object-cover\"\n        animate={{ opacity: isHovered ? 0 : 1 }}\n        transition={{ duration: 0 }}\n      />\n      {/* Video */}\n      <motion.video\n        src={videoSrc}\n        className=\"absolute inset-0 w-full h-full object-cover\"\n        autoPlay\n        muted\n        loop\n        poster={thumbnail}\n        playsInline\n        animate={{ opacity: isHovered ? 1 : 0 }}\n        transition={{ duration: 0 }}\n      />\n    </motion.div>\n  )\n}\n\nexport default HoverVideo\n",
+      "type": "registry:ui",
+      "target": "components/fancy/landing/hover-video.tsx"
+    }
+  ]
+}

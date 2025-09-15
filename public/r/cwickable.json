@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cwickable",
+  "type": "registry:ui",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "components/cwickable.tsx",
+      "content": "import React, { useState } from 'react'\nimport Image from 'next/image'\nimport { cn } from '@/utils/utils'\n\nconst Cwickablebutton = ({ \n  children, \n  className, \n  onClick \n}: { \n  children: React.ReactNode, \n  className?: string,\n  onClick?: () => void\n}) => {\n  const [isPressed, setIsPressed] = useState(false);\n\n  return (\n    <button\n      className={cn(\n        \"relative transition-all duration-200 [box-shadow:0_0_10px_-1px_#00000060] border border-black/50 rounded-2xl overflow-hidden bg-[#0A0A0A]\",\n        isPressed ? \"after:[box-shadow:0_5px_15px_0_#00000090_inset] [box-shadow:0_0_5px_-1px_#00000040]\" : \"hover:after:[box-shadow:0_3px_10px_0_#00000070_inset]\",\n        className\n      )}\n      onMouseDown={() => setIsPressed(true)}\n      onMouseUp={() => setIsPressed(false)}\n      onMouseLeave={() => setIsPressed(false)}\n      onClick={onClick}\n    >\n      <div className={cn(\n        \"relative z-10 flex items-center justify-center p-0 transition-transform duration-200\",\n        isPressed ? \"translate-y-1\" : \"\"\n      )}>\n        {children}\n      </div>\n      <div \n        className={cn(\n          \"absolute inset-0 border-[#1A1A1A] border-t-[3px] border-b-[3px] border-b-black/50 border-r-0 rounded-2xl transition-all duration-200\",\n          isPressed ? \"border-b-0 border-t-black/50\" : \"\"\n        )}\n      />\n    </button>\n  )\n}\n\nconst CwickablebuttonDemo = () => {\n\n  return (\n    <> \n          <Cwickablebutton className='px-8 py-8 text-xl mb-8'>\n            <Image\n              src={`/vercel.svg`}\n              alt={`incel`}\n              width={15}\n              height={15}\n              className=\"w-16\"\n            />\n          </Cwickablebutton>\n    </>\n  )\n}\n\nexport default CwickablebuttonDemo",
+      "type": "registry:ui",
+      "target": "components/fancy/components/cwickable.tsx"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "header",
+  "type": "registry:ui",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/main-nav.json",
+    "https://uwuui.com/r/mobile-nav.json"
+  ],
+  "files": [
+    {
+      "path": "components/header.tsx",
+      "content": "\"use client\"\n\nimport { MainNav } from \"./main-nav\"\nimport { MobileNav } from \"./mobile-nav\"\n\nexport function Header() {\n  return (\n    <header className=\" w-full flex justify-center items-center\">\n      <div className=\"h-20 px-4 z-50 flex mx-4 mt-4 bg-background flex-row w-full space-x-2 items-center rounded-2xl  border-border border \">\n        <MobileNav />\n        <MainNav />\n      </div>\n    </header>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": "components/fancy/components/header.tsx"
+    }
+  ]
+}

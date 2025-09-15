@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "doc-search",
+  "type": "registry:ui",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/doc-search-hit.json"
+  ],
+  "files": [
+    {
+      "path": "components/doc-search.tsx",
+      "content": "import { DocSearch } from \"@docsearch/react\"\nimport { DocSearchHit } from \"./doc-search-hit\"\n\nexport function Search() {\n  return (\n    <DocSearch\n      appId=\"IL96ROKQXM\"\n      indexName=\"uwuui_com_il96rokqxm_pages\"\n      apiKey=\"56f5c1644f1c26ca966cbd5cb71c52fa\"\n      placeholder=\"Search documentation...\"\n      disableUserPersonalization\n      maxResultsPerGroup={10}\n      initialQuery=\"Text\"\n      hitComponent={({ hit }) => <DocSearchHit hit={hit} />}\n      translations={{\n        button: {\n          buttonText: 'Search docs...',\n          buttonAriaLabel: 'Search documentation',\n        },\n        modal: {\n          searchBox: {\n            resetButtonTitle: 'Clear the query',\n            resetButtonAriaLabel: 'Clear the query',\n            cancelButtonText: 'Close',\n            cancelButtonAriaLabel: 'Close',\n            searchInputLabel: 'Search',\n          },\n          startScreen: {\n            recentSearchesTitle: 'Recent',\n            noRecentSearchesText: 'No recent searches',\n            saveRecentSearchButtonTitle: 'Save this search',\n            removeRecentSearchButtonTitle: 'Remove this search from history',\n            favoriteSearchesTitle: 'Favorite',\n            removeFavoriteSearchButtonTitle: 'Remove this search from favorites',\n          },\n          errorScreen: {\n            titleText: 'Unable to fetch results',\n            helpText: 'You might want to check your network connection.',\n          },\n          footer: {\n            selectText: 'to select',\n            selectKeyAriaLabel: 'Enter key',\n            navigateText: 'to navigate',\n            navigateUpKeyAriaLabel: 'Arrow up',\n            navigateDownKeyAriaLabel: 'Arrow down',\n            closeText: 'to close',\n            closeKeyAriaLabel: 'Escape key',\n            searchByText: 'Search by',\n          },\n          noResultsScreen: {\n            noResultsText: 'No results for',\n            suggestedQueryText: 'Try searching for',\n            reportMissingResultsText: 'Believe this query should return results?',\n            reportMissingResultsLinkText: 'Let us know.',\n          },\n        },\n      }}\n    />\n  )\n}",
+      "type": "registry:ui",
+      "target": "components/fancy/components/doc-search.tsx"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sidebar-nav",
+  "type": "registry:ui",
+  "dependencies": [
+    "motion"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "components/sidebar-nav.tsx",
+      "content": "\"use client\"\n\nimport Link from \"next/link\"\nimport { usePathname } from \"next/navigation\"\nimport { motion } from \"motion/react\"\n\nimport { SidebarNavItem } from \"@/types/nav\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface DocsSidebarNavProps {\n  items: SidebarNavItem[]\n}\n\nexport function DocsSidebarNav({ items }: DocsSidebarNavProps) {\n  const pathname = usePathname()\n\n  return items.length ? (\n    <div className=\"w-full h-full py-6\">\n      {items.map((item, index) => (\n        <div key={index} className=\"mb-4 pb-3 border-black px-6\">\n          <h4 className=\"text-2xl font-medium mb-2\">\n            {item.title}{\" \"}\n            <span className=\"align-super text-sm\">\n              {item.title !== \"Getting Started\"\n                ? `(${item.items?.length})`\n                : \"\"}\n            </span>\n          </h4>\n          {item?.items?.length && (\n            <DocsSidebarNavItems items={item.items} pathname={pathname} />\n          )}\n        </div>\n      ))}\n    </div>\n  ) : null\n}\n\ninterface NavItemProps {\n  item: SidebarNavItem\n  index: number\n  pathname: string | null\n}\n\nfunction NavItem({ item, index, pathname }: NavItemProps) {\n  const isActive = pathname === item.href\n\n  return (\n    <motion.p key={index}>\n      <Link\n        href={item.href ?? \"#\"}\n        className=\"inline-block\"\n        target={item.external ? \"_blank\" : \"\"}\n        rel={item.external ? \"noreferrer\" : \"\"}\n      >\n        <motion.span\n          initial={{ \n            fontVariationSettings: isActive ? \"'wght' 500\" : \"'wght' 400\", \n            color: isActive ? \"var(--foreground)\" : \"hsl(var(--muted-foreground))\" \n          }}\n          whileHover={{ \n            fontVariationSettings: \"'wght' 500\", \n            color: \"var(--foreground)\", \n            transition: { duration: 0.3, ease: \"easeOut\" }\n          }}\n          animate={{\n            fontVariationSettings: isActive ? \"'wght' 500\" : \"'wght' 400\",\n            color: isActive ? \"var(--foreground)\" : \"hsl(var(--muted-foreground))\",\n            transition: { duration: 0.3, ease: \"easeOut\" }\n          }}\n          className={cn(\n            \"inline-block no-underline duration-300 transition-colors ease-out\",\n            isActive && \"text-foreground\",\n            !isActive && \"text-muted-foreground\",\n            item.disabled && \"opacity-60 cursor-not-allowed\"\n          )}\n        >\n          {item.title}\n        </motion.span>\n        {item.label && (\n          <span className=\"ml-1 rounded-md bg-blue dark:bg-blue-500 px-1.5 py-0.5 text-[11px] leading-none text-white\">\n            {item.label}\n          </span>\n        )}\n      </Link>\n    </motion.p>\n  )\n}\n\ninterface DocsSidebarNavItemsProps {\n  items: SidebarNavItem[]\n  pathname: string | null\n}\n\nexport function DocsSidebarNavItems({\n  items,\n  pathname,\n}: DocsSidebarNavItemsProps) {\n  return items?.length ? (\n    <div className=\"flex flex-col space-y-2\">\n      {items.map((item, index) => (\n        <NavItem key={index} item={item} index={index} pathname={pathname} />\n      ))}\n    </div>\n  ) : null\n}\n",
+      "type": "registry:ui",
+      "target": "components/fancy/components/sidebar-nav.tsx"
+    }
+  ]
+}

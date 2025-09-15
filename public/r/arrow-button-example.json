@@ -4,6 +4,10 @@
   "type": "registry:block",
   "dependencies": [],
   "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/arrow-pointer.json",
+    "https://uwuui.com/r/chunky-button.json"
+  ],
   "files": [
     {
       "path": "examples/arrow-button-example.tsx",

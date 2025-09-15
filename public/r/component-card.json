@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "component-card",
+  "type": "registry:ui",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "components/component-card.tsx",
+      "content": "\"use client\"\n\nimport Image from \"next/image\"\nimport Link from \"next/link\"\nimport { useState, useRef } from \"react\"\nimport { motion, useInView } from \"framer-motion\"\nimport { cn } from \"@/lib/utils\"\n\ninterface ComponentCardProps {\n  component: {\n    name: string\n    category: string\n    thumbnail: { url: string }\n    demo: { url: string }\n  }\n}\n\nexport default function ComponentCard({ component }: ComponentCardProps) {\n  const [isVideoLoaded, setIsVideoLoaded] = useState(false)\n  const ref = useRef(null)\n  const isInView = useInView(ref, { once: true })\n\n  const handleVideoLoaded = () => {\n    setIsVideoLoaded(true)\n  }\n\n  return (\n    <motion.div\n      ref={ref}\n      initial={{ opacity: 0 }}\n      animate={{ opacity: isInView ? 1 : 0 }}\n      transition={{ duration: 0.5, ease: \"easeOut\" }}\n    >\n      <Link\n        href={`/docs/components/${component.category}/${component.name}`}\n        className=\"group relative aspect-video rounded-xl overflow-hidden border block\"\n      >\n        {/* Thumbnail Image */}\n        <Image\n          src={component.thumbnail.url}\n          alt={component.name}\n          fill\n          className=\"object-cover group-hover:opacity-0\"\n          sizes=\"(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw\"\n        />\n        {/* Video on Hover */}\n        <video\n          src={component.demo.url}\n          autoPlay\n          loop\n          muted\n          playsInline\n          onLoadedData={handleVideoLoaded}\n          className={cn(\n            \"absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-0\",\n            isVideoLoaded && \"group-hover:opacity-100\"\n          )}\n        />\n      </Link>\n    </motion.div>\n  )\n} ",
+      "type": "registry:ui",
+      "target": "components/fancy/components/component-card.tsx"
+    }
+  ]
+}
