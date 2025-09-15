@@ -791,6 +791,22 @@ const fancy: Registry = {
     component: React.lazy(
       () => import('@/components/ui/tabs'))
   },
+  "video-showcase": {
+    "name": "video-showcase",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "components/video-showcase",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ],
+    component: React.lazy(
+      () => import('@/components/video-showcase'))
+  },
   "wakatime-stats-card": {
     "name": "wakatime-stats-card",
     "type": "registry:ui",
@@ -1322,6 +1338,19 @@ const example: Registry = {
     "author": "daniel petho <https://www.danielpetho.com>",
     component: React.lazy(
       () => import('@/fancy/examples/card/lumi-card-demo'))
+  },
+  "video-showcase-demo": {
+    "name": "video-showcase-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/card/video-showcase-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    component: React.lazy(
+      () => import('@/fancy/examples/card/video-showcase-demo'))
   },
   "box-carousel-autoplay-demo": {
     "name": "box-carousel-autoplay-demo",

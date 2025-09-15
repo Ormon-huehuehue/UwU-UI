@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "video-showcase-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/video-showcase.json"
+  ],
+  "files": [
+    {
+      "path": "examples/card/video-showcase-demo.tsx",
+      "content": "import VideoShowcase from \"@/components/video-showcase\"\n\nexport default function VideoShowcaseDemo() {\n  return (\n    <VideoShowcase \n    videoSrc=\"https://pub-4de8a3d0fa684a02ba7a6c19c653485c.r2.dev/UwUui-demo.mp4\" \n    thumbnailSrc=\"https://pub-4de8a3d0fa684a02ba7a6c19c653485c.r2.dev/st%2Csmall%2C507x507-pad%2C600x600%2Cf8f8f8.u3.jpg\" \n    />\n  )\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/card/video-showcase-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

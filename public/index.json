@@ -682,6 +682,20 @@
     ],
     "author": "daniel petho <https://www.danielpetho.com>"
   },
+  "video-showcase": {
+    "name": "video-showcase",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "components/video-showcase",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "motion"
+    ]
+  },
   "wakatime-stats-card": {
     "name": "wakatime-stats-card",
     "type": "registry:ui",
@@ -1140,6 +1154,17 @@
     "files": [
       {
         "path": "examples/card/lumi-card-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>"
+  },
+  "video-showcase-demo": {
+    "name": "video-showcase-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/card/video-showcase-demo",
         "type": "registry:block"
       }
     ],

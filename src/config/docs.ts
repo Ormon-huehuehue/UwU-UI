@@ -311,6 +311,11 @@ export const docsConfig: SidebarNavItem[] = [
         href: "/docs/components/card/wakatime-stats-card",
         items: [],
       },
+      {
+        title: "Video Showcase",
+        href: "/docs/components/card/video-showcase",
+        items: [],
+      },
     ],
   },
 ]

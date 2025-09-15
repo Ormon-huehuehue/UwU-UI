@@ -13,6 +13,7 @@ import LumiCardDemo from "./examples/card/lumi-card-demo";
 import SocialsCard from "@/components/socials-card";
 import WakaTimeStatsCard from "@/components/wakatime-stats-card";
 import GlowyButtonDemo from "./examples/buttons/glowy-button-demo";
+import VideoShowcaseDemo from "./examples/card/video-showcase-demo";
 
 export const customRegistry = {
   "3d-button": {
@@ -78,6 +79,10 @@ export const customRegistry = {
   "glowy-button": {
     component: GlowyButtonDemo,
     name: "Glowy Button",
+  },
+  "video-showcase": {
+    component: VideoShowcaseDemo,
+    name: "Video Showcase",
   },
 } as const;
 
