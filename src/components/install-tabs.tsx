@@ -73,8 +73,8 @@ export const InstallTabs: React.FC<InstallTabsProps> = ({
   }
 
   return (
-    <div className="border border-editor-border rounded-2xl overflow-hidden">
-      <div className="flex items-center justify-between pl-4 pr-3 py-2 border-b border-editor-border bg-editor-background h-11">
+    <div className="border rounded-2xl overflow-hidden" style={{ borderColor: 'var(--editor-border)' }}>
+      <div className="flex items-center justify-between pl-4 pr-3 py-2 border-b h-11" style={{ borderColor: 'var(--editor-border)', backgroundColor: 'var(--editor-bg)' }}>
         <Tabs
           value={activeTab}
           onValueChange={(value) => setActiveTab(value as PackageManager)}
@@ -85,7 +85,10 @@ export const InstallTabs: React.FC<InstallTabsProps> = ({
               <TabsTrigger
                 key={pm.id}
                 value={pm.id}
-                className="text hover:text-white duration-300 ease-out transition px-2 py-1 h-auto data-[state=active]:bg-editor-background data-[state=active]:text-white text-muted-foreground cursor-pointer"
+                className="text hover:text-white duration-300 ease-out transition px-2 py-1 h-auto data-[state=active]:text-white text-muted-foreground cursor-pointer"
+                style={{ 
+                  backgroundColor: activeTab === pm.id ? 'var(--editor-bg)' : 'transparent'
+                }}
                 aria-label={pm.label}
               >
                 {pm.label}
@@ -95,7 +98,7 @@ export const InstallTabs: React.FC<InstallTabsProps> = ({
         </Tabs>
         <CopyButton onCopy={handleCopy} />
       </div>
-      <div className="bg-editor-background py-4">
+      <div className="py-4" style={{ backgroundColor: 'var(--editor-bg)' }}>
         <Highlight
           theme={theme as PrismTheme}
           code={getFullCommand(activeTab)}
@@ -110,7 +113,16 @@ export const InstallTabs: React.FC<InstallTabsProps> = ({
                 <div
                   key={i}
                   {...getLineProps({ line })}
-                  className="flex items-center hover:bg-editor-border py-px px-4"
+                  className="flex items-center py-px px-4"
+                  style={{ 
+                    backgroundColor: 'transparent'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = 'var(--editor-border)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'transparent'
+                  }}
                 >
                   <span className="mr-4 select-none text-muted-foreground text-right text-[10px] items-center flex">
                     1

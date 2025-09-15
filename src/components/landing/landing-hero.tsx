@@ -92,14 +92,6 @@ export function LandingHero() {
           >
             <Link href="https://github.com/weknowyourgame/UwU-ui">★ on GitHub</Link>
           </motion.button>
-
-          <LumiCard
-          title={"UwU UI"}
-          subtitle={"Cool UI components"}
-          footerLabel={"github"}
-          imageUrl={"/logo.png"}
-          videoUrl={"/demo-vid.mp4"}
-        />
         </div>
       </div>
     </section>
