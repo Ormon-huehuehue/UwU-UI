@@ -16,7 +16,6 @@ import { CopyPageMenu } from "@/components/copy-page-menu"
 import { getComponentByName } from "@/lib/get-components"
 
 export const runtime = "nodejs"
-export const dynamic = "force-static"
 
 export async function generateMetadata({
   params,

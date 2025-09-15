@@ -21,7 +21,7 @@ export function ComponentSource({
       try {
         // Try to load from registry first
         try {
-          const registryResponse = await fetch(`/r/${encodeURIComponent(name)}.json`, { cache: "force-cache" })
+          const registryResponse = await fetch(`/r/${encodeURIComponent(name)}.json`)
           if (registryResponse.ok) {
             const registry = await registryResponse.json()
             const files: Array<{ path: string; content: string }> = registry.files || []
@@ -36,10 +36,14 @@ export function ComponentSource({
             if (mainFile?.content) {
               setSourceCode(mainFile.content)
               return
+            } else if (files.length > 0 && files[0].content) {
+              // Fallback to first file if no match found
+              setSourceCode(files[0].content)
+              return
             }
           }
-        } catch (_) {
-          // Registry fetch failed, continue to fallback
+        } catch (registryError) {
+          console.error(`Registry fetch failed for ${name}:`, registryError)
         }
 
         // Fallback to API source endpoint
@@ -70,10 +74,10 @@ export function ComponentSource({
         }
 
         console.error(`Could not resolve source for ${name}`)
-        setSourceCode("")
+        setSourceCode("// Source code could not be loaded")
       } catch (error) {
         console.error(`Failed to load source for ${name}:`, error);
-        setSourceCode("");
+        setSourceCode("// Error loading source code");
       }
     }
     loadSourceCode();
