@@ -10,7 +10,44 @@
 - [Understanding the component](#understanding-the-component)
 - [Credits](#credits)
 
-See the interactive demo at: [socials-card](https://uwuui.com/docs/components/components/card/socials-card)
+Example:
+
+```tsx
+import Link from 'next/link';
+import React from 'react';
+
+const SocialsCard = () => {
+  return (
+    <div>
+      <svg width={0} height={0}>
+        <defs>
+          <clipPath id="squircleClip" clipPathUnits="objectBoundingBox">
+            <path d="M 0,0.5 C 0,0 0,0 0.5,0 S 1,0 1,0.5 1,1 0.5,1 0,1 0,0.5" />
+          </clipPath>
+        </defs>
+      </svg>
+      <div className="relative">
+        <div className="relative flex items-end gap-x-2 p-2">
+          <div className="relative">
+            [](https://github.com/weknowyourgame)
+          </div>
+          <div className="relative">
+            [](https://x.com/0xsarthakk)
+          </div>
+          <div className="relative">
+            [](https://linkedin.com/in/sarthakkapila)
+          </div>
+          <div className="relative">
+            [](https://www.youtube.com/@sarthakkapila)
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default SocialsCard;
+```
 
 ## Installation
 
