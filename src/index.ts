@@ -293,6 +293,22 @@ const fancy: Registry = {
     component: React.lazy(
       () => import('@/components/footer'))
   },
+  "glowy-button": {
+    "name": "glowy-button",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "components/glowy-button",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "lucide-react"
+    ],
+    component: React.lazy(
+      () => import('@/components/glowy-button'))
+  },
   "goey-button": {
     "name": "goey-button",
     "type": "registry:ui",
@@ -1277,6 +1293,22 @@ const example: Registry = {
     "author": "daniel petho <https://www.danielpetho.com>",
     component: React.lazy(
       () => import('@/fancy/examples/blocks/sticky-footer-demo'))
+  },
+  "glowy-button-demo": {
+    "name": "glowy-button-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/buttons/glowy-button-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "lucide-react"
+    ],
+    component: React.lazy(
+      () => import('@/fancy/examples/buttons/glowy-button-demo'))
   },
   "lumi-card-demo": {
     "name": "lumi-card-demo",

@@ -250,6 +250,20 @@
       "lucide-react"
     ]
   },
+  "glowy-button": {
+    "name": "glowy-button",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "components/glowy-button",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
   "goey-button": {
     "name": "goey-button",
     "type": "registry:ui",
@@ -1105,6 +1119,20 @@
       }
     ],
     "author": "daniel petho <https://www.danielpetho.com>"
+  },
+  "glowy-button-demo": {
+    "name": "glowy-button-demo",
+    "type": "registry:block",
+    "files": [
+      {
+        "path": "examples/buttons/glowy-button-demo",
+        "type": "registry:block"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "lucide-react"
+    ]
   },
   "lumi-card-demo": {
     "name": "lumi-card-demo",

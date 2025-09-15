@@ -1,0 +1,65 @@
+---
+title: Glowy Button
+description: A cool button with a glowy effect.
+component: true
+author: Sarthak Kapila
+---
+
+<ComponentPreview name="glowy-button" />
+
+## Installation
+
+{/* Coming soon */}
+
+## Usage
+
+<CodeSnippet title="Glowy Button Example">
+```tsx
+import GlowyButton from "@/components/glowy-button";
+import { Calendar } from "lucide-react";
+
+export default function Example() {
+  return <GlowyButton href="https://cal.com/sarthak-kapila/" icon={<Calendar/>}>
+    Book a call
+  </GlowyButton>
+}
+```
+</CodeSnippet>
+
+## Understanding the component
+
+The button uses a gradient background and a shadow to create a glowy effect.
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+
+  <TableBody>
+    <TableRow>
+      <TableCell>key</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>`"Glowy Button"`</TableCell>
+      <TableCell>Visible label on the button.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>href</TableCell>
+      <TableCell>`string`</TableCell>
+      <TableCell>`"https://cal.com/"`</TableCell>
+      <TableCell>Link to the button.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>icon</TableCell>
+      <TableCell>`React.ReactNode`</TableCell>
+      <TableCell>`<Calendar/>`</TableCell>
+      <TableCell>Icon to display inside the button.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>

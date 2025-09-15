@@ -1,0 +1,43 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "glowy-button-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "registryDependencies": [
+    "https://uwuui.com/r/glowy-button.json"
+  ],
+  "files": [
+    {
+      "path": "examples/buttons/glowy-button-demo.tsx",
+      "content": "import GlowyCallButton from \"@/components/glowy-button\";\nimport { Calendar } from \"lucide-react\";\n\nexport default function GlowyButtonDemo() {\n  return (\n    <GlowyCallButton key=\"Glowy Button\" href=\"https://cal.com/sarthakkapila/lets-talk\" icon={<Calendar/>}>\n      Book a call\n    </GlowyCallButton>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/fancy/buttons/glowy-button-demo.tsx"
+    }
+  ],
+  "cssVars": {
+    ":root": {
+      "red": "#ff5941",
+      "orange": "#f97316",
+      "pink": "#e794da",
+      "blue": "#0015ff",
+      "teal": "#1f464d",
+      "teal-foreground": "#3bb6ab",
+      "yellow": "#eab308",
+      "yellow-foreground": "#ffd726",
+      "primary-red": "var(--red)",
+      "primary-orange": "var(--orange)",
+      "primary-pink": "var(--pink)",
+      "primary-blue": "var(--blue)"
+    }
+  },
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "glowy-button",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "author": "daniel petho <https://www.danielpetho.com>",
+  "files": [
+    {
+      "path": "components/glowy-button.tsx",
+      "content": "import Link from 'next/link'\nimport { Mail, Github, Linkedin } from 'lucide-react'\n\ninterface GlowyButtonProps {\n  href: string;\n  className?: string;\n  children: React.ReactNode;\n  icon?: React.ReactNode;\n}\nconst GlowyCallButton = ({ \n  href,\n  className = '',\n  children,\n  icon: Icon,\n}: GlowyButtonProps) => {\n  return (\n    <Link \n      href={href}\n      target=\"_blank\"\n      rel=\"noopener\"\n      className={`\n        inline-flex items-center justify-center gap-2 px-6 py-3\n        bg-gradient-to-br from-orange-500 to-red-500\n        border border-orange-600 rounded-2xl\n        text-white font-medium text-sm\n        shadow-lg hover:shadow-xl transition-all duration-200\n        hover:scale-105 active:scale-95\n        ${className}\n      `}\n      style={{\n        boxShadow: `\n        rgba(40, 40, 40, 0.72) 0px 0.6px 1.1px -1.25px,\n        rgba(30, 30, 30, 0.635) 0px 2.3px 4.1px -2.5px,\n        rgba(20, 20, 20, 0.25) 0px 10px 18px -3.75px,\n        rgba(100, 100, 100, 0.5) 0px -0.7px 1px -0.8px inset,\n        rgba(70, 70, 70, 0.5) 0px -2.7px 3.8px -1.7px inset,\n        rgba(60, 60, 60, 0.5) 0px -12px 16.8px -2.5px inset,\n        \n        /* White glow that goes outside */\n        rgba(255, 255, 255, 0.6) 0px 0px 15px,\n        rgba(255, 255, 255, 0.4) 0px 0px 25px,\n        rgba(255, 255, 255, 0.2) 0px 0px 35px,\n        \n        /* Inner white glow */\n        rgba(255, 255, 255, 0.5) 0px 0px 10px inset,\n        rgba(255, 255, 255, 0.3) 0px 0px 20px inset\n        `\n      }}\n    >\n      {Icon && Icon}\n      <span>{children}</span>\n    </Link>\n  )\n}\n\nexport default GlowyCallButton",
+      "type": "registry:ui",
+      "target": "components/fancy/components/glowy-button.tsx"
+    }
+  ]
+}
