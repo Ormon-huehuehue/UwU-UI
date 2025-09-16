@@ -10,7 +10,7 @@ const FooterCard = () => {
     <section className="relative mt-24 overflow-hidden rounded-3xl footer-shadow">
       <div className="absolute inset-0">
         <Image
-          src="/OIHZCKGdnHNaGppookHuHF0eKA4.avif"
+          src="https://pub-4de8a3d0fa684a02ba7a6c19c653485c.r2.dev/OIHZCKGdnHNaGppookHuHF0eKA4.avif"
           alt="clouds background"
           fill
           priority
