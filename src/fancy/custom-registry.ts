@@ -14,6 +14,7 @@ import SocialsCard from "@/components/socials-card";
 import WakaTimeStatsCard from "@/components/wakatime-stats-card";
 import GlowyButtonDemo from "./examples/buttons/glowy-button-demo";
 import VideoShowcaseDemo from "./examples/card/video-showcase-demo";
+import FooterCard from "@/components/footer-card";
 
 export const customRegistry = {
   "3d-button": {
@@ -83,6 +84,10 @@ export const customRegistry = {
   "video-showcase": {
     component: VideoShowcaseDemo,
     name: "Video Showcase",
+  },
+  "footer-card": {
+    component: FooterCard,
+    name: "Footer Card",
   },
 } as const;
 

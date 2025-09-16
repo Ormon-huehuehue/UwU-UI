@@ -316,6 +316,11 @@ export const docsConfig: SidebarNavItem[] = [
         href: "/docs/components/card/video-showcase",
         items: [],
       },
+      {
+        title: "Footer Card",
+        href: "/docs/components/card/footer-card",
+        items: [],
+      },
     ],
   },
 ]

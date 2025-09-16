@@ -277,6 +277,22 @@ const fancy: Registry = {
     component: React.lazy(
       () => import('@/components/explanation-demo'))
   },
+  "footer-card": {
+    "name": "footer-card",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "components/footer-card",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "lucide-react"
+    ],
+    component: React.lazy(
+      () => import('@/components/footer-card'))
+  },
   "footer": {
     "name": "footer",
     "type": "registry:ui",

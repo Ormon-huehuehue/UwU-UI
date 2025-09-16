@@ -236,6 +236,20 @@
     ],
     "author": "daniel petho <https://www.danielpetho.com>"
   },
+  "footer-card": {
+    "name": "footer-card",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "components/footer-card",
+        "type": "registry:ui"
+      }
+    ],
+    "author": "daniel petho <https://www.danielpetho.com>",
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
   "footer": {
     "name": "footer",
     "type": "registry:ui",
