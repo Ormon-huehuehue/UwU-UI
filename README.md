@@ -1,6 +1,7 @@
-# UwU UI
+# U⩊U UI
+## ⸜(｡˃ ᵕ ˂ )⸝♡ https://uwuui.com ♡⸜( ˃ ᵕ ˂｡ )⸝
 
-A kawaii~ components wibwawy wif fwuffy buttowns, snuggwy cawds, and bouncy animashuns dat make youw apps go awww~ (⁄ ⁄>⁄ ▽ ⁄<⁄ ⁄).
+wibwawy wif fwuffy buttowns, snuggwy cawds, and bouncy animashuns dat make youw apps go awww~ ◕⩊◕
 
 ## Documentation
 
