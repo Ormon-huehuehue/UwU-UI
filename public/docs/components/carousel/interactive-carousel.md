@@ -1,3 +1,19 @@
+# Interactive Carousel
+
+> A carousel with uwufied hover animations.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Interactive Carousel Example](#interactive-carousel-example)
+- [Understanding the component](#understanding-the-component)
+- [Credits](#credits)
+- [Props](#props)
+
+Example:
+
+```tsx
 "use client";
 import React, { useState} from "react";
 import { motion } from "framer-motion";
@@ -8,6 +24,10 @@ interface ItemProps{
   title : string
 }
 
+interface Props {
+  items?: ItemProps[];
+}
+
 const carouselItems = [
     {
       image: "https://res.cloudinary.com/dcisswp5z/image/upload/v1711194673/cld-sample.jpg",
@@ -15,7 +35,7 @@ const carouselItems = [
     },
     {
       image: "https://res.cloudinary.com/dcisswp5z/image/upload/v1711194675/cld-sample-5.jpg",
-      title: "Random shoe i found online",
+      title: "Random ass shoe i found online",
     },
     {
       image: "https://res.cloudinary.com/dcisswp5z/image/upload/v1711194674/cld-sample-4.jpg",
@@ -23,7 +43,7 @@ const carouselItems = [
     },
   ];
 
-const InteractiveCarousel = ({items = carouselItems} : {items : ItemProps[]} )=>{
+  const InteractiveCarousel = ({items = carouselItems}: Props )=>{
 
     return (
         <div className=  'flex overflow-hidden rounded-xl'>
@@ -37,7 +57,6 @@ const InteractiveCarousel = ({items = carouselItems} : {items : ItemProps[]} )=>
 const CarouselCard = ({ imageUrl, title }: { imageUrl: string; title: string }) => {
 
   const [isHovered, setIsHovered] = useState<boolean>(false)
-
 
   return (
     <motion.div
@@ -83,3 +102,46 @@ const CarouselCard = ({ imageUrl, title }: { imageUrl: string; title: string }) 
 };
 
 export default InteractiveCarousel;
+```
+
+## Installation
+
+{/* Coming soon */}
+
+## Usage
+
+### Interactive Carousel Example
+
+```tsx
+import InteractiveCarousel from "@/components/interactive-carousel";
+
+const carouselItems = [
+    {
+      image: "Link",
+      title: "Text",
+    }
+]
+
+export default function Example() {
+  return <InteractiveCarousel items={carouselItems} />;
+}
+
+```
+
+## Understanding the component
+
+The InteractiveCarousel component displays a set of images and titles in a carousel format with interactive hover effects.
+
+## Credits
+
+By Armaan Verma.
+
+## Props
+
+| Prop | Type | Default | Description |
+|----------|----------|----------|----------|
+| items | `ItemProps[]` | `carouselItems` | An optional array of objects, each containing an `image` (string) and a `title` (string). If not provided, the component defaults to using the `carouselItems` array. |
+
+---
+
+*This documentation is also available in [interactive format](https://uwuui.com/docs/components/components/carousel/interactive-carousel).*
