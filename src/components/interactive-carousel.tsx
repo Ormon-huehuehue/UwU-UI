@@ -14,16 +14,16 @@ interface Props {
 
 const carouselItems = [
     {
-      image: "https://res.cloudinary.com/dcisswp5z/image/upload/v1711194673/cld-sample.jpg",
-      title: "Laughing woman",
+      image: "https://pub-4de8a3d0fa684a02ba7a6c19c653485c.r2.dev/OIHZCKGdnHNaGppookHuHF0eKA4.avif",
+      title: "Pink Sky",
     },
     {
-      image: "https://res.cloudinary.com/dcisswp5z/image/upload/v1711194675/cld-sample-5.jpg",
-      title: "Random ass shoe i found online",
+      image: "https://framerusercontent.com/images/EmtrS6jwtHfiUvXubu21rYWcs0.jpeg?scale-down-to=1024",
+      title: "Astronaut",
     },
     {
-      image: "https://res.cloudinary.com/dcisswp5z/image/upload/v1711194674/cld-sample-4.jpg",
-      title: "BREAKFAST?",
+      image: "https://framerusercontent.com/images/UmEtRyasL5mVJd0uJ6bmTvc.png?scale-down-to=1024",
+      title: "Timothee Chalamet?",
     },
   ];
 
