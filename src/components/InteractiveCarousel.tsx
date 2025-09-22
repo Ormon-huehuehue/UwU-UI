@@ -3,7 +3,33 @@ import React, { useState} from "react";
 import { motion } from "framer-motion";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 
-const CustomCarousel = ({ imageUrl, title }: { imageUrl: string; title: string }) => {
+const carouselItems = [
+    {
+      image: "https://res.cloudinary.com/dcisswp5z/image/upload/v1711194673/cld-sample.jpg",
+      title: "Laughing woman",
+    },
+    {
+      image: "https://res.cloudinary.com/dcisswp5z/image/upload/v1711194675/cld-sample-5.jpg",
+      title: "Random shoe i found online",
+    },
+    {
+      image: "https://res.cloudinary.com/dcisswp5z/image/upload/v1711194674/cld-sample-4.jpg",
+      title: "BREAKFAST?",
+    },
+  ];
+
+const InteractiveCarousel = ()=>{
+
+    return (
+        <div className=  'flex overflow-hidden rounded-xl'>
+        {carouselItems.map(({image, title}, index)=>(
+          <CarouselCard key={index} imageUrl ={image} title={title} />
+        ))}
+      </div>
+    )
+}
+
+const CarouselCard = ({ imageUrl, title }: { imageUrl: string; title: string }) => {
 
   const [isHovered, setIsHovered] = useState<boolean>(false)
 
@@ -51,4 +77,4 @@ const CustomCarousel = ({ imageUrl, title }: { imageUrl: string; title: string }
   );
 };
 
-export default CustomCarousel;
+export default InteractiveCarousel;
