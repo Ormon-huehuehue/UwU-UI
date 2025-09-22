@@ -3,6 +3,11 @@ import React, { useState} from "react";
 import { motion } from "framer-motion";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 
+interface ItemProps{
+  image : string,
+  title : string
+}
+
 const carouselItems = [
     {
       image: "https://res.cloudinary.com/dcisswp5z/image/upload/v1711194673/cld-sample.jpg",
@@ -18,11 +23,11 @@ const carouselItems = [
     },
   ];
 
-const InteractiveCarousel = ()=>{
+const InteractiveCarousel = ({items = carouselItems} : {items : ItemProps[]} )=>{
 
     return (
         <div className=  'flex overflow-hidden rounded-xl'>
-        {carouselItems.map(({image, title}, index)=>(
+        {items.map(({image, title}, index)=>(
           <CarouselCard key={index} imageUrl ={image} title={title} />
         ))}
       </div>
